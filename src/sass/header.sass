@@ -1,0 +1,163 @@
+@import "vars"
+
+
+.fixed-header
+  position: fixed
+  top: 0
+  left: 0
+  width: 100%
+  padding: 26px 0
+  z-index: 2
+  background-color: var(--bg-white)
+  &.active
+    & .hidden-header
+      transform: translateX(0px)
+    & .header-navigation
+      & .burger
+        & span
+          &:nth-child(1)
+            transform: rotate(45deg)
+            top: 13px
+            left: 0px
+          &:nth-child(2)
+            opacity: 0
+            transform: scale(0.7)
+          &:nth-child(3)
+            transform: rotate(-45deg)
+            top: 13px
+            left: 0px
+
+  & .container
+    display: flex
+    align-items: center
+    justify-content: space-between
+  & .logo
+    display: block
+    width: 100%
+    max-width: 76px
+    & img
+      width: 100%
+
+  & .header-navigation
+    display: flex
+    align-items: center
+    justify-content: space-between
+    gap: 0 26px
+    & .btn-call
+      font-size: 11px
+      font-weight: 600
+      padding: 8.5px 22.5px
+      letter-spacing: -0.218px
+    & .burger
+      display: block
+      width: 34px
+      height: 29px
+      background: none
+      border: none
+      outline: none
+      cursor: pointer
+      position: relative
+      padding: 0
+      & span
+        height: 3px
+        position: absolute
+        left: 0
+        display: block
+        width: 100%
+        background-color: var(--based-black)
+        transition: all .5s
+        &:nth-child(1)
+          top: 0
+        &:nth-child(2)
+          width: 24px
+          top: 12px
+        &:nth-child(3)
+          bottom: 0
+
+  & .hidden-header
+    position: fixed
+    top: var(--header-height)
+    left: 0
+    width: 100%
+    height: calc(vh-part(100) - var(--header-height))
+    padding: 0 var(--padding-container)
+    overflow: auto
+    display: flex
+    align-items: center
+    transform: translateX(100%)
+    transition: all .5s
+    background: var(--bg-white)
+    z-index: 2
+    & .bg-elem
+      position: absolute
+      left: 0
+      bottom: 28%
+      width: 80px
+      & img
+        width: 100%
+    & .container
+      display: flex
+      align-items: center
+      position: relative
+    & nav
+      display: block
+      margin: 0 0 0 auto
+      & ul
+        & li
+          margin-bottom: 22px
+          &:last-child
+            margin-bottom: 0
+          & a
+            display: block
+            text-align: end
+            color: var(--based-black)
+            font-size: 39px
+            line-height: 105%
+            letter-spacing: -1.95px
+
+
+.home-header
+  & .container
+    display: flex
+    flex-direction: column
+    gap: 20px 0
+  & .home-header__left
+    display: flex
+    flex-direction: column
+    gap: 70px 0
+  & .home-header__right
+    max-width: 89.8%
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+    gap: 32px 0
+    & .header-description
+      width: 100%
+      max-width: 70.78%
+      line-height: 160%
+      letter-spacing: -0.32px
+      opacity: 0.6
+    & .btn-border
+      padding: 18px 59px
+  & .header-img
+    width: 100%
+    max-width: 89.8%
+    & img
+      width: 100%
+      border-radius: 10px
+  & .slogan
+    font-size: 62px
+    font-weight: 600
+    line-height: 90%
+    letter-spacing: -3.076px
+    & .slogan-word
+      display: inline-block
+    & .slogan-img
+      display: inline-block
+      width: 40px
+      &._desk
+        display: none
+      &._rhombus
+        width: 45px
+        transform: translateY(50%)
+

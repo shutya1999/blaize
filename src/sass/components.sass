@@ -1,0 +1,813 @@
+@import "vars"
+
+*
+  box-sizing: border-box
+  &::before, &::after
+    box-sizing: border-box
+
+.main
+  overflow: hidden
+  margin-top: var(--header-height)
+
+\:root
+  --padding-container: 16px
+  --header-height: 81.09375px
+  --based-black: #2B2B2D
+  --based-red: #FF5C5C
+  --bg-white: #E5E5E5
+
+
+picture
+  display: flex
+  align-items: center
+  justify-content: center
+
+ul[class], ol[class]
+  padding: 0
+
+body, h1, h2, h3, h4, h5, h6, p, li, figure, figcaption, blockquote, dl, dd
+  margin: 0
+
+h1, h2, h3, h4, h5, h6
+  font-size: inherit
+  font-weight: inherit
+
+
+
+html
+  line-height: normal
+  text-rendering: optimizeSpeed
+  font-style: normal
+  &.lock
+    & body
+      overflow: hidden
+
+
+
+body
+  font-family: 'Poppins', sans-serif
+  color: var(--based-black)
+  line-height: 180%
+  letter-spacing: -0.32px
+  scroll-behavior: smooth
+  font-size: 16px
+  font-style: normal
+  font-weight: 400
+  background-color: var(--bg-white)
+
+
+ul[class], ol[class]
+  list-style: none
+
+ul, ol
+  list-style: none
+  margin: 0
+  padding: 0
+
+a
+  text-decoration: none
+  //color: $dark-blue
+
+img
+  max-width: 100%
+  display: block
+
+
+article > * + *
+  // margin-top: 1em
+
+input, button, textarea, select
+  font: inherit
+
+.sn-border
+  --size: 40px
+  display: block
+  min-width: var(--size)
+  max-width: var(--size)
+  height: var(--size)
+  @include bg-center
+    background-size: contain
+
+  &._linkedin
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='70' height='70' viewBox='0 0 70 70' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='69' height='69' rx='12.5' stroke='%232B2B2D' stroke-opacity='0.4'/%3E%3Cpath d='M46.9273 21H23.0672C21.9242 21 21 21.9023 21 23.018V46.9766C21 48.0922 21.9242 49 23.0672 49H46.9273C48.0703 49 49 48.0922 49 46.982V23.018C49 21.9023 48.0703 21 46.9273 21ZM29.307 44.8602H25.1508V31.4945H29.307V44.8602ZM27.2289 29.6734C25.8945 29.6734 24.8172 28.5961 24.8172 27.2672C24.8172 25.9383 25.8945 24.8609 27.2289 24.8609C28.5578 24.8609 29.6352 25.9383 29.6352 27.2672C29.6352 28.5906 28.5578 29.6734 27.2289 29.6734ZM44.8602 44.8602H40.7094V38.3633C40.7094 36.8156 40.682 34.8195 38.5492 34.8195C36.3891 34.8195 36.0609 36.5094 36.0609 38.2539V44.8602H31.9156V31.4945H35.8969V33.3211H35.9516C36.5039 32.2711 37.8602 31.1609 39.8781 31.1609C44.0836 31.1609 44.8602 33.9281 44.8602 37.5266V44.8602Z' fill='%232B2B2D'/%3E%3C/svg%3E")
+  &._x
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='70' height='70' viewBox='0 0 70 70' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='69' height='69' rx='12.5' stroke='%232B2B2D' stroke-opacity='0.4'/%3E%3Cpath d='M41.3263 24.9038H44.6998L37.3297 33.3273L46 44.7898H39.2112L33.894 37.8378L27.8099 44.7898H24.4344L32.3174 35.7799L24 24.9038H30.9611L35.7674 31.2581L41.3263 24.9038ZM40.1423 42.7706H42.0116L29.9454 26.8169H27.9395L40.1423 42.7706Z' fill='%232B2B2D'/%3E%3C/svg%3E")
+  &._email
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='70' height='70' viewBox='0 0 70 70' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='69' height='69' rx='12.5' stroke='%232B2B2D' stroke-opacity='0.4'/%3E%3Cpath d='M46.572 24.2891H23.7829C23.4145 24.2891 23.0629 24.3717 22.7448 24.5369L35.1188 36.7463L37.8984 34.1194L47.6101 24.5369C47.292 24.3717 46.9403 24.2891 46.572 24.2891ZM48.7487 25.6604L39.6063 34.6811L48.7487 43.7019C48.8994 43.388 48.9999 43.041 48.9999 42.6776V26.6847C48.9999 26.3212 48.8994 25.9743 48.7487 25.6604ZM21.6061 25.6604C21.4554 25.9743 21.355 26.3212 21.355 26.6847V42.661C21.355 43.0245 21.4387 43.3715 21.6061 43.6854L30.7318 34.6811L21.6061 25.6604Z' fill='%232B2B2D'/%3E%3Cpath d='M38.4671 35.8047L35.6875 38.4316C35.5368 38.5803 35.3191 38.6629 35.1182 38.6629C34.9173 38.6629 34.6996 38.5803 34.5489 38.4316L31.8866 35.8047L22.7441 44.8255C23.0623 44.9742 23.4139 45.0733 23.7823 45.0733H46.5713C46.9397 45.0733 47.2914 44.9907 47.6095 44.8255L38.4671 35.8047Z' fill='%232B2B2D'/%3E%3C/svg%3E")
+
+
+.btn
+  border-radius: 200px
+  background: var(--based-black)
+  color: white
+  border: none
+  outline: none
+  cursor: pointer
+  font-size: 18px
+  font-weight: 700
+  line-height: 110%
+  letter-spacing: -0.36px
+  text-transform: uppercase
+  padding: 20px 40px
+
+.btn-border
+  border-radius: 200px
+  background: rgba(0,0,0,0)
+  border: none
+  outline: none
+  cursor: pointer
+  font-size: 18px
+  font-weight: 600
+  line-height: 110%
+  letter-spacing: -0.36px
+  text-transform: uppercase
+  padding: 18px 40px
+  transition: all .3s
+  &.btn-black
+    border: 2px solid var(--based-black)
+    color: var(--based-black)
+    box-shadow: 0 0 0 2px rgba(0,0,0,0)
+  @media (hover: hover)
+    &:hover
+      &.btn-black
+        box-shadow: 0 0 0 2px var(--based-black)
+      &:active, &.active
+        background-color: var(--based-black)
+        color: white
+        box-shadow: 0 0 0 2px rgba(0,0,0,0)
+
+
+
+
+
+.container
+  width: 100%
+  padding: 0 var(--padding-container)
+  max-width: calc(1512px + (var(--padding-container) * 2))
+
+.section-title
+  font-size: 50px
+  line-height: 105%
+  letter-spacing: -2.5px
+  margin-bottom: 30px
+
+.tabs-block
+  & .tabs-buttons
+    position: relative
+    display: flex
+    align-items: flex-end
+    justify-content: flex-start
+    overflow: auto
+    -ms-overflow-style: auto
+    scrollbar-width: auto
+    &::-webkit-scrollbar
+      opacity: 0
+      display: none
+      width: 0
+      height: 0
+    & .tab-btn
+      color: var(--based-black)
+      font-size: 12px
+      font-weight: 500
+      line-height: 105%
+      white-space: nowrap
+      background: none
+      border: none
+      position: relative
+
+  & .tab-content
+    margin-top: 31px
+    & .tab-item
+      display: none
+      &.active
+        display: block
+
+
+
+.industries
+  margin-top: 100px
+  & .tabs-block
+    & .tabs-buttons
+      margin: 0 calc(var(--padding-container) * -1)
+      padding: 0 var(--padding-container)
+      & .tab-btn
+        border-radius: 50px
+        border: 0.7px solid rgba(0,0,0,0)
+        font-size: 12.6px
+        font-weight: 500
+        line-height: 105%
+        letter-spacing: -0.252px
+        display: flex
+        align-items: center
+        gap: 0 7px
+        padding: 6px 12.5px
+        & svg
+          width: 17px
+          height: auto
+        &.active
+          border-color: var(--based-black)
+
+    & .tab-content
+      margin: 31px calc(var(--padding-container) * -1) 0 calc(var(--padding-container) * -1)
+      padding: 0 var(--padding-container)
+      & .tab-item
+        overflow: auto
+        -ms-overflow-style: auto
+        scrollbar-width: auto
+        &::-webkit-scrollbar
+          opacity: 0
+          display: none
+          width: 0
+          height: 0
+        & .cards
+          display: flex
+          gap: 0 20px
+          & .card
+            border-radius: 14px
+            min-width: 89.8%
+            max-width: 89.8%
+        & .cards-top
+          & .card
+            background: #D9D9D9
+            padding: 45px 45px 40px 45px
+            & .card-img
+              width: 100%
+              max-width: 45px
+              margin-bottom: 21px
+              & img
+                width: 100%
+            & .card-title
+              font-size: 24px
+              font-weight: 600
+              line-height: 110%
+              letter-spacing: -0.48px
+              margin-bottom: 16px
+            & .card-desc
+              font-size: 16px
+              line-height: 180%
+              letter-spacing: -0.32px
+              opacity: 0.6
+              max-width: 83%
+
+        & .cards-bottom
+          margin-top: 20px
+          & .card
+            height: 100px
+            &._red
+              background-color: var(--based-red)
+              order: 2
+            &._black
+              background-color: var(--based-black)
+              display: flex
+              align-items: center
+              justify-content: center
+              order: 3
+              & img
+                width: 60px
+            &._img
+              width: 100%
+              order: 1
+              & img
+                width: 100%
+                height: 100%
+                object-fit: cover
+                border-radius: 14px
+
+
+
+.portfolio
+  margin-top: 100px
+  & .portfolio-cards
+    display: flex
+    flex-direction: column
+    gap: 40px 0
+    & .case-card
+      display: flex
+      flex-direction: column
+      gap: 20px 0
+      & .case-cart__img
+        width: 100%
+        & img
+          width: 100%
+          border-radius: 14px
+      & .case-cart__info
+        & .case-cart__labels
+          display: flex
+          flex-wrap: wrap
+          gap: 10px 15px
+          margin-bottom: 26px
+          & .case-label
+            font-size: 14px
+            font-weight: 400
+            line-height: 130%
+            letter-spacing: -0.272px
+            padding: 6px 14px
+            border-radius: 100px
+            border: 0.755px solid var(--based-black)
+            white-space: nowrap
+
+        & .case-title
+          font-size: 24px
+          font-weight: 600
+          line-height: 107%
+          letter-spacing: -0.48px
+          opacity: 0.9
+          margin-bottom: 10px
+        & .case-desc
+          line-height: 180%
+          letter-spacing: -0.32px
+          opacity: 0.5
+
+        & .btn-arrow
+          display: block
+          width: 56px
+          height: 35px
+          border: none
+          outline: none
+          padding: 0
+          margin: 20px 0 0 auto
+          background: url("data:image/svg+xml;charset=utf8,%3Csvg width='56' height='35' viewBox='0 0 56 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M38.4888 -7.64949e-07C38.4888 11.6667 44.3221 17.5 55.9888 17.5C44.3221 17.5 38.4888 23.3333 38.4888 35' stroke='%232B2B2D' stroke-width='2.70913'/%3E%3Cpath d='M54.3846 17.5H0' stroke='%232B2B2D' stroke-width='2.70913'/%3E%3C/svg%3E")
+          @include bg-center
+            background-size: contain
+
+
+
+.block-quote
+  margin-top: 100px
+  & .container
+    display: flex
+    flex-direction: column-reverse
+  & .author-info
+    position: relative
+    margin-top: 20px
+    padding-right: 60px
+    & .author-name
+      font-size: 20px
+      font-weight: 700
+      line-height: 160%
+      letter-spacing: -0.4px
+    & .author-position
+      font-size: 15px
+      font-weight: 400
+      line-height: 160%
+      letter-spacing: -0.3px
+    & .img
+      position: absolute
+      top: 50%
+      width: 52px
+      right: 0
+      transform: translateY(-50%)
+      & img
+        width: 100%
+  & .block-quote__image
+    width: 100%
+    position: relative
+    padding-top: 34px
+    &:before
+      content: ''
+      width: 236px
+      height: 236px
+      display: block
+      position: absolute
+      left: 0
+      top: 0
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='236' height='236' viewBox='0 0 236 236' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.9' fill-rule='evenodd' clip-rule='evenodd' d='M109.571 0H126.429V97.6516L195.479 28.6014L207.398 40.5213L138.348 109.571H236V126.429H138.348L207.398 195.479L195.479 207.398L126.429 138.348V236H109.571V138.348L40.5212 207.398L28.602 195.479L97.6521 126.429H-4.57764e-05V109.571H97.6521L28.602 40.5212L40.5212 28.6014L109.571 97.6515V0Z' fill='%23FF5C5C'/%3E%3C/svg%3E")
+      @include bg-center
+        background-size: contain
+    & .img
+      display: block
+      width: 100%
+      max-width: 80.76%
+      margin: 0 0 -70px auto
+      position: relative
+      z-index: 0
+      & img
+        width: 100%
+      &:before
+        content: ''
+        display: block
+        width: 100%
+        height: 132px
+        position: absolute
+        left: 0
+        bottom: 0
+        background: linear-gradient(0deg, #E5E5E5 21.25%, rgba(229, 229, 229, 0.00) 90.69%)
+    & .author-info
+      display: none
+  & .block-quote__text
+    font-size: 34px
+    font-weight: 600
+    line-height: 120%
+    letter-spacing: -1.7px
+    max-width: 333px
+    position: relative
+    z-index: 1
+    &:before
+      content: ''
+      position: absolute
+      width: 30px
+      height: 27px
+      left: 0
+      bottom: calc(100% + 33px)
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='30' height='27' viewBox='0 0 30 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.0046 27H0.00768047V14.1308C-0.048643 12.2804 0.204813 10.5421 0.768049 8.91589C1.38761 7.28972 2.23246 5.85981 3.30261 4.62617C4.37276 3.39252 5.64004 2.38318 7.10446 1.59813C8.62519 0.757009 10.2586 0.2243 12.0046 0V5.55141C9.86431 6.28038 8.3999 7.37383 7.61137 8.83178C6.82284 10.2336 6.42857 11.972 6.42857 14.0467H12.0046V27ZM30 27H18.0031V14.1308C17.9467 12.2804 18.2002 10.5421 18.7634 8.91589C19.383 7.28972 20.2279 5.85981 21.298 4.62617C22.3682 3.39252 23.6354 2.38318 25.0998 1.59813C26.6206 0.757009 28.254 0.2243 30 0V5.55141C27.8597 6.28038 26.3953 7.37383 25.6068 8.83178C24.8182 10.2336 24.424 11.972 24.424 14.0467H30V27Z' fill='%232B2B2D'/%3E%3C/svg%3E")
+      @include bg-center
+        background-size: contain
+    & .word-img
+      display: none
+    & .word
+      display: inline-block
+      & ._red
+        color: var(--based-red)
+
+
+.statistics
+  margin-top: 100px
+  & .section-title__wrapper
+    & .section-title
+      max-width: 350px
+      margin: 0
+    & .section-subtitle
+      font-size: 24px
+      font-weight: 500
+      line-height: 120%
+      letter-spacing: -1.2px
+      max-width: 350px
+      & p
+        max-width: 166px
+        margin: 0 0 0 auto
+        transform: translateY(-30px)
+
+  & .cards
+    margin: 0 calc(var(--padding-container) * -1)
+    position: relative
+    padding-top: 110px
+    &:before
+      content: ''
+      position: absolute
+      top: -54px
+      left: 50px
+      display: block
+      width: 79px
+      height: 79px
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='79' height='79' viewBox='0 0 79 79' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='79' height='79' rx='14' fill='%232B2B2D'/%3E%3Cpath d='M38.8715 73.1262C40.0196 54.829 54.5078 40.2465 72.6871 39.091C54.5078 37.9355 40.0196 23.3532 38.8715 5.05585C37.7235 23.3532 23.235 37.9355 5.05591 39.091C23.235 40.2465 37.7235 54.829 38.8715 73.1262Z' fill='%23E5E5E5'/%3E%3C/svg%3E")
+      @include bg-center
+        background-size: contain
+    & .card-stat
+      border-radius: 26px 0 0 0
+      padding: 42px 42px 50px 50px
+      color: white
+      min-height: 311px
+      margin-top: -34px
+      position: relative
+      &:before
+        content: ''
+        position: absolute
+        top: -1px
+        right: 17.334%
+        display: block
+        width: 118px
+        height: 59px
+        @include bg-center
+          background-size: contain
+      &:first-child
+        margin-top: 0px
+      &._black
+        background-color: var(--based-black)
+        &:before
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='118' height='59' viewBox='0 0 118 59' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M118 0C53.3541 -7.70895e-07 78.4785 -4.28599e-06 7.03568e-07 -1.40714e-06C31.9721 -8.65527e-06 56.9969 27.2818 59 59C61.0029 27.2818 85.0391 -4.20775e-06 118 0Z' fill='%23E5E5E5'/%3E%3C/svg%3E")
+      &._red
+        background-color: var(--based-red)
+        &:before
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='118' height='59' viewBox='0 0 118 59' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M118 0C53.3541 -7.70895e-07 78.4785 -4.28599e-06 7.03568e-07 -1.40714e-06C31.9721 -8.65527e-06 56.9969 27.2818 59 59C61.0029 27.2818 85.0391 -4.20775e-06 118 0Z' fill='%232B2B2D'/%3E%3C/svg%3E")
+      &._white
+        background-color: var(--bg-white)
+        color: var(--based-black)
+        &:before
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='118' height='59' viewBox='0 0 118 59' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M118 0C53.3541 -7.70895e-07 78.4785 -4.28599e-06 7.03568e-07 -1.40714e-06C31.9721 -8.65527e-06 56.9969 27.2818 59 59C61.0029 27.2818 85.0391 -4.20775e-06 118 0Z' fill='%23FF5C5C'/%3E%3C/svg%3E")
+      & .card-stat__count
+        font-size: 36px
+        font-weight: 700
+        line-height: 100%
+        letter-spacing: -1.8px
+        margin-bottom: 11px
+      & .card-stat__title
+        font-size: 24px
+        font-weight: 600
+        line-height: 100%
+        letter-spacing: -1.2px
+      & .card-stat__desc
+        margin-top: 40px
+        font-size: 16px
+        line-height: 150%
+        letter-spacing: -0.32px
+
+
+
+.ceo-block
+  margin-top: 60px
+  & .swiper-ceo
+    overflow: visible
+  & .cards
+    height: auto
+    & .card
+      display: flex
+      flex-direction: column
+      padding: 30px
+      border-radius: 14px
+      background: #D9D9D9
+      height: 100%
+      &.card-img
+        display: none
+        align-items: center
+        justify-content: center
+        order: 2
+        & img
+          display: block
+          width: 100%
+          max-width: 85px
+      &.card-main
+        order: 1
+        & .img
+          width: 100%
+          max-width: 138px
+          margin-bottom: 19px
+          & img
+            width: 100%
+            max-width: 100%
+        & .desc
+          opacity: 0.6
+          line-height: 150%
+          flex: 99
+        & .author-info
+          opacity: 0.6
+          font-size: 14px
+          font-weight: 300
+          line-height: 150%
+          text-align: end
+          max-width: 220px
+          margin: 12px 0 0 auto
+          & strong
+            display: block
+            font-weight: 600
+
+
+
+.expertise
+  margin-top: 100px
+  padding-bottom: 100px
+  & .section-title
+    margin-bottom: 30px
+  & .cards
+    display: flex
+    flex-wrap: nowrap
+    gap: 0 20px
+    overflow: auto
+    -ms-overflow-style: auto
+    scrollbar-width: auto
+    padding: 0 var(--padding-container)
+    margin: 0 calc( var(--padding-container) * -1)
+    &::-webkit-scrollbar
+      opacity: 0
+      display: none
+      width: 0
+      height: 0
+    & .expertise-card
+      min-width: 240px
+      max-width: 240px
+      & .img
+        width: 80px
+        height: auto
+        margin-bottom: 30px
+      & .title
+        font-size: 30px
+        font-weight: 600
+        line-height: 110%
+        letter-spacing: -0.6px
+        padding: 10px 0
+        margin-bottom: 20px
+        min-height: 86px
+      & .desc
+        font-size: 16px
+        font-weight: 500
+        line-height: 160%
+        letter-spacing: -0.32px
+        opacity: 0.4
+        padding: 10px 0
+
+  & .expertise-bottom
+    width: 100%
+    max-width: 74.4%
+    margin-top: 50px
+    position: relative
+    & img
+      border-radius: 14px
+    & ._bg
+      position: absolute
+      bottom: -41%
+      right: -42%
+      max-width: 87.78%
+      //mask-image: linear-gradient(#000 50%, transparent 0)
+
+
+.home-case
+  margin-top: 140px
+  padding-bottom: 40px
+  background-repeat: no-repeat
+  background-image: url("../img/home/home-case-bg__mob.svg")
+  background-position: right bottom
+  background-size: 82% auto
+  & .section-title
+    font-size: 46px
+    font-weight: 600
+    line-height: 120%
+    letter-spacing: -2.3px
+    max-width: 88%
+    margin-bottom: 132px
+  & .btn
+    display: block
+    margin: 0 auto
+    padding: 20px 10px
+    width: 100%
+    max-width: 255px
+  & .logo
+    display: none
+
+
+.team
+  margin-top: 100px
+  & .team-swiper
+    overflow: visible
+    // & .swiper-slide
+
+  & .team-card
+    &:nth-child(3n+1)
+      & .team-img
+        & svg
+          & path
+            fill: var(--based-black)
+
+    &:nth-child(3n+2)
+      & .team-img
+        & svg
+          & path
+            fill: var(--based-red)
+
+    &:nth-child(3n+3)
+      & .team-img
+        & svg
+          & path
+            fill: white
+
+    &:nth-child(even)
+      & .team-img
+        & svg
+          bottom: auto
+          top: 40px
+          transform: rotate(180deg)
+
+    & .team-img
+      width: 100%
+      position: relative
+      margin-bottom: 23px
+      & img
+        width: 100%
+        position: relative
+        z-index: 1
+      & svg
+        width: 127%
+        height: auto
+        position: absolute
+        bottom: 1px
+        right: -13px
+
+    & .team-info
+      & .team-name
+        font-size: 18px
+        font-weight: 600
+        line-height: 107%
+        letter-spacing: -0.36px
+        margin-bottom: 10px
+      & .team-pos
+        font-size: 14px
+        font-weight: 500
+        line-height: 150%
+        letter-spacing: -0.28px
+        opacity: 0.6
+        margin-bottom: 15px
+
+      & .team-sn
+        display: flex
+        gap: 0 20px
+
+
+.process
+  margin-top: 100px
+  & .section-title__wrapper
+    width: fit-content
+    margin-bottom: 30px
+    & .section-title
+      width: fit-content
+      //max-width: 350px
+      margin: 0 0 10px 0
+    & .section-subtitle
+      font-size: 14px
+      font-weight: 400
+      line-height: 160%
+      letter-spacing: -0.32px
+      width: fit-content
+      margin: 0 0 0 auto
+      opacity: 0.6
+
+  & .tabs-block
+    & .tabs-buttons
+      gap: 0 12px
+      margin: 0 calc(var(--padding-container) * -1)
+      padding: 0 var(--padding-container)
+      & .tab-btn
+        font-size: 16px
+        font-weight: 600
+        line-height: 105%
+        letter-spacing: -0.32px
+        text-transform: capitalize
+        padding: 5px 0 28px 0
+        min-width: 120px
+        &:after
+          content: ''
+          position: absolute
+          display: block
+          bottom: 0
+          left: 0
+          width: 100%
+          height: 16px
+          background-color: var(--based-black)
+          transition: all .3s
+        &:first-child
+          &:after
+            border-radius: 20px 0 0 20px
+        &:last-child
+          &:after
+            border-radius: 0 20px 20px 0
+        &.active
+          &:after
+            background-color: var(--based-red)
+
+        &._bigger
+          min-width: 300px
+
+
+  & .process-card
+    display: flex
+    flex-direction: column-reverse
+    gap: 30px 0
+    & .process-img
+      display: none
+    & .process-main
+      & .process-main__title
+        font-size: 30px
+        font-weight: 700
+        line-height: 105%
+        letter-spacing: -0.6px
+        margin-bottom: 20px
+      & .process-main__desc
+        font-size: 16px
+        font-weight: 400
+        line-height: 180%
+        letter-spacing: -0.32px
+        opacity: 0.6
+        & p
+          margin: 16px 0
+          &:first-child
+            margin-top: 0
+          &:last-child
+            margin-bottom: 0
+    & .process-sidebar
+      & .process-sidebar__title
+        display: none
+      & .process-sidebar__list
+        & li
+          margin-bottom: 30px
+          &:last-child
+            margin-bottom: 0
+          & .list-title
+            display: flex
+            align-items: center
+            gap: 0 10px
+            font-size: 18px
+            font-weight: 700
+            line-height: 150%
+            letter-spacing: -0.36px
+            & img
+              min-width: 24px
+              max-width: 24px
+            & p
+              opacity: 0.9
+          & .list-desc
+            font-size: 18px
+            font-weight: 600
+            line-height: 150%
+            letter-spacing: -0.36px
+            opacity: 0.4
+
+
+
+

@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="./cdn/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/components.css">
+</head>
+<body>
+
+<div class="main" id="main">
+
+    @@include('_header.html')
+
+    <section class="home-header">
+        <div class="container">
+            <div class="home-header__left">
+                <div class="slogan">
+                    <div class="slogan-img _star _mob">
+                        <img src="./img/components/star.svg" alt="">
+                    </div>
+                    <div class="slogan-word">We</div>
+                    <div class="slogan-img _star _desk">
+                        <img src="./img/components/star.svg" alt="">
+                    </div>
+                    <div class="slogan-word">simplify</div>
+                    <div class="slogan-word">processes</div>
+                    <div class="slogan-word">with</div>
+                    <div class="slogan-img _rhombus">
+                        <img src="./img/components/curved-rhombus.svg" alt="">
+                    </div>
+                    <div class="slogan-word">AI</div>
+                </div>
+
+                <div class="header-img">
+                    <picture>
+                        <source srcset="./img/home/header-img_desktop.webp" type="image/webp" media="(min-width: 768px)">
+                        <source srcset="./img/home/header-img_desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
+
+                        <source srcset="./img/home/header-img_mob.webp" type="image/webp">
+                        <source srcset="./img/home/header-img_mob.jpg" type="image/jpeg">
+                        <img src="./img/home/header-img_mob.jpg" alt="">
+                    </picture>
+                </div>
+            </div>
+            <div class="home-header__right">
+                <div class="header-description">
+                    <p>
+                        Beautiful products, seamlessly integrated with your AI model of choice, created by experts in your industry.
+                    </p>
+                </div>
+                <button type="button" class="btn-border btn-black">Talk to us</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="industries">
+        <div class="container">
+            <h2 class="section-title">Industries</h2>
+
+            <div class="tabs-block _js-tab">
+                <div class="tabs-buttons">
+                    <button class="tab-btn _js-tab-btn active" data-id="1">
+                        <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_715_666)">
+                                <path d="M15.3 12.5999H4.80001C4.61436 12.5999 4.43631 12.6737 4.30504 12.8049C4.17376 12.9362 4.10001 13.1143 4.10001 13.2999C4.10001 13.4856 4.17376 13.6636 4.30504 13.7949C4.43631 13.9262 4.61436 13.9999 4.80001 13.9999H15.3V15.3999H4.80001C4.24306 15.3999 3.70891 15.1787 3.31509 14.7848C2.92126 14.391 2.70001 13.8569 2.70001 13.2999V2.7999C2.70001 2.4286 2.84751 2.0725 3.11006 1.80995C3.37261 1.5474 3.72871 1.3999 4.10001 1.3999H15.3V12.5999ZM4.10001 11.2349C4.21341 11.2118 4.33031 11.1999 4.45001 11.1999H13.9V2.7999H4.10001V11.2349ZM11.8 6.2999H6.20001V4.8999H11.8V6.2999Z"
+                                      fill="#FF5C5C"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_715_666">
+                                    <rect width="16.8" height="16.8" fill="white" transform="translate(0.599976)"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                        Education
+                    </button>
+                    <button class="tab-btn _js-tab-btn" data-id="2">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_604_2999)">
+                                <path d="M13 9H21L11 24V15H4L13 0V9ZM11 11V7.22L7.532 13H13V17.394L17.263 11H11Z" fill="#FF5C5C"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_604_2999">
+                                    <rect width="24" height="24" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        infotainment
+                    </button>
+                    <button class="tab-btn _js-tab-btn" data-id="3">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_604_3007)">
+                                <path d="M2 11.9998C2 11.1348 2.11 10.2968 2.316 9.49582C2.86847 9.52486 3.4182 9.40057 3.90444 9.13668C4.39068 8.8728 4.79448 8.47961 5.07121 8.00056C5.34793 7.52152 5.48681 6.97528 5.47247 6.42224C5.45814 5.8692 5.29117 5.33089 4.99 4.86682C6.19894 3.67739 7.69079 2.81531 9.325 2.36182C9.57599 2.85529 9.95864 3.26968 10.4306 3.55913C10.9025 3.84857 11.4454 4.00177 11.999 4.00177C12.5526 4.00177 13.0955 3.84857 13.5674 3.55913C14.0394 3.26968 14.422 2.85529 14.673 2.36182C16.3072 2.81531 17.7991 3.67739 19.008 4.86682C18.7065 5.33097 18.5393 5.86949 18.5248 6.42278C18.5104 6.97608 18.6493 7.52258 18.9262 8.00183C19.2031 8.48108 19.6071 8.87438 20.0937 9.13823C20.5802 9.40208 21.1303 9.52619 21.683 9.49682C21.889 10.2968 21.999 11.1348 21.999 11.9998C21.999 12.8648 21.889 13.7028 21.683 14.5038C21.1305 14.4746 20.5806 14.5987 20.0942 14.8625C19.6078 15.1263 19.2039 15.5195 18.927 15.9986C18.6502 16.4777 18.5112 17.024 18.5255 17.5771C18.5398 18.1303 18.7068 18.6687 19.008 19.1328C17.7991 20.3222 16.3072 21.1843 14.673 21.6378C14.422 21.1443 14.0394 20.7299 13.5674 20.4405C13.0955 20.1511 12.5526 19.9979 11.999 19.9979C11.4454 19.9979 10.9025 20.1511 10.4306 20.4405C9.95864 20.7299 9.57599 21.1443 9.325 21.6378C7.69079 21.1843 6.19894 20.3222 4.99 19.1328C5.29151 18.6687 5.45873 18.1301 5.47317 17.5769C5.48761 17.0236 5.3487 16.4771 5.07181 15.9978C4.79492 15.5186 4.39085 15.1252 3.90431 14.8614C3.41776 14.5976 2.8677 14.4734 2.315 14.5028C2.11 13.7038 2 12.8658 2 11.9998ZM6.804 14.9998C7.434 16.0908 7.614 17.3458 7.368 18.5238C7.776 18.8138 8.21 19.0648 8.665 19.2738C9.58167 18.4527 10.7693 17.999 12 17.9998C13.26 17.9998 14.438 18.4708 15.335 19.2738C15.79 19.0648 16.224 18.8138 16.632 18.5238C16.3794 17.3198 16.5803 16.0649 17.196 14.9998C17.8106 13.9342 18.797 13.133 19.966 12.7498C20.0122 12.2509 20.0122 11.7487 19.966 11.2498C18.7966 10.8669 17.8099 10.0656 17.195 8.99982C16.5793 7.93475 16.3784 6.67985 16.631 5.47582C16.2231 5.18574 15.7889 4.93464 15.334 4.72582C14.4176 5.54675 13.2303 6.00043 12 5.99982C10.7693 6.00067 9.58167 5.54698 8.665 4.72582C8.21013 4.93464 7.77589 5.18574 7.368 5.47582C7.62056 6.67985 7.41972 7.93475 6.804 8.99982C6.18937 10.0654 5.20298 10.8667 4.034 11.2498C3.98775 11.7487 3.98775 12.2509 4.034 12.7498C5.20335 13.1328 6.19013 13.934 6.805 14.9998H6.804ZM12 14.9998C11.2044 14.9998 10.4413 14.6837 9.87868 14.1211C9.31607 13.5585 9 12.7955 9 11.9998C9 11.2042 9.31607 10.4411 9.87868 9.8785C10.4413 9.31589 11.2044 8.99982 12 8.99982C12.7956 8.99982 13.5587 9.31589 14.1213 9.8785C14.6839 10.4411 15 11.2042 15 11.9998C15 12.7955 14.6839 13.5585 14.1213 14.1211C13.5587 14.6837 12.7956 14.9998 12 14.9998ZM12 12.9998C12.2652 12.9998 12.5196 12.8945 12.7071 12.7069C12.8946 12.5194 13 12.265 13 11.9998C13 11.7346 12.8946 11.4802 12.7071 11.2927C12.5196 11.1052 12.2652 10.9998 12 10.9998C11.7348 10.9998 11.4804 11.1052 11.2929 11.2927C11.1054 11.4802 11 11.7346 11 11.9998C11 12.265 11.1054 12.5194 11.2929 12.7069C11.4804 12.8945 11.7348 12.9998 12 12.9998Z"
+                                      fill="#FF5C5C"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_604_3007">
+                                    <rect width="24" height="24" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        Manufacturing
+                    </button>
+                    <button class="tab-btn _js-tab-btn" data-id="4">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_604_3015)">
+                                <path d="M16.05 12.0498L21 16.9998L16.05 21.9498L14.636 20.5358L17.172 17.9988L4 17.9998V15.9998H17.172L14.636 13.4638L16.05 12.0498ZM7.95 2.0498L9.364 3.4638L6.828 5.9998H20V7.9998H6.828L9.364 10.5358L7.95 11.9498L3 6.9998L7.95 2.0498Z"
+                                      fill="#FF5C5C"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_604_3015">
+                                    <rect width="24" height="24" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        automation
+                    </button>
+                    <button class="tab-btn _js-tab-btn" data-id="5">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_604_3023)">
+                                <path d="M3.783 2.826L12 1L20.217 2.826C20.4391 2.87536 20.6377 2.99897 20.78 3.1764C20.9224 3.35384 21 3.57452 21 3.802V13.789C20.9999 14.7767 20.756 15.7492 20.2899 16.62C19.8238 17.4908 19.1499 18.2331 18.328 18.781L12 23L5.672 18.781C4.85027 18.2332 4.17646 17.4911 3.71035 16.6205C3.24424 15.7498 3.00024 14.7776 3 13.79V3.802C3.00004 3.57452 3.07764 3.35384 3.21999 3.1764C3.36234 2.99897 3.56094 2.87536 3.783 2.826ZM5 4.604V13.789C5.00001 14.4475 5.16257 15.0957 5.47326 15.6763C5.78395 16.2568 6.23315 16.7517 6.781 17.117L12 20.597L17.219 17.117C17.7667 16.7518 18.2158 16.2571 18.5265 15.6767C18.8372 15.0964 18.9998 14.4483 19 13.79V4.604L12 3.05L5 4.604ZM11 10V7H13V10H16V12H13V15H11V12H8V10H11Z"
+                                      fill="#FF5C5C"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_604_3023">
+                                    <rect width="24" height="24" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        healtcare
+                    </button>
+                    <button class="tab-btn _js-tab-btn" data-id="6">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_756_486)">
+                                <path d="M4 16V4H2V2H5C5.26522 2 5.51957 2.10536 5.70711 2.29289C5.89464 2.48043 6 2.73478 6 3V15H18.438L20.438 7H8V5H21.72C21.872 5 22.022 5.03466 22.1586 5.10134C22.2952 5.16801 22.4148 5.26495 22.5083 5.38479C22.6019 5.50462 22.6668 5.6442 22.6983 5.79291C22.7298 5.94162 22.7269 6.09555 22.69 6.243L20.19 16.243C20.1358 16.4592 20.011 16.6512 19.8352 16.7883C19.6595 16.9255 19.4429 17 19.22 17H5C4.73478 17 4.48043 16.8946 4.29289 16.7071C4.10536 16.5196 4 16.2652 4 16ZM6 23C5.46957 23 4.96086 22.7893 4.58579 22.4142C4.21071 22.0391 4 21.5304 4 21C4 20.4696 4.21071 19.9609 4.58579 19.5858C4.96086 19.2107 5.46957 19 6 19C6.53043 19 7.03914 19.2107 7.41421 19.5858C7.78929 19.9609 8 20.4696 8 21C8 21.5304 7.78929 22.0391 7.41421 22.4142C7.03914 22.7893 6.53043 23 6 23ZM18 23C17.4696 23 16.9609 22.7893 16.5858 22.4142C16.2107 22.0391 16 21.5304 16 21C16 20.4696 16.2107 19.9609 16.5858 19.5858C16.9609 19.2107 17.4696 19 18 19C18.5304 19 19.0391 19.2107 19.4142 19.5858C19.7893 19.9609 20 20.4696 20 21C20 21.5304 19.7893 22.0391 19.4142 22.4142C19.0391 22.7893 18.5304 23 18 23Z"
+                                      fill="#FF5C5C"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_756_486">
+                                    <rect width="24" height="24" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        Retail
+                    </button>
+                    <button class="tab-btn _js-tab-btn" data-id="7">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_757_490)">
+                                <path d="M5 12.9999C5 7.91187 7.903 3.56387 12 1.81787C16.097 3.56387 19 7.91187 19 12.9999C19 13.8229 18.924 14.6259 18.78 15.4029L20.72 17.2349C20.8002 17.3108 20.853 17.4111 20.8702 17.5202C20.8874 17.6293 20.868 17.741 20.815 17.8379L18.32 22.4129C18.2828 22.4812 18.2302 22.5399 18.1663 22.5843C18.1024 22.6286 18.0291 22.6575 17.9521 22.6686C17.8751 22.6797 17.7966 22.6726 17.7228 22.648C17.649 22.6234 17.5819 22.5819 17.527 22.5269L15.293 20.2929C15.1055 20.1053 14.8512 19.9999 14.586 19.9999H9.414C9.1488 19.9999 8.89449 20.1053 8.707 20.2929L6.473 22.5269C6.41805 22.5819 6.35102 22.6234 6.27723 22.648C6.20344 22.6726 6.12492 22.6797 6.04793 22.6686C5.97094 22.6575 5.89759 22.6286 5.83371 22.5843C5.76984 22.5399 5.71721 22.4812 5.68 22.4129L3.185 17.8379C3.13202 17.741 3.11261 17.6293 3.1298 17.5202C3.14698 17.4111 3.1998 17.3108 3.28 17.2349L5.22 15.4029C5.077 14.6259 5 13.8229 5 12.9999ZM6.476 19.6959L7.293 18.8789C7.85547 18.3162 8.61841 18 9.414 17.9999H14.586C15.3816 18 16.1445 18.3162 16.707 18.8789L17.524 19.6959L18.506 17.8959L17.406 16.8559C17.1629 16.6263 16.9812 16.3394 16.8776 16.0214C16.774 15.7035 16.7518 15.3646 16.813 15.0359C16.937 14.3719 17 13.6909 17 12.9999C17 9.12987 15.005 5.69987 12 4.03987C8.995 5.69987 7 9.12987 7 12.9999C7 13.6909 7.063 14.3719 7.187 15.0369C7.24819 15.3656 7.22597 15.7045 7.12237 16.0224C7.01878 16.3404 6.83711 16.6273 6.594 16.8569L5.494 17.8959L6.476 19.6959ZM12 12.9999C11.4696 12.9999 10.9609 12.7892 10.5858 12.4141C10.2107 12.039 10 11.5303 10 10.9999C10 10.4694 10.2107 9.96073 10.5858 9.58566C10.9609 9.21059 11.4696 8.99987 12 8.99987C12.5304 8.99987 13.0391 9.21059 13.4142 9.58566C13.7893 9.96073 14 10.4694 14 10.9999C14 11.5303 13.7893 12.039 13.4142 12.4141C13.0391 12.7892 12.5304 12.9999 12 12.9999Z"
+                                      fill="#FF5C5C"/>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_757_490">
+                                    <rect width="24" height="24" fill="white"/>
+                                </clipPath>
+                            </defs>
+                        </svg>
+
+                        Startups
+                    </button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-item _js-tab-item active" data-id="1">
+                        <div class="cards cards-top">
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-1.svg" alt="">
+                                </div>
+                                <p class="card-title">Software Development</p>
+                                <div class="card-desc">
+                                    <p>
+                                        We create, deliver and maintain military-grade blockchain solutions for various industries from PoC to enterprise scale.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-2.svg" alt="">
+                                </div>
+                                <p class="card-title">Security Audit</p>
+                                <div class="card-desc">
+                                    <p>
+                                        World-class cybersecurity services, including smart contract audits, penetration tests, and automated tools.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-3.svg" alt="">
+                                </div>
+                                <p class="card-title">Product Design</p>
+                                <div class="card-desc">
+                                    <p>
+                                        Our team turns any idea into bulletproof solutions capable of fitting millions in compliance with business requirements.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cards cards-bottom">
+                            <div class="card _red">
+                            </div>
+                            <div class="card _img">
+                                <picture class="img">
+                                    <source srcset="./img/home/industries-card-img-bottom_desktop.webp" type="image/webp" media="(min-width: 768px)">
+                                    <source srcset="./img/home/industries-card-img-bottom_desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
+
+                                    <source srcset="./img/home/industries-card-img-bottom_mob.webp" type="image/webp">
+                                    <source srcset="./img/home/industries-card-img-bottom_mob.jpg" type="image/jpeg">
+                                    <img src="./img/home/industries-card-img-bottom_mob.jpg" alt="" loading="lazy">
+                                </picture>
+                            </div>
+                            <div class="card _black">
+                                <div class="icon">
+                                    <img src="./img/components/curved-rhombus.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-item _js-tab-item" data-id="2">
+                        <div class="cards cards-top">
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-1.svg" alt="">
+                                </div>
+                                <p class="card-title">Software Development</p>
+                                <div class="card-desc">
+                                    <p>
+                                        We create, deliver and maintain military-grade blockchain solutions for various industries from PoC to enterprise scale.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-2.svg" alt="">
+                                </div>
+                                <p class="card-title">Security Audit</p>
+                                <div class="card-desc">
+                                    <p>
+                                        World-class cybersecurity services, including smart contract audits, penetration tests, and automated tools.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-3.svg" alt="">
+                                </div>
+                                <p class="card-title">Product Design</p>
+                                <div class="card-desc">
+                                    <p>
+                                        Our team turns any idea into bulletproof solutions capable of fitting millions in compliance with business requirements.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cards cards-bottom">
+                            <div class="card _red">
+                            </div>
+                            <div class="card">
+                                <picture class="img">
+                                    <source srcset="./img/home/industries-card-img-bottom_desktop.webp" type="image/webp" media="(min-width: 768px)">
+                                    <source srcset="./img/home/industries-card-img-bottom_desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
+
+                                    <source srcset="./img/home/industries-card-img-bottom_mob.webp" type="image/webp">
+                                    <source srcset="./img/home/industries-card-img-bottom_mob.jpg" type="image/jpeg">
+                                    <img src="./img/home/industries-card-img-bottom_mob.jpg" alt="" loading="lazy">
+                                </picture>
+                            </div>
+                            <div class="card _black">
+                                <div class="icon">
+                                    <img src="./img/components/curved-rhombus.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-item _js-tab-item" data-id="3">
+                        <div class="cards cards-top">
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-1.svg" alt="">
+                                </div>
+                                <p class="card-title">Software Development</p>
+                                <div class="card-desc">
+                                    <p>
+                                        We create, deliver and maintain military-grade blockchain solutions for various industries from PoC to enterprise scale.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-2.svg" alt="">
+                                </div>
+                                <p class="card-title">Security Audit</p>
+                                <div class="card-desc">
+                                    <p>
+                                        World-class cybersecurity services, including smart contract audits, penetration tests, and automated tools.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-3.svg" alt="">
+                                </div>
+                                <p class="card-title">Product Design</p>
+                                <div class="card-desc">
+                                    <p>
+                                        Our team turns any idea into bulletproof solutions capable of fitting millions in compliance with business requirements.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cards cards-bottom">
+                            <div class="card _red">
+                            </div>
+                            <div class="card">
+                                <picture class="img">
+                                    <source srcset="./img/home/industries-card-img-bottom_desktop.webp" type="image/webp" media="(min-width: 768px)">
+                                    <source srcset="./img/home/industries-card-img-bottom_desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
+
+                                    <source srcset="./img/home/industries-card-img-bottom_mob.webp" type="image/webp">
+                                    <source srcset="./img/home/industries-card-img-bottom_mob.jpg" type="image/jpeg">
+                                    <img src="./img/home/industries-card-img-bottom_mob.jpg" alt="" loading="lazy">
+                                </picture>
+                            </div>
+                            <div class="card _black">
+                                <div class="icon">
+                                    <img src="./img/components/curved-rhombus.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-item _js-tab-item" data-id="4">
+                        <div class="cards cards-top">
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-1.svg" alt="">
+                                </div>
+                                <p class="card-title">Software Development</p>
+                                <div class="card-desc">
+                                    <p>
+                                        We create, deliver and maintain military-grade blockchain solutions for various industries from PoC to enterprise scale.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-2.svg" alt="">
+                                </div>
+                                <p class="card-title">Security Audit</p>
+                                <div class="card-desc">
+                                    <p>
+                                        World-class cybersecurity services, including smart contract audits, penetration tests, and automated tools.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-3.svg" alt="">
+                                </div>
+                                <p class="card-title">Product Design</p>
+                                <div class="card-desc">
+                                    <p>
+                                        Our team turns any idea into bulletproof solutions capable of fitting millions in compliance with business requirements.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cards cards-bottom">
+                            <div class="card _red">
+                            </div>
+                            <div class="card">
+                                <picture class="img">
+                                    <source srcset="./img/home/industries-card-img-bottom_desktop.webp" type="image/webp" media="(min-width: 768px)">
+                                    <source srcset="./img/home/industries-card-img-bottom_desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
+
+                                    <source srcset="./img/home/industries-card-img-bottom_mob.webp" type="image/webp">
+                                    <source srcset="./img/home/industries-card-img-bottom_mob.jpg" type="image/jpeg">
+                                    <img src="./img/home/industries-card-img-bottom_mob.jpg" alt="" loading="lazy">
+                                </picture>
+                            </div>
+                            <div class="card _black">
+                                <div class="icon">
+                                    <img src="./img/components/curved-rhombus.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-item _js-tab-item" data-id="5">
+                        <div class="cards cards-top">
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-1.svg" alt="">
+                                </div>
+                                <p class="card-title">Software Development</p>
+                                <div class="card-desc">
+                                    <p>
+                                        We create, deliver and maintain military-grade blockchain solutions for various industries from PoC to enterprise scale.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-2.svg" alt="">
+                                </div>
+                                <p class="card-title">Security Audit</p>
+                                <div class="card-desc">
+                                    <p>
+                                        World-class cybersecurity services, including smart contract audits, penetration tests, and automated tools.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-3.svg" alt="">
+                                </div>
+                                <p class="card-title">Product Design</p>
+                                <div class="card-desc">
+                                    <p>
+                                        Our team turns any idea into bulletproof solutions capable of fitting millions in compliance with business requirements.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cards cards-bottom">
+                            <div class="card _red">
+                            </div>
+                            <div class="card">
+                                <picture class="img">
+                                    <source srcset="./img/home/industries-card-img-bottom_desktop.webp" type="image/webp" media="(min-width: 768px)">
+                                    <source srcset="./img/home/industries-card-img-bottom_desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
+
+                                    <source srcset="./img/home/industries-card-img-bottom_mob.webp" type="image/webp">
+                                    <source srcset="./img/home/industries-card-img-bottom_mob.jpg" type="image/jpeg">
+                                    <img src="./img/home/industries-card-img-bottom_mob.jpg" alt="" loading="lazy">
+                                </picture>
+                            </div>
+                            <div class="card _black">
+                                <div class="icon">
+                                    <img src="./img/components/curved-rhombus.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-item _js-tab-item" data-id="6">
+                        <div class="cards cards-top">
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-1.svg" alt="">
+                                </div>
+                                <p class="card-title">Software Development</p>
+                                <div class="card-desc">
+                                    <p>
+                                        We create, deliver and maintain military-grade blockchain solutions for various industries from PoC to enterprise scale.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-2.svg" alt="">
+                                </div>
+                                <p class="card-title">Security Audit</p>
+                                <div class="card-desc">
+                                    <p>
+                                        World-class cybersecurity services, including smart contract audits, penetration tests, and automated tools.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-3.svg" alt="">
+                                </div>
+                                <p class="card-title">Product Design</p>
+                                <div class="card-desc">
+                                    <p>
+                                        Our team turns any idea into bulletproof solutions capable of fitting millions in compliance with business requirements.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cards cards-bottom">
+                            <div class="card _red">
+                            </div>
+                            <div class="card">
+                                <picture class="img">
+                                    <source srcset="./img/home/industries-card-img-bottom_desktop.webp" type="image/webp" media="(min-width: 768px)">
+                                    <source srcset="./img/home/industries-card-img-bottom_desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
+
+                                    <source srcset="./img/home/industries-card-img-bottom_mob.webp" type="image/webp">
+                                    <source srcset="./img/home/industries-card-img-bottom_mob.jpg" type="image/jpeg">
+                                    <img src="./img/home/industries-card-img-bottom_mob.jpg" alt="" loading="lazy">
+                                </picture>
+                            </div>
+                            <div class="card _black">
+                                <div class="icon">
+                                    <img src="./img/components/curved-rhombus.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-item _js-tab-item" data-id="7">
+                        <div class="cards cards-top">
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-1.svg" alt="">
+                                </div>
+                                <p class="card-title">Software Development</p>
+                                <div class="card-desc">
+                                    <p>
+                                        We create, deliver and maintain military-grade blockchain solutions for various industries from PoC to enterprise scale.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-2.svg" alt="">
+                                </div>
+                                <p class="card-title">Security Audit</p>
+                                <div class="card-desc">
+                                    <p>
+                                        World-class cybersecurity services, including smart contract audits, penetration tests, and automated tools.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="./img/home/industries-card-img-3.svg" alt="">
+                                </div>
+                                <p class="card-title">Product Design</p>
+                                <div class="card-desc">
+                                    <p>
+                                        Our team turns any idea into bulletproof solutions capable of fitting millions in compliance with business requirements.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cards cards-bottom">
+                            <div class="card _red">
+                            </div>
+                            <div class="card">
+                                <picture class="img">
+                                    <source srcset="./img/home/industries-card-img-bottom_desktop.webp" type="image/webp" media="(min-width: 768px)">
+                                    <source srcset="./img/home/industries-card-img-bottom_desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
+
+                                    <source srcset="./img/home/industries-card-img-bottom_mob.webp" type="image/webp">
+                                    <source srcset="./img/home/industries-card-img-bottom_mob.jpg" type="image/jpeg">
+                                    <img src="./img/home/industries-card-img-bottom_mob.jpg" alt="" loading="lazy">
+                                </picture>
+                            </div>
+                            <div class="card _black">
+                                <div class="icon">
+                                    <img src="./img/components/curved-rhombus.svg" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Portfolio</h2>
+
+            <div class="portfolio-cards">
+                <div class="case-card">
+                    <div class="case-cart__img">
+                        <picture class="img">
+                            <source srcset="./img/home/case-1.webp" type="image/webp">
+                            <source srcset="./img/home/case-1.jpg" type="image/jpeg">
+                            <img src="./img/home/case-1.jpg" alt="" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="case-cart__info">
+                        <div class="case-cart__labels">
+                            <div class="case-label">Security</div>
+                            <div class="case-label">Threat detection</div>
+                            <div class="case-label">Machine learning</div>
+                        </div>
+                        <p class="case-title">Hackless</p>
+                        <div class="case-desc">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur. Risus purus eu tristique sit. Sed sit amet dolor tincidunt nulla vel aliquam integer parturient.
+                            </p>
+                        </div>
+                        <button type="button" class="btn-arrow"></button>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-cart__img">
+                        <picture class="img">
+                            <source srcset="./img/home/case-2.webp" type="image/webp">
+                            <source srcset="./img/home/case-2.jpg" type="image/jpeg">
+                            <img src="./img/home/case-2.jpg" alt="" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="case-cart__info">
+                        <div class="case-cart__labels">
+                            <div class="case-label">AI integration</div>
+                            <div class="case-label">Neural networks</div>
+                            <div class="case-label">Optimization strategy</div>
+                        </div>
+                        <p class="case-title">Pandora Boxchain</p>
+                        <div class="case-desc">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur. Risus purus eu tristique sit. Sed sit amet dolor tincidunt nulla vel aliquam integer parturient.
+                            </p>
+                        </div>
+                        <button type="button" class="btn-arrow"></button>
+                    </div>
+                </div>
+                <div class="case-card">
+                    <div class="case-cart__img">
+                        <picture class="img">
+                            <source srcset="./img/home/case-3.webp" type="image/webp">
+                            <source srcset="./img/home/case-3.jpg" type="image/jpeg">
+                            <img src="./img/home/case-3.jpg" alt="" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="case-cart__info">
+                        <div class="case-cart__labels">
+                            <div class="case-label">Machine learning</div>
+                            <div class="case-label">Smart strategy</div>
+                            <div class="case-label">Asset management</div>
+                        </div>
+                        <p class="case-title">DeHive</p>
+                        <div class="case-desc">
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur. Risus purus eu tristique sit. Sed sit amet dolor tincidunt nulla vel aliquam integer parturient.
+                            </p>
+                        </div>
+                        <button type="button" class="btn-arrow"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="block-quote">
+        <div class="container">
+            <div class="author-info">
+                <p class="author-name">Pasha Bergman</p>
+                <p class="author-position">CEO at Blaize.AI</p>
+
+                <div class="img">
+                    <img src="./img/components/curved-rhombus__black.svg" alt="">
+                </div>
+            </div>
+            <div class="block-quote__text">
+                <div class="word">Customers</div>
+                <div class="word word-mark">
+                    <div class="word-img">
+                        <img src="./img/components/star__white.svg" alt="">
+                    </div>
+                    follow
+                </div>
+                <div class="word">
+                    <span class="_red">better experiences</span>
+                </div>
+                <div class="word">powered by</div>
+
+                <div class="word-img">
+                    <img src="./img/components/curved-rhombus__black.svg" alt="">
+                </div>
+
+                <div class="word">AI.</div>
+                <div class="word"><span class="_red">You can ignore it</span></div>
+                <div class="word">and stand still, but</div>
+
+                <div class="word-img">
+                    <img src="./img/components/star__white.svg" alt="">
+                </div>
+
+                <div class="word">you'll be</div>
+                <div class="word">standing alone.</div>
+            </div>
+            <div class="block-quote__image">
+                <div class="author-info">
+                    <p class="author-name">Pasha Bergman</p>
+                    <p class="author-position">CEO at Blaize.AI</p>
+                </div>
+                <div class="img">
+                    <picture>
+                        <source srcset="./img/home/blockquote-img_desktop.webp" type="image/webp" media="(min-width: 768px)">
+                        <source srcset="./img/home/blockquote-img_desktop.png" type="image/png" media="(min-width: 768px)">
+
+                        <source srcset="./img/home/blockquote-img_mob.webp" type="image/webp">
+                        <source srcset="./img/home/blockquote-img_mob.png" type="image/png">
+                        <img src="./img/home/blockquote-img_mob.png" alt="">
+                    </picture>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="statistics">
+        <div class="container">
+            <div class="section-title__wrapper">
+                <h2 class="section-title">Over a half of a decade track record</h2>
+                <div class="section-subtitle">
+                    <p>trusted by industry leaders</p>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="card-stat _black">
+                    <p class="card-stat__count">87</p>
+                    <p class="card-stat__title">PROJECTS</p>
+                    <div class="card-stat__desc">
+                        <p>
+                            Secccessfully developed and launched numerous cutting-adge products.
+                        </p>
+                    </div>
+                </div>
+                <div class="card-stat _red">
+                    <p class="card-stat__count">2017</p>
+                    <p class="card-stat__title">Founding Year</p>
+                    <div class="card-stat__desc">
+                        <p>
+                            More than 6 years of deepest expertise on the market.
+                        </p>
+                    </div>
+                </div>
+                <div class="card-stat _white">
+                    <p class="card-stat__count">65</p>
+                    <p class="card-stat__title">DEVELOPERS</p>
+                    <div class="card-stat__desc">
+                        <p>
+                            High-skilled blockchain engineers, security auditors, and cerfitied AI/ML specialists.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="ceo-block">
+        <div class="container">
+            <h2 class="section-title">Don't take it from us</h2>
+
+            <div class="swiper swiper-ceo">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide cards">
+                        <div class="card card-img">
+                            <img src="./img/home/fire.svg" alt="">
+                        </div>
+
+                        <div class="card card-main">
+                            <div class="img"><img src="./img/home/remme.svg" alt=""></div>
+                            <div class="desc">
+                                <p>
+                                    Blaize's team conducted a number of research studies in order to pick the right technologies that would provide user data protection.
+                                    Very
+                                    productive and efficient. I could see and observe the project tasks during all stages. If there were any difficulties, the dev team
+                                    offered
+                                    creative solutions. They are not only just product-focused but are also very proactive concerning ideas and depth of strategy. We used
+                                    Blaize
+                                    for 2 more projects.
+                                </p>
+                            </div>
+                            <div class="author-info">
+                                <p>
+                                    <strong>Alex Momot, CEO</strong>
+                                    Blockchain & App Development for Security Company
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card card-img">
+                            <img src="./img/home/savex-logo.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide cards">
+                        <div class="card card-img">
+                            <img src="./img/home/fire.svg" alt="">
+                        </div>
+
+                        <div class="card card-main">
+                            <div class="img"><img src="./img/home/remme.svg" alt=""></div>
+                            <div class="desc">
+                                <p>
+                                    Blaize's team conducted a number of research studies in order to pick the right technologies that would provide user data protection.
+                                    Very
+                                    productive and efficient.
+                                </p>
+                            </div>
+                            <div class="author-info">
+                                <p>
+                                    <strong>Alex Momot, CEO</strong>
+                                    Blockchain & App Development for Security Company
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card card-img">
+                            <img src="./img/home/savex-logo.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide cards">
+                        <div class="card card-img">
+                            <img src="./img/home/fire.svg" alt="">
+                        </div>
+
+                        <div class="card card-main">
+                            <div class="img"><img src="./img/home/remme.svg" alt=""></div>
+                            <div class="desc">
+                                <p>
+                                    Blaize's team conducted a number of research studies in order to pick the right technologies that would provide user data protection.
+                                    Very
+                                    productive and efficient. I could see and observe the project tasks during all stages. If there were any difficulties, the dev team
+                                    offered
+                                    creative solutions. They are not only just product-focused but are also very proactive concerning ideas and depth of strategy. We used
+                                    Blaize
+                                    for 2 more projects.
+                                </p>
+                            </div>
+                            <div class="author-info">
+                                <p>
+                                    <strong>Alex Momot, CEO</strong>
+                                    Blockchain & App Development for Security Company
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card card-img">
+                            <img src="./img/home/savex-logo.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="expertise">
+        <div class="container">
+            <h2 class="section-title">Expertise</h2>
+            <div class="cards">
+                <div class="expertise-card">
+                    <div class="img">
+                        <img src="./img/home/expertise-img-1.svg" alt="">
+                    </div>
+                    <p class="title">Data Engineering: </p>
+                    <div class="desc">
+                        <p>
+                            Facilitate efficient data management and accessibility, enhancing operational effectiveness in various industries.
+                        </p>
+                    </div>
+                </div>
+                <div class="expertise-card">
+                    <div class="img">
+                        <img src="./img/home/expertise-img-2.svg" alt="">
+                    </div>
+                    <div class="title">
+                        <p>
+                            Data <br> Analysis:
+                        </p>
+                    </div>
+                    <div class="desc">
+                        <p>
+                            Drive informed decision-making by uncovering valuable insights from complex data sets in diverse fields.
+                        </p>
+                    </div>
+                </div>
+                <div class="expertise-card">
+                    <div class="img">
+                        <img src="./img/home/expertise-img-3.svg" alt="">
+                    </div>
+                    <div class="title">
+                        <p>Computer <br> Vision:</p>
+                    </div>
+                    <div class="desc">
+                        <p>
+                            Improve accuracy and automation in processes like diagnosis & manufacturing through visual data interpretation.
+                        </p>
+                    </div>
+                </div>
+                <div class="expertise-card">
+                    <div class="img">
+                        <img src="./img/home/expertise-img-4.svg" alt="">
+                    </div>
+                    <div class="title">
+                        <p>Voice <br> Recognition:</p>
+                    </div>
+                    <div class="desc">
+                        <p>
+                            Enhance user experience and accessibility in services through seamless voice-enabled interactions.
+                        </p>
+                    </div>
+                </div>
+                <div class="expertise-card">
+                    <div class="img">
+                        <img src="./img/home/expertise-img-5.svg" alt="">
+                    </div>
+                    <div class="title">
+                        <p>Generative <br> AI:</p>
+                    </div>
+                    <div class="desc">
+                        <p>
+                            Innovation and creativity across sectors by generating novel, context-specific content and solutions.
+                        </p>
+                    </div>
+                </div>
+                <div class="expertise-card">
+                    <div class="img">
+                        <img src="./img/home/expertise-img-6.svg" alt="">
+                    </div>
+                    <div class="title">
+                        <p>Automatisation:</p>
+                    </div>
+                    <div class="desc">
+                        <p>
+                            Increase efficiency and consistency by automating repetitive tasks, leading to cost savings and improved accuracy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="expertise-bottom">
+                <picture>
+                    <source srcset="./img/home/expertise-bottom__desktop.webp" type="image/webp" media="(min-width: 768px)">
+                    <source srcset="./img/home/expertise-bottom__desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
+
+                    <source srcset="./img/home/expertise-bottom__mob.webp" type="image/webp">
+                    <source srcset="./img/home/expertise-bottom__mob.jpg" type="image/jpeg">
+                    <img src="./img/home/expertise-bottom__mob.jpg" alt="">
+                </picture>
+
+                <img src="./img/home/expertise-img-bottom-bg.svg" alt="" class="_bg">
+            </div>
+        </div>
+    </section>
+
+    <section class="home-case">
+        <div class="container">
+            <h2 class="section-title">Supercharge your business easily. Integrate chatgpt with us.</h2>
+
+            <button type="button" class="btn btn-black">View Case</button>
+
+            <div class="logo"><img src="./img/components/logo-black.svg" alt="Blaize AI"></div>
+        </div>
+    </section>
+
+    <section class="team">
+        <div class="container">
+            <h2 class="section-title">Team</h2>
+
+            <div class="swiper team-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide team-card">
+                        <div class="team-img">
+                            <picture>
+                                <source srcset="./img/home/team-1.webp" type="image/webp">
+                                <source srcset="./img/home/team-1.png" type="image/png">
+                                <img src="./img/home/team-1.png" alt="">
+                            </picture>
+
+                            <svg width="606" height="326" viewBox="0 0 606 326" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M281.343 606.95L324.627 606.95L324.627 415.302L396.419 592.995L436.551 576.78L362.899 394.485L501.925 533.511L532.531 502.904L399.281 369.654L571.963 445.101L589.292 405.438L406.574 325.606L605.97 325.606L605.97 282.322L406.575 282.322L589.292 202.492L571.963 162.828L399.281 238.274L532.531 105.024L501.925 74.4199L362.899 213.445L436.551 31.1476L396.419 14.9348L324.627 192.627L324.627 0.979334L281.343 0.979337L281.343 192.627L209.551 14.9348L169.42 31.1476L243.07 213.445L104.045 74.42L73.4406 105.024L206.69 238.274L34.0071 162.828L16.6794 202.492L199.395 282.322L3.26553e-05 282.322L3.64393e-05 325.606L199.398 325.606L16.6794 405.438L34.0071 445.101L206.69 369.654L73.4406 502.905L104.045 533.511L243.07 394.485L169.42 576.78L209.551 592.995L281.343 415.302L281.343 606.95Z"
+                                      fill="#2B2B2D"/>
+                            </svg>
+                        </div>
+                        <div class="team-info">
+                            <p class="team-name">Pasha Bergman</p>
+                            <p class="team-pos">CEO</p>
+                            <div class="team-sn">
+                                <a href="" class="sn-border _linkedin"></a>
+                                <a href="" class="sn-border _email"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide team-card">
+                        <div class="team-img">
+                            <picture>
+                                <source srcset="./img/home/team-2.webp" type="image/webp">
+                                <source srcset="./img/home/team-2.png" type="image/png">
+                                <img src="./img/home/team-2.png" alt="">
+                            </picture>
+
+                            <svg width="606" height="326" viewBox="0 0 606 326" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M281.343 606.95L324.627 606.95L324.627 415.302L396.419 592.995L436.551 576.78L362.899 394.485L501.925 533.511L532.531 502.904L399.281 369.654L571.963 445.101L589.292 405.438L406.574 325.606L605.97 325.606L605.97 282.322L406.575 282.322L589.292 202.492L571.963 162.828L399.281 238.274L532.531 105.024L501.925 74.4199L362.899 213.445L436.551 31.1476L396.419 14.9348L324.627 192.627L324.627 0.979334L281.343 0.979337L281.343 192.627L209.551 14.9348L169.42 31.1476L243.07 213.445L104.045 74.42L73.4406 105.024L206.69 238.274L34.0071 162.828L16.6794 202.492L199.395 282.322L3.26553e-05 282.322L3.64393e-05 325.606L199.398 325.606L16.6794 405.438L34.0071 445.101L206.69 369.654L73.4406 502.905L104.045 533.511L243.07 394.485L169.42 576.78L209.551 592.995L281.343 415.302L281.343 606.95Z"
+                                      fill="#2B2B2D"/>
+                            </svg>
+                        </div>
+                        <div class="team-info">
+                            <p class="team-name">Pavlo Horbonos</p>
+                            <p class="team-pos">CTO</p>
+                            <div class="sn team-sn">
+                                <div class="sn-border _x"></div>
+                                <div class="sn-border _linkedin"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide team-card">
+                        <div class="team-img">
+                            <picture>
+                                <source srcset="./img/home/team-3.webp" type="image/webp">
+                                <source srcset="./img/home/team-3.png" type="image/png">
+                                <img src="./img/home/team-3.png" alt="">
+                            </picture>
+
+                            <svg width="606" height="326" viewBox="0 0 606 326" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M281.343 606.95L324.627 606.95L324.627 415.302L396.419 592.995L436.551 576.78L362.899 394.485L501.925 533.511L532.531 502.904L399.281 369.654L571.963 445.101L589.292 405.438L406.574 325.606L605.97 325.606L605.97 282.322L406.575 282.322L589.292 202.492L571.963 162.828L399.281 238.274L532.531 105.024L501.925 74.4199L362.899 213.445L436.551 31.1476L396.419 14.9348L324.627 192.627L324.627 0.979334L281.343 0.979337L281.343 192.627L209.551 14.9348L169.42 31.1476L243.07 213.445L104.045 74.42L73.4406 105.024L206.69 238.274L34.0071 162.828L16.6794 202.492L199.395 282.322L3.26553e-05 282.322L3.64393e-05 325.606L199.398 325.606L16.6794 405.438L34.0071 445.101L206.69 369.654L73.4406 502.905L104.045 533.511L243.07 394.485L169.42 576.78L209.551 592.995L281.343 415.302L281.343 606.95Z"
+                                      fill="#2B2B2D"/>
+                            </svg>
+                        </div>
+                        <div class="team-info">
+                            <p class="team-name">Ivan Haienko</p>
+                            <p class="team-pos">Delivery Director</p>
+                            <div class="sn team-sn">
+                                <div class="sn-border _linkedin"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide team-card">
+                        <div class="team-img">
+                            <picture>
+                                <source srcset="./img/home/team-4.webp" type="image/webp">
+                                <source srcset="./img/home/team-4.png" type="image/png">
+                                <img src="./img/home/team-4.png" alt="">
+                            </picture>
+
+                            <svg width="606" height="326" viewBox="0 0 606 326" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M281.343 606.95L324.627 606.95L324.627 415.302L396.419 592.995L436.551 576.78L362.899 394.485L501.925 533.511L532.531 502.904L399.281 369.654L571.963 445.101L589.292 405.438L406.574 325.606L605.97 325.606L605.97 282.322L406.575 282.322L589.292 202.492L571.963 162.828L399.281 238.274L532.531 105.024L501.925 74.4199L362.899 213.445L436.551 31.1476L396.419 14.9348L324.627 192.627L324.627 0.979334L281.343 0.979337L281.343 192.627L209.551 14.9348L169.42 31.1476L243.07 213.445L104.045 74.42L73.4406 105.024L206.69 238.274L34.0071 162.828L16.6794 202.492L199.395 282.322L3.26553e-05 282.322L3.64393e-05 325.606L199.398 325.606L16.6794 405.438L34.0071 445.101L206.69 369.654L73.4406 502.905L104.045 533.511L243.07 394.485L169.42 576.78L209.551 592.995L281.343 415.302L281.343 606.95Z"
+                                      fill="#2B2B2D"/>
+                            </svg>
+                        </div>
+                        <div class="team-info">
+                            <p class="team-name">Vladimir Hristov</p>
+                            <p class="team-pos">CMO</p>
+                            <div class="sn team-sn">
+                                <div class="sn-border _x"></div>
+                                <div class="sn-border _linkedin"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process">
+        <div class="container">
+            <div class="section-title__wrapper">
+                <h2 class="section-title">
+                    Our Process
+                </h2>
+                <div class="section-subtitle">
+                    <p>Iterative approach. <br> Fast delivery. <br> Incredible results</p>
+                </div>
+            </div>
+
+            <div class="tabs-block _js-tab">
+                <div class="tabs-buttons">
+                    <button class="tab-btn _js-tab-btn active" data-id="1">Discovery</button>
+                    <button class="tab-btn _js-tab-btn" data-id="2">Scoping</button>
+                    <button class="tab-btn _js-tab-btn" data-id="3">Design</button>
+                    <button class="tab-btn _js-tab-btn _bigger" data-id="4">Development</button>
+                    <button class="tab-btn _js-tab-btn" data-id="5">Review</button>
+                    <button class="tab-btn _js-tab-btn" data-id="6">Support</button>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-item _js-tab-item active" data-id="1">
+                        <div class="process-card">
+                            <div class="process-sidebar">
+                                <p class="process-sidebar__title">Discovery</p>
+                                <ul class="process-sidebar__list">
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-calendar-line.svg" alt="">
+                                            <p>Timing</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>week</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-briefcase.svg" alt="">
+                                            <p>TEAM</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>Account Executive</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-tv-line.svg" alt="">
+                                            <p>Deliverable</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>Confirmed fit High-level written proposal PM match</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="process-main">
+                                <p class="process-main__title">Discovery</p>
+                                <div class="process-main__desc">
+                                    <p>
+                                        The Discovery Phase in software development is a key initial step where an account executive assesses your project and its goals..
+                                        This includes evaluating technology feasibility, objectives, budget, and timeline. It starts with a call to understand your team
+                                        and project needs. A summary of this call is reviewed by the product team to check technical and budget alignment. The outcome is
+                                        a detailed proposal with features, budget, and a phased timeline. With this information, you can decide to proceed and place a
+                                        refundable deposit to begin detailed scoping with a Project Manager.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="process-img">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-item _js-tab-item" data-id="2">
+                        <div class="process-card">
+                            <div class="process-sidebar">
+                                <p class="process-sidebar__title">Scoping</p>
+                                <ul class="process-sidebar__list">
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-calendar-line.svg" alt="">
+                                            <p>Timing</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>week</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-briefcase.svg" alt="">
+                                            <p>TEAM</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>Account Executive</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-tv-line.svg" alt="">
+                                            <p>Deliverable</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>Confirmed fit High-level written proposal PM match</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="process-main">
+                                <p class="process-main__title">Scoping</p>
+                                <div class="process-main__desc">
+                                    <p>
+                                        The Discovery Phase in software development is a key initial step where an account executive assesses your project and its goals..
+                                        This includes evaluating technology feasibility, objectives, budget, and timeline. It starts with a call to understand your team
+                                        and project needs. A summary of this call is reviewed by the product team to check technical and budget alignment. The outcome is
+                                        a detailed proposal with features, budget, and a phased timeline. With this information, you can decide to proceed and place a
+                                        refundable deposit to begin detailed scoping with a Project Manager.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="process-img">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-item _js-tab-item" data-id="3">
+                        <div class="process-card">
+                            <div class="process-sidebar">
+                                <p class="process-sidebar__title">Design</p>
+                                <ul class="process-sidebar__list">
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-calendar-line.svg" alt="">
+                                            <p>Timing</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>week</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-briefcase.svg" alt="">
+                                            <p>TEAM</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>Account Executive</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-tv-line.svg" alt="">
+                                            <p>Deliverable</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>Confirmed fit High-level written proposal PM match</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="process-main">
+                                <p class="process-main__title">Design</p>
+                                <div class="process-main__desc">
+                                    <p>
+                                        The Discovery Phase in software development is a key initial step where an account executive assesses your project and its goals..
+                                        This includes evaluating technology feasibility, objectives, budget, and timeline. It starts with a call to understand your team
+                                        and project needs. A summary of this call is reviewed by the product team to check technical and budget alignment. The outcome is
+                                        a detailed proposal with features, budget, and a phased timeline. With this information, you can decide to proceed and place a
+                                        refundable deposit to begin detailed scoping with a Project Manager.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="process-img">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-item _js-tab-item" data-id="4">
+                        <div class="process-card">
+                            <div class="process-sidebar">
+                                <p class="process-sidebar__title">Development</p>
+                                <ul class="process-sidebar__list">
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-calendar-line.svg" alt="">
+                                            <p>Timing</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>week</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-briefcase.svg" alt="">
+                                            <p>TEAM</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>Account Executive</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-tv-line.svg" alt="">
+                                            <p>Deliverable</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>Confirmed fit High-level written proposal PM match</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="process-main">
+                                <p class="process-main__title">Development</p>
+                                <div class="process-main__desc">
+                                    <p>
+                                        The Discovery Phase in software development is a key initial step where an account executive assesses your project and its goals..
+                                        This includes evaluating technology feasibility, objectives, budget, and timeline. It starts with a call to understand your team
+                                        and project needs. A summary of this call is reviewed by the product team to check technical and budget alignment. The outcome is
+                                        a detailed proposal with features, budget, and a phased timeline. With this information, you can decide to proceed and place a
+                                        refundable deposit to begin detailed scoping with a Project Manager.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="process-img">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-item _js-tab-item" data-id="5">
+                        <div class="process-card">
+                            <div class="process-sidebar">
+                                <p class="process-sidebar__title">Review</p>
+                                <ul class="process-sidebar__list">
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-calendar-line.svg" alt="">
+                                            <p>Timing</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>week</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-briefcase.svg" alt="">
+                                            <p>TEAM</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>Account Executive</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-tv-line.svg" alt="">
+                                            <p>Deliverable</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>Confirmed fit High-level written proposal PM match</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="process-main">
+                                <p class="process-main__title">Review</p>
+                                <div class="process-main__desc">
+                                    <p>
+                                        The Discovery Phase in software development is a key initial step where an account executive assesses your project and its goals..
+                                        This includes evaluating technology feasibility, objectives, budget, and timeline. It starts with a call to understand your team
+                                        and project needs. A summary of this call is reviewed by the product team to check technical and budget alignment. The outcome is
+                                        a detailed proposal with features, budget, and a phased timeline. With this information, you can decide to proceed and place a
+                                        refundable deposit to begin detailed scoping with a Project Manager.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="process-img">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-item _js-tab-item" data-id="6">
+                        <div class="process-card">
+                            <div class="process-sidebar">
+                                <p class="process-sidebar__title">Support</p>
+                                <ul class="process-sidebar__list">
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-calendar-line.svg" alt="">
+                                            <p>Timing</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>week</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-briefcase.svg" alt="">
+                                            <p>TEAM</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>Account Executive</p>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="list-title">
+                                            <img src="./img/home/icon-tv-line.svg" alt="">
+                                            <p>Deliverable</p>
+                                        </div>
+                                        <div class="list-desc">
+                                            <p>Confirmed fit High-level written proposal PM match</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="process-main">
+                                <p class="process-main__title">Support</p>
+                                <div class="process-main__desc">
+                                    <p>
+                                        The Discovery Phase in software development is a key initial step where an account executive assesses your project and its goals..
+                                        This includes evaluating technology feasibility, objectives, budget, and timeline. It starts with a call to understand your team
+                                        and project needs. A summary of this call is reviewed by the product team to check technical and budget alignment. The outcome is
+                                        a detailed proposal with features, budget, and a phased timeline. With this information, you can decide to proceed and place a
+                                        refundable deposit to begin detailed scoping with a Project Manager.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="process-img">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    @@include('_footer.html')
+</div>
+
+
+<script src="./cdn/js/swiper-bundle.min.js"></script>
+<script src="./cdn/js/custom-select.js"></script>
+<script src="./js/components.js"></script>
+
+</body>
+</html>

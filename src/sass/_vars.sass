@@ -1,0 +1,11 @@
+@mixin bg-center
+  background-position: center
+  background-repeat: no-repeat
+  @content
+
+@mixin vh
+  height: calc(var(--vh, 1vh) * 100)
+
+@function vh-part($value)
+  $res: calc(var(--vh, 1vh) * $value)
+  @return $res
