@@ -189,7 +189,8 @@ input, button, textarea, select
   & .tabs-block
     & .tabs-buttons
       margin: 0 calc(var(--padding-container) * -1)
-      padding: 0 var(--padding-container)
+      // padding: 0 var(--padding-container)
+      padding: 0 var(--padding-container) 1px var(--padding-container)
       & .tab-btn
         border-radius: 50px
         border: 0.7px solid rgba(0,0,0,0)
@@ -211,7 +212,9 @@ input, button, textarea, select
       margin: 31px calc(var(--padding-container) * -1) 0 calc(var(--padding-container) * -1)
       padding: 0 var(--padding-container)
       & .tab-item
-        overflow: auto
+        overflow: hidden
+        overflow-x: scroll
+        //overflow: auto
         -ms-overflow-style: auto
         scrollbar-width: auto
         &::-webkit-scrollbar
@@ -603,8 +606,8 @@ input, button, textarea, select
       border-radius: 14px
     & ._bg
       position: absolute
-      bottom: -41%
-      right: -42%
+      bottom: -40.4%
+      right: -40.5%
       max-width: 87.78%
       //mask-image: linear-gradient(#000 50%, transparent 0)
 
@@ -809,5 +812,36 @@ input, button, textarea, select
             opacity: 0.4
 
 
+.home-form
+  margin-top: 100px
+  padding-bottom: 88px
+  & .form-wrapper
+    border-radius: 14px
+    background: var(--based-black)
+    padding: 37px 20px 0 20px
+    & .section-title
+      color: white
+      font-weight: 400
+      line-height: 105%
+      letter-spacing: -2.5px
+      text-transform: capitalize
+      margin-bottom: 30px
+      padding-left: 22px
+    & .form-desc
+      color: white
+      font-size: 18px
+      font-weight: 500
+      line-height: 150%
+      letter-spacing: -0.36px
+      opacity: 0.6
+      margin-bottom: 42px
+      max-width: 232px
+      padding-left: 22px
 
+
+    & form
+      border-radius: 14px
+      background: #E5E5E5
+      padding: 30px 24px 7px 24px
+      margin-bottom: -88px
 
