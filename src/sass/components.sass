@@ -1,5 +1,15 @@
 @import "vars"
 
+
+
+@keyframes scroll
+  from
+    transform: translateX(0)
+
+  to
+    transform: translateX(calc(-100% - 20px))
+
+
 *
   box-sizing: border-box
   &::before, &::after
@@ -96,6 +106,24 @@ input, button, textarea, select
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='70' height='70' viewBox='0 0 70 70' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='69' height='69' rx='12.5' stroke='%232B2B2D' stroke-opacity='0.4'/%3E%3Cpath d='M46.572 24.2891H23.7829C23.4145 24.2891 23.0629 24.3717 22.7448 24.5369L35.1188 36.7463L37.8984 34.1194L47.6101 24.5369C47.292 24.3717 46.9403 24.2891 46.572 24.2891ZM48.7487 25.6604L39.6063 34.6811L48.7487 43.7019C48.8994 43.388 48.9999 43.041 48.9999 42.6776V26.6847C48.9999 26.3212 48.8994 25.9743 48.7487 25.6604ZM21.6061 25.6604C21.4554 25.9743 21.355 26.3212 21.355 26.6847V42.661C21.355 43.0245 21.4387 43.3715 21.6061 43.6854L30.7318 34.6811L21.6061 25.6604Z' fill='%232B2B2D'/%3E%3Cpath d='M38.4671 35.8047L35.6875 38.4316C35.5368 38.5803 35.3191 38.6629 35.1182 38.6629C34.9173 38.6629 34.6996 38.5803 34.5489 38.4316L31.8866 35.8047L22.7441 44.8255C23.0623 44.9742 23.4139 45.0733 23.7823 45.0733H46.5713C46.9397 45.0733 47.2914 44.9907 47.6095 44.8255L38.4671 35.8047Z' fill='%232B2B2D'/%3E%3C/svg%3E")
 
 
+.sn-item
+  --size: 24px
+  display: block
+  min-width: var(--size)
+  max-width: var(--size)
+  height: var(--size)
+  @include bg-center
+    background-size: contain
+
+  &._linkedin
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_821_1890)'%3E%3Cpath d='M22.2234 0.787109H1.77187C0.792187 0.787109 0 1.56055 0 2.5168V23.0527C0 24.009 0.792187 24.7871 1.77187 24.7871H22.2234C23.2031 24.7871 24 24.009 24 23.0574V2.5168C24 1.56055 23.2031 0.787109 22.2234 0.787109ZM7.12031 21.2387H3.55781V9.78242H7.12031V21.2387ZM5.33906 8.22148C4.19531 8.22148 3.27188 7.29805 3.27188 6.15898C3.27188 5.01992 4.19531 4.09648 5.33906 4.09648C6.47813 4.09648 7.40156 5.01992 7.40156 6.15898C7.40156 7.29336 6.47813 8.22148 5.33906 8.22148ZM20.4516 21.2387H16.8937V15.6699C16.8937 14.3434 16.8703 12.6324 15.0422 12.6324C13.1906 12.6324 12.9094 14.0809 12.9094 15.5762V21.2387H9.35625V9.78242H12.7687V11.348H12.8156C13.2891 10.448 14.4516 9.49648 16.1813 9.49648C19.7859 9.49648 20.4516 11.8684 20.4516 14.9527V21.2387Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_821_1890'%3E%3Crect width='24' height='24' fill='white' transform='translate(0 0.787109)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E")
+  &._x
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18.3263 2.69141H21.6998L14.3297 11.1149L23 22.5774H16.2112L10.894 15.6254L4.80995 22.5774H1.43443L9.31743 13.5675L1 2.69141H7.96111L12.7674 9.04574L18.3263 2.69141ZM17.1423 20.5582H19.0116L6.94539 4.60454H4.93946L17.1423 20.5582Z' fill='white'/%3E%3C/svg%3E")
+  &._facebook
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_821_1894)'%3E%3Cpath d='M12 0.787109C5.37264 0.787109 0 6.15975 0 12.7871C0 18.4146 3.87456 23.1369 9.10128 24.4338V16.4543H6.62688V12.7871H9.10128V11.2069C9.10128 7.12263 10.9498 5.22951 14.9597 5.22951C15.72 5.22951 17.0318 5.37879 17.5685 5.52759V8.85159C17.2853 8.82183 16.7933 8.80695 16.1822 8.80695C14.2147 8.80695 13.4544 9.55239 13.4544 11.4901V12.7871H17.3741L16.7006 16.4543H13.4544V24.6993C19.3963 23.9817 24.0005 18.9225 24.0005 12.7871C24 6.15975 18.6274 0.787109 12 0.787109Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_821_1894'%3E%3Crect width='24' height='24' fill='white' transform='translate(0 0.787109)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E")
+  &._unknown
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='24' height='25' viewBox='0 0 24 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M24 12.6147C24 15.794 23.4672 18.373 22.8097 18.373C22.1522 18.373 21.6196 15.7947 21.6196 12.6147C21.6196 9.43469 22.1525 6.85645 22.8097 6.85645C23.467 6.85645 24 9.43446 24 12.6147Z' fill='white'/%3E%3Cpath d='M20.9627 12.6153C20.9627 16.1646 19.4474 19.043 17.5783 19.043C15.7091 19.043 14.1938 16.1646 14.1938 12.6153C14.1938 9.06594 15.7089 6.1875 17.578 6.1875C19.4472 6.1875 20.9625 9.06501 20.9625 12.6153' fill='white'/%3E%3Cpath d='M13.5374 12.6148C13.5374 16.3855 10.5069 19.4423 6.76884 19.4423C3.03073 19.4423 0 16.3848 0 12.6148C0 8.84478 3.0305 5.78711 6.76884 5.78711C10.5072 5.78711 13.5374 8.84409 13.5374 12.6148Z' fill='white'/%3E%3C/svg%3E")
+
 .btn
   border-radius: 200px
   background: var(--based-black)
@@ -109,6 +137,8 @@ input, button, textarea, select
   letter-spacing: -0.36px
   text-transform: uppercase
   padding: 20px 40px
+  &.btn-red
+    background: var(--based-red)
 
 .btn-border
   border-radius: 200px
@@ -136,10 +166,6 @@ input, button, textarea, select
         color: white
         box-shadow: 0 0 0 2px rgba(0,0,0,0)
 
-
-
-
-
 .container
   width: 100%
   padding: 0 var(--padding-container)
@@ -150,6 +176,369 @@ input, button, textarea, select
   line-height: 105%
   letter-spacing: -2.5px
   margin-bottom: 30px
+
+
+.marque-block
+  position: relative
+  display: flex
+  overflow: hidden
+  user-select: none
+  gap: 20px
+  & .marque-items
+    flex-shrink: 0
+    display: flex
+    gap: 20px
+    counter-reset: item
+    justify-content: space-around
+    min-width: 100%
+
+  & .marque-item
+    flex: 0 0 auto
+    width: 100px
+    height: 100px
+    display: flex
+    justify-content: center
+    align-items: center
+    transition: all 0.1s ease-in-out
+    //&:hover
+    //  transform: scale(1.05)
+    //  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5)
+
+.marquee
+  animation: scroll 20s linear infinite
+
+.reverce
+  animation-direction: reverse
+
+//.marque-block:hover .marquee
+//  animation-play-state: paused
+
+
+.blog-card
+  display: block
+  position: relative
+  border-radius: 14px
+  overflow: hidden
+  width: 100%
+  & .blog-card__wrapper
+    width: 100%
+    padding-bottom: 100%
+    position: relative
+    &:before
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      height: 100%
+      background: linear-gradient(0deg, #FF5C5C 10.33%, rgba(255, 92, 92, 0.00) 54.5%)
+      z-index: 1
+  & .blog-labels
+    display: flex
+    flex-direction: column
+    gap: 7px 0
+    align-items: flex-start
+    justify-content: flex-start
+    position: absolute
+    top: 24px
+    left: 28px
+    z-index: 1
+    & .blog-label
+      color: #FFF
+      text-align: center
+      font-size: 10.583px
+      font-weight: 400
+      line-height: 130%
+      letter-spacing: -0.212px
+      padding: 5px 12px
+      border-radius: 100px
+      background: var(--based-red)
+
+  & .blog-img
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    & picture
+      width: 100%
+      height: 100%
+    & img
+      display: block
+      width: 100%
+      height: 100%
+      object-fit: cover
+
+  & .blog-title
+    color: white
+    font-size: 18px
+    font-weight: 600
+    line-height: 110%
+    letter-spacing: -0.36px
+    position: absolute
+    left: 27px
+    bottom: 30px
+    z-index: 1
+
+
+
+
+
+
+// CUSTOM SELECT
+.select
+  position: relative
+  width: 100%
+  background: rgba(0,0,0,0)
+  margin-bottom: 20px
+  &.disabled
+    pointer-events: none
+    border: 1px solid var(--Light-Gray)
+    background: var(--Extra-light-gray)
+    & .select__toggle
+      &:after
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='17' height='9' viewBox='0 0 17 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.2545 0.0985107L16.1826 1.02659L8.49983 8.70938L0.817039 1.02659L1.74512 0.0985101L8.49983 6.8527L15.2545 0.0985107Z' fill='%23D2D2D7'/%3E%3C/svg%3E")
+
+  & .help-block
+    color: #F55F56
+    font-size: 12px
+    font-weight: 400
+    line-height: 16px
+    letter-spacing: 0.36px
+    position: absolute
+    top: calc(100% + 8px)
+    left: 0
+    padding-left: 16px
+    transform: translateY(-50%)
+    opacity: 0
+    transition: all .3s
+    &:before
+      max-width: 16px
+      font-size: 16px
+      line-height: 100%
+      max-height: 16px
+      position: absolute
+      left: 0
+      top: 50%
+      transform: translateY(-50%)
+
+  &.select_show
+    z-index: 3!important
+    & .select__toggle
+      &:after
+        transform: translateY(-50%) rotate(180deg)
+    & .select__dropdown, & .select__backdrop
+      &:not(._empty)
+        max-height: calc(32px  * 4)
+        // box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.25)
+
+  &._selected
+    & .select__toggle
+      & label
+        opacity: 0
+        pointer-events: none
+  &.has-error
+    // margin-bottom: 30px
+    & .select__toggle
+      &:before
+        opacity: 1
+        background-color: #F55F56
+      & .select__input, button
+        color: #F55F56!important
+        &::placeholder
+          color: #F55F56
+    & .help-block
+      opacity: 1
+      transform: translateY(0px)
+
+.select__toggle
+  cursor: pointer
+  width: 100%
+  user-select: none
+  justify-content: space-between
+  position: relative
+  height: 30px
+  padding: 0 20px 0 0
+  background: rgba(0,0,0,0)
+  &::after
+    content: ''
+    width: 18px
+    height: 18px
+    position: absolute
+    top: 50%
+    right: 0px
+    transform: translateY(-50%)
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='20' height='19' viewBox='0 0 20 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M6.81177 8.0605L10.6163 11.7932L14.4207 8.06051' stroke='%231F1F23' stroke-width='1.14853'/%3E%3C/svg%3E")
+    transition: all .2s
+    pointer-events: none
+    @include bg-center
+      background-size: contain
+  & .select-hidden
+    display: none
+  & .select__input, & button
+    width: 100%
+    height: 100%
+    border: none
+    background: none
+    font-weight: 400 !important
+    font-size: 16px !important
+    line-height: 160% !important
+    color: #1F1F23 !important
+    cursor: pointer
+    outline: none
+    padding: 0
+    &::placeholder
+      color: #1F1F23 !important
+      font-weight: 400!important
+      font-size: 16px!important
+      line-height: 150%!important
+  &:hover
+    &:before
+      opacity: 1
+  & .select__input
+    &::placeholder
+      font-weight: 400
+      font-size: 16px
+      line-height: 25px
+      letter-spacing: 0.1px
+  & button
+    text-align: start
+    transition: all .2s
+  & label
+    color: #1F1F23
+    font-size: 16px
+    font-style: normal
+    font-weight: 400
+    line-height: 160%
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    left: 0px
+    transition: all .2s
+    pointer-events: none
+
+.select__dropdown
+  max-height: 0
+  overflow-y: auto
+  z-index: 2
+  transition: all .3s
+  position: absolute
+  left: -1px
+  top: calc(100% + 1px)
+  width: calc(100% + 2px)
+  border: none
+  background-color: #e5e5e5
+  &::-webkit-scrollbar
+    background: #F1F1F1
+    width: 9px
+    height: auto
+  &::-webkit-scrollbar-thumb
+    border-radius: 30px
+    background-color: var(--black)
+    border: 2px solid #f1f1f1
+  &::-webkit-scrollbar-track
+    background-color: #F1F1F1
+  &._empty
+    display: none
+
+.select__options
+  // margin-bottom: 10px
+  // padding: 2px 0
+  list-style: none
+
+.select__option
+  display: block
+  padding: 6px 6px 6px 0
+  font-size: 12px
+  line-height: 150%
+  font-weight: 400
+  transition: 0.2s background-color ease-in-out
+  color: #1F1F23
+  // border: 1px solid rgba(0,0,0,0)
+  &._click-disabled
+    pointer-events: none!important
+  &:hover
+    //color: $dark-blue
+    cursor: pointer
+  &._hide
+    display: none
+  & mark
+    background: none
+    font-weight: 700
+    color: var(--black)
+
+.select__option_selected
+  color: var(--black)
+  position: relative
+  border-color: var(--black)
+  &::after
+    display: none
+    content: ''
+    width: 24px
+    height: 24px
+    position: absolute
+    top: 50%
+    right: 15px
+    transform: translateY(-50%)
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9.00016 16.1701L4.83016 12.0001L3.41016 13.4101L9.00016 19.0001L21.0002 7.00009L19.5902 5.59009L9.00016 16.1701Z' fill='%2385ACA6'/%3E%3C/svg%3E")
+    @include bg-center
+      background-size: contain
+
+
+._mb-0
+  margin-bottom: 0!important
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active
+  -webkit-background-clip: text
+  -webkit-text-fill-color: inherit
+  transition: background-color 5000s ease-in-out 0s
+  box-shadow: inset 0 0 20px 20px rgba(0,0,0,0)
+
+
+
+.form-group
+  width: 100%
+  margin-bottom: 20px
+  & .form-input
+    background-color: rgba(0,0,0,0)
+    border: none
+    border-bottom: 1px solid rgba(31, 31, 35, 0.2)
+    border-radius: 0px
+    width: 100%
+    -webkit-appearance: none
+    color: #1F1F23
+    font-size: 16px
+    font-style: normal
+    font-weight: 400
+    line-height: 150%
+    padding: 0 0 5px 0
+    outline: none
+    &::placeholder
+      color: #1F1F23
+      font-size: 16px
+      font-style: normal
+      font-weight: 400
+      line-height: 160%
+  & textarea
+    min-height: 48px
+
+  &.has-error
+    & .form-input
+      border-color: var(--based-red)
+
+
+.form-group
+  & .checkbox
+    & + label
+      color: #1F1F23
+      font-size: 8.04px
+      font-weight: 300
+      line-height: 190%
+
+
 
 .tabs-block
   & .tabs-buttons
@@ -182,7 +571,21 @@ input, button, textarea, select
       &.active
         display: block
 
+@keyframes t-anim-1
+  from
+    min-width: 110%
+    max-width: 110%
+  to
+    min-width: 60%
+    max-width: 60%
 
+@keyframes t-anim-2
+  from
+    min-width: 50%
+    max-width: 50%
+  to
+    min-width: 150%
+    max-width: 150%
 
 .industries
   margin-top: 100px
@@ -194,16 +597,16 @@ input, button, textarea, select
       & .tab-btn
         border-radius: 50px
         border: 0.7px solid rgba(0,0,0,0)
-        font-size: 12.6px
+        font-size: 16px
         font-weight: 500
         line-height: 105%
         letter-spacing: -0.252px
         display: flex
         align-items: center
         gap: 0 7px
-        padding: 6px 12.5px
+        padding: 9px 20.5px
         & svg
-          width: 17px
+          width: 21px
           height: auto
         &.active
           border-color: var(--based-black)
@@ -214,7 +617,6 @@ input, button, textarea, select
       & .tab-item
         overflow: hidden
         overflow-x: scroll
-        //overflow: auto
         -ms-overflow-style: auto
         scrollbar-width: auto
         &::-webkit-scrollbar
@@ -222,6 +624,23 @@ input, button, textarea, select
           display: none
           width: 0
           height: 0
+
+        &.active
+          & .cards-bottom
+            & .card
+              &._red
+                animation: t-anim-1 .6s .2s forwards
+                //min-width: 60%
+                //max-width: 60%
+              &._black
+                animation: t-anim-1 .6s .2s forwards
+                //min-width: 60%
+                //max-width: 60%
+              &._img
+                animation: t-anim-2 .6s .2s forwards
+                //min-width: 150%
+                //max-width: 150%
+
         & .cards
           display: flex
           gap: 0 20px
@@ -256,20 +675,30 @@ input, button, textarea, select
           margin-top: 20px
           & .card
             height: 100px
+            transition: all .5s .5s
             &._red
               background-color: var(--based-red)
-              order: 2
+              min-width: 110%
+              max-width: 110%
+              // order: 2
             &._black
               background-color: var(--based-black)
               display: flex
               align-items: center
               justify-content: center
-              order: 3
+              min-width: 110%
+              max-width: 110%
+              // order: 3
               & img
                 width: 60px
             &._img
               width: 100%
-              order: 1
+              min-width: 50%
+              max-width: 50%
+              // order: 1
+              & picture
+                width: 100%
+                height: 100%
               & img
                 width: 100%
                 height: 100%
@@ -814,7 +1243,7 @@ input, button, textarea, select
 
 .home-form
   margin-top: 100px
-  padding-bottom: 88px
+  padding-bottom: 200px
   & .form-wrapper
     border-radius: 14px
     background: var(--based-black)
@@ -843,5 +1272,250 @@ input, button, textarea, select
       border-radius: 14px
       background: #E5E5E5
       padding: 30px 24px 7px 24px
-      margin-bottom: -88px
+      margin-top: -88px
+      transform: translateY(88px)
+      & .btn-submit
+        width: 100%
+        margin-top: 15px
+        text-align: center
+        font-size: 18px
+        font-weight: 700
+        line-height: 140%
+        letter-spacing: 5.4px
+        text-transform: uppercase
+        padding: 17.41px 0
 
+
+.use
+  margin-top: 100px
+  & .section-title__wrapper
+    margin-bottom: 30px
+    & .section-title
+      width: fit-content
+      margin: 0 0 13px 0
+    & .section-subtitle
+      font-size: 14px
+      font-weight: 400
+      line-height: 160%
+      letter-spacing: -0.32px
+      width: fit-content
+      margin: 0 20px 0 auto
+      opacity: 0.6
+  & .tech-card
+    border-radius: 13px
+    display: flex
+    align-items: center
+    justify-content: center
+    & .img
+      width: 137px
+      & img
+        width: 100%
+
+  & .use-mobile
+    display: flex
+    flex-direction: column
+    gap: 16px 0
+    margin: 0 calc( var(--padding-container) * -1)
+    & .marquee
+      animation-duration: 35s
+    & .marque-block
+      animation: none
+      gap: 0 16px
+      & .marque-items
+        gap: 0 16px
+
+      & .marque-item
+        width: 61vw
+        height: 28.3vw
+        & .tech-card
+          width: 100%
+          height: 100%
+        &:nth-child(even)
+          & .tech-card
+            background-color: white
+        &:nth-child(odd)
+          & .tech-card
+            background-color: #D9D9D9
+
+
+
+
+
+
+    //& .marquee-text
+    //  gap: 16px
+    //  & .marquee-group
+    //    animation-duration: 5s
+    //    gap: 16px
+    //    &:first-child
+    //      & .tech-card
+    //        &:nth-child(even)
+    //          background-color: white
+    //        &:nth-child(odd)
+    //          background-color: #D9D9D9
+    //    &:last-child
+    //      & .tech-card
+    //        &:nth-child(odd)
+    //          background-color: white
+    //        &:nth-child(even)
+    //          background-color: #D9D9D9
+
+
+  & .use-desktop
+    display: none
+
+
+
+.home-blog
+  margin: 100px 0 40px 0
+  & .section-title
+    display: flex
+    justify-content: space-between
+    align-items: flex-end
+    &:after
+      content: ''
+      display: block
+      min-width: 167px
+      max-width: 167px
+      height: 89px
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='167' height='89' viewBox='0 0 167 89' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_778_932)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M89.4644 -2.26964e-05L77.5357 -2.37392e-05L77.5357 68.7317L28.674 20.131L20.2392 28.5208L69.1009 77.1214L-6.74217e-06 77.1214L-7.77944e-06 88.9864L69.1008 88.9864L20.2392 137.587L28.674 145.976L77.5357 97.3757L77.5357 166.108L89.4644 166.108L89.4644 97.3757L138.326 145.976L146.76 137.587L97.8987 88.9864L167 88.9864L167 77.1214L97.8987 77.1214L146.76 28.5207L138.326 20.131L89.4644 68.7316L89.4644 -2.26964e-05Z' fill='%23FF5C5C'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_778_932'%3E%3Crect width='167' height='89' fill='white' transform='matrix(-1 -8.74228e-08 -8.74228e-08 1 167 0)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E")
+      @include bg-center
+        background-size: contain
+
+
+  & .blog-rows
+    display: flex
+    flex-direction: column
+    gap: 20px
+    & .blog-row
+      display: flex
+      align-items: flex-end
+      justify-content: flex-start
+      overflow: auto
+      -ms-overflow-style: auto
+      scrollbar-width: auto
+      gap: 0 20px
+      padding: 0 var(--padding-container)
+      margin: 0 calc( var(--padding-container) * -1)
+      &::-webkit-scrollbar
+        opacity: 0
+        display: none
+        width: 0
+        height: 0
+      &:nth-child(1)
+        & .blog-card
+          min-width: 74.3%
+          max-width: 74.3%
+          & .blog-card__wrapper
+            padding-bottom: 146%
+      &:nth-child(2)
+        & .blog-card
+          min-width: 74.3%
+          max-width: 74.3%
+          & .blog-card__wrapper
+            padding-bottom: 100%
+
+
+
+
+
+
+
+footer
+  background: #151518
+  padding: 60px 0 0 0
+  color: rgba(255,255,255,0.8)
+  & .footer-cols
+    display: flex
+    flex-direction: column
+    gap: 30px 0
+    margin-bottom: 40px
+  & .footer-col
+    & .logo
+      width: 100%
+      max-width: 120px
+      & img
+        width: 100%
+    & .footer-title
+      color: white
+      font-weight: 500
+      line-height: 140%
+      letter-spacing: -0.32px
+      text-transform: capitalize
+      margin-bottom: 20px
+    & .footer-list
+      font-size: 14px
+      font-weight: 300
+      line-height: 160%
+      letter-spacing: 0.5px
+      & li
+        margin-bottom: 10px
+        &:last-child
+          margin-bottom: 0
+        & a
+          color: inherit
+          text-underline-offset: 2px
+          &:hover
+            text-decoration: underline
+
+    & form
+      position: relative
+      & .form-group
+        margin: 0
+        & .form-input
+          border-radius: 100px
+          background: rgba(214, 214, 214, 0.1)
+          color: #D6D6D6
+          font-size: 14px
+          font-style: normal
+          font-weight: 400
+          line-height: 160%
+          letter-spacing: 0.5px
+          min-height: 54px
+          padding: 0 50px 0 32px
+          border: 1px solid #29292c
+          -webkit-text-fill-color: #D6D6D6
+          &::placeholder
+            color: #D6D6D6
+            font-size: 14px
+            font-style: normal
+            font-weight: 400
+            line-height: 160%
+            letter-spacing: 0.5px
+            opacity: 0.6
+        &.has-error
+          & .form-input
+            border-color: var(--based-red)
+
+      & button
+        width: 30px
+        height: 30px
+        position: absolute
+        top: 50%
+        right: 18px
+        transform: translateY(-50%)
+        outline: none
+        padding: 0
+        border: none
+        background: url("data:image/svg+xml;charset=utf8,%3Csvg width='18' height='19' viewBox='0 0 18 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_821_1859)'%3E%3Cpath d='M17.7549 9.19341L12.3984 3.83691C12.0716 3.51009 11.5415 3.51009 11.2147 3.83691C10.8878 4.16379 10.8878 4.69368 11.2147 5.02056L15.1424 8.94829H0.836954C0.374754 8.94829 0 9.32304 0 9.78524C0 10.2474 0.374754 10.6222 0.836954 10.6222H15.1424L11.2148 14.5499C10.888 14.8768 10.888 15.4067 11.2148 15.7336C11.3782 15.8969 11.5925 15.9787 11.8067 15.9787C12.0209 15.9787 12.2351 15.8969 12.3985 15.7336L17.7549 10.3771C18.0818 10.0502 18.0818 9.52029 17.7549 9.19341Z' fill='%23EBEBEB'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_821_1859'%3E%3Crect width='18' height='18' fill='white' transform='translate(0 0.787109)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E")
+        background-position: center
+        background-repeat: no-repeat
+        background-size: 18px 18px
+
+
+    & .sn
+      display: flex
+      gap: 0 30px
+
+
+  & .footer-bottom
+    color: var(--Deep-grey, #9F9FA0)
+    text-align: center
+    font-size: 12px
+    font-weight: 300
+    line-height: 160%
+    letter-spacing: 0.5px
+    min-height: 30px
+    display: flex
+    align-items: center
+    justify-content: center

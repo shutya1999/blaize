@@ -747,6 +747,11 @@ if (document.querySelector('.swiper-ceo')) {
 if (document.querySelector('.team-swiper')) {
   new Swiper('.team-swiper', {
     slidesPerView: 1.45,
+    freeMode: {
+      enabled: true,
+      sticky: false
+    },
+    //slidesPerView: 1.45,
     spaceBetween: 64
   });
 }
