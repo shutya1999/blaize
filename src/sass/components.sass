@@ -21,7 +21,7 @@
 
 \:root
   --padding-container: 16px
-  --header-height: 81.09375px
+  --header-height: 81px
   --based-black: #2B2B2D
   --based-red: #FF5C5C
   --bg-white: #E5E5E5
@@ -170,6 +170,7 @@ input, button, textarea, select
   width: 100%
   padding: 0 var(--padding-container)
   max-width: calc(1512px + (var(--padding-container) * 2))
+  margin: 0 auto
 
 .section-title
   font-size: 50px
@@ -563,6 +564,7 @@ input:-webkit-autofill:active
       background: none
       border: none
       position: relative
+      cursor: pointer
 
   & .tab-content
     margin-top: 31px
@@ -572,20 +574,38 @@ input:-webkit-autofill:active
         display: block
 
 @keyframes t-anim-1
-  from
+  0%
     min-width: 110%
     max-width: 110%
-  to
+    max-height: 0px
+    opacity: 0
+  50%
+    min-width: 110%
+    max-width: 110%
+    max-height: 100%
+    opacity: 1
+  100%
     min-width: 60%
     max-width: 60%
+    max-height: 100%
+    opacity: 1
 
 @keyframes t-anim-2
-  from
+  0%
     min-width: 50%
     max-width: 50%
-  to
+    max-height: 0px
+    opacity: 0
+  50%
+    min-width: 50%
+    max-width: 50%
+    max-height: 100%
+    opacity: 1
+  100%
     min-width: 150%
     max-width: 150%
+    max-height: 100%
+    opacity: 1
 
 .industries
   margin-top: 100px
@@ -629,17 +649,11 @@ input:-webkit-autofill:active
           & .cards-bottom
             & .card
               &._red
-                animation: t-anim-1 .6s .2s forwards
-                //min-width: 60%
-                //max-width: 60%
+                animation: t-anim-1 1.2s .1s forwards
               &._black
-                animation: t-anim-1 .6s .2s forwards
-                //min-width: 60%
-                //max-width: 60%
+                animation: t-anim-1 1.2s .1s forwards
               &._img
-                animation: t-anim-2 .6s .2s forwards
-                //min-width: 150%
-                //max-width: 150%
+                animation: t-anim-2 1.2s .1s forwards
 
         & .cards
           display: flex
@@ -673,9 +687,10 @@ input:-webkit-autofill:active
 
         & .cards-bottom
           margin-top: 20px
+          height: 100px
           & .card
-            height: 100px
-            transition: all .5s .5s
+            max-height: 0px
+            overflow: hidden
             &._red
               background-color: var(--based-red)
               min-width: 110%
@@ -844,6 +859,9 @@ input:-webkit-autofill:active
       background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='30' height='27' viewBox='0 0 30 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.0046 27H0.00768047V14.1308C-0.048643 12.2804 0.204813 10.5421 0.768049 8.91589C1.38761 7.28972 2.23246 5.85981 3.30261 4.62617C4.37276 3.39252 5.64004 2.38318 7.10446 1.59813C8.62519 0.757009 10.2586 0.2243 12.0046 0V5.55141C9.86431 6.28038 8.3999 7.37383 7.61137 8.83178C6.82284 10.2336 6.42857 11.972 6.42857 14.0467H12.0046V27ZM30 27H18.0031V14.1308C17.9467 12.2804 18.2002 10.5421 18.7634 8.91589C19.383 7.28972 20.2279 5.85981 21.298 4.62617C22.3682 3.39252 23.6354 2.38318 25.0998 1.59813C26.6206 0.757009 28.254 0.2243 30 0V5.55141C27.8597 6.28038 26.3953 7.37383 25.6068 8.83178C24.8182 10.2336 24.424 11.972 24.424 14.0467H30V27Z' fill='%232B2B2D'/%3E%3C/svg%3E")
       @include bg-center
         background-size: contain
+
+    &._desktop
+      display: none
     & .word-img
       display: none
     & .word
@@ -948,7 +966,8 @@ input:-webkit-autofill:active
       border-radius: 14px
       background: #D9D9D9
       height: 100%
-      &.card-img
+
+      &.card-holder
         display: none
         align-items: center
         justify-content: center
@@ -1053,8 +1072,8 @@ input:-webkit-autofill:active
     font-weight: 600
     line-height: 120%
     letter-spacing: -2.3px
-    max-width: 88%
     margin-bottom: 132px
+    max-width: 300px
   & .btn
     display: block
     margin: 0 auto
@@ -1246,7 +1265,7 @@ input:-webkit-autofill:active
   padding-bottom: 200px
   & .form-wrapper
     border-radius: 14px
-    background: var(--based-black)
+    background-color: #1F1F23
     padding: 37px 20px 0 20px
     & .section-title
       color: white
@@ -1266,7 +1285,8 @@ input:-webkit-autofill:active
       margin-bottom: 42px
       max-width: 232px
       padding-left: 22px
-
+    & .form-img
+      display: none
 
     & form
       border-radius: 14px
@@ -1519,3 +1539,708 @@ footer
     display: flex
     align-items: center
     justify-content: center
+
+
+@media (min-width: 768px)
+  \:root
+    --padding-container: 32px
+    --header-height: 120px
+
+  .section-title
+    font-size: 58px
+    margin-bottom: 50px
+
+
+  @keyframes t-anim-1
+    0%
+      width: 40%
+      max-height: 0
+    50%
+      width: 40%
+      max-height: 100%
+    100%
+      width: 18.4%
+      max-height: 100%
+
+  @keyframes t-anim-2
+    0%
+      width: 40%
+      max-height: 0
+    50%
+      width: 40%
+      max-height: 100%
+    100%
+      width: 13.3%
+      max-height: 100%
+
+  @keyframes t-anim-3
+    0%
+      width: 20%
+      max-height: 0
+    50%
+      width: 20%
+      max-height: 100%
+    100%
+      width: 68.3%
+      max-height: 100%
+
+
+  .industries
+    margin-top: 150px
+    & .tabs-block
+      & .tabs-buttons
+        gap: 0 40px
+        & .tab-btn
+          font-size: 14px
+
+      & .tab-content
+        & .tab-item
+          &.active
+            & .cards-bottom
+              & .card
+                &._red
+                  animation: t-anim-1 1.5s .2s forwards
+                &._black
+                  animation: t-anim-2 1.5s .2s forwards
+                &._img
+                  animation: t-anim-3 1.5s .2s forwards
+
+          & .cards-top
+            & .card
+              min-width: 28.5%
+              max-width: 28.5%
+              padding: 40px
+              & .card-img
+                max-width: 40px
+                margin-bottom: 18px
+              & .card-title
+                font-size: 19px
+                margin-bottom: 19px
+              & .card-desc
+                font-size: 12px
+                line-height: 180%
+                max-width: 160px
+          & .cards-bottom
+            max-width: calc( var(--vw, 100vw) - (var(--padding-container) * 2))
+            height: 128px
+            & .card
+              max-height: 0px
+              overflow: hidden
+              min-width: auto!important
+              max-width: 100%!important
+              transition: none
+              &._red
+                width: 40%
+              &._black
+                width: 40%
+              &._img
+                width: 20%
+
+
+  .portfolio
+    margin-top: 150px
+
+
+  .block-quote
+    & .container
+      flex-direction: row
+      align-items: center
+      justify-content: space-between
+
+    & .author-info
+      display: none
+    & .block-quote__image
+      max-width: 45%
+      padding: 0
+      position: relative
+      &:before
+        display: none
+      & .img
+        margin: 0
+        max-width: 100%
+      & .author-info
+        display: block
+        position: absolute
+        bottom: 0
+        right: 0
+        z-index: 1
+        text-align: end
+
+
+  .statistics
+    margin-top: 150px
+    & .section-title__wrapper
+      display: flex
+      align-items: flex-end
+      margin-bottom: 50px
+      & .section-title
+        max-width: 576px
+      & .section-subtitle
+        max-width: 170px
+        font-size: 18px
+        line-height: 120%
+        letter-spacing: -0.9px
+        & p
+          transform: none
+          max-width: 100%
+
+    & .cards
+      display: grid
+      grid-template-columns: repeat(2, 304px)
+      align-items: start
+      justify-content: end
+      gap: 24px
+      position: relative
+      margin: 0
+      padding: 0 80px 0 0
+      &:before
+        top: -34px
+      & .card-stat
+        margin: 0
+        border-radius: 14px
+        padding: 40px 30px 40px 70px
+        min-height: auto
+        &:before
+          width: 40px
+          height: 80px
+          left: 0
+          top: 14px
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='41' height='81' viewBox='0 0 41 81' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.34058e-05 0.227539C5.34058e-05 44.2069 4.95911e-05 27.1145 5.34058e-05 80.5043C4.95911e-05 58.7533 18.5602 41.7286 40.1384 40.3659C18.5602 39.0033 4.95911e-05 22.6512 5.34058e-05 0.227539Z' fill='%23E5E5E5'/%3E%3C/svg%3E") !important
+        & .card-stat__count
+          font-size: 30px
+          line-height: 100%
+          margin-bottom: 7px
+        & .card-stat__title
+          font-size: 18px
+          line-height: 100%
+        & .card-stat__desc
+          margin-top: 30px
+          font-size: 14px
+          line-height: 150%
+        &._white
+          // margin-top: 100px
+          transform: translateY(100px)
+          grid-column: 1/2
+          grid-row: 1/3
+          background-color: white
+        &._red
+          grid-column: 2/3
+          grid-row: 1/2
+        &._black
+          transform: translateX(80px)
+
+
+  .expertise
+    & .section-title
+      margin-bottom: 50px
+
+    & .cards
+      display: grid
+      grid-template-columns: repeat(3, 240px)
+      justify-content: space-between
+      margin: 0
+      padding: 0
+      gap: 47px 20px
+      & .expertise-card
+        min-width: auto
+        max-width: 100%
+        & .img
+          margin-bottom: 15px
+        & .title
+          font-size: 23px
+          padding: 7px 0
+          margin-bottom: 7px
+          min-height: auto
+
+    & .expertise-bottom
+      max-width: 520px
+      & ._bg
+        max-width: 120px
+        bottom: -57.078px
+        right: -56.25px
+
+
+  .use
+    & .section-title__wrapper
+      display: flex
+      justify-content: flex-start
+      align-items: flex-end
+      gap: 0 30px
+      margin-bottom: 50px
+      & .section-title
+        margin: 0
+      & .section-subtitle
+        margin: 0
+        font-size: 14px
+        line-height: 160%
+        max-width: 209px
+    & .use-mobile
+      display: none
+    & .use-desktop
+      display: flex
+      flex-wrap: wrap
+      gap: 20px
+      & .tech-card
+        height: 130px
+        background: white
+        width: calc(30% - 14px)
+        &:nth-child(8n+2),
+        &:nth-child(10n+4),
+        &:nth-child(7n+8)
+          width: calc(40% - 14px)
+        &:nth-child(even)
+          background: var(--based-black)
+
+  .blog-card
+    & .blog-title
+      font-size: 20px
+      line-height: 110%
+
+  .home-blog
+    margin-top: 150px
+    & .section-title
+      &:after
+        display: none
+    & .blog-rows__wrapper
+      position: relative
+      &:before
+        content: ''
+        display: block
+        width: calc(30.625% - 20px)
+        height: 23%
+        position: absolute
+        bottom: 0
+        right: 0
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='167' height='89' viewBox='0 0 167 89' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_778_932)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M89.4644 -2.26964e-05L77.5357 -2.37392e-05L77.5357 68.7317L28.674 20.131L20.2392 28.5208L69.1009 77.1214L-6.74217e-06 77.1214L-7.77944e-06 88.9864L69.1008 88.9864L20.2392 137.587L28.674 145.976L77.5357 97.3757L77.5357 166.108L89.4644 166.108L89.4644 97.3757L138.326 145.976L146.76 137.587L97.8987 88.9864L167 88.9864L167 77.1214L97.8987 77.1214L146.76 28.5207L138.326 20.131L89.4644 68.7316L89.4644 -2.26964e-05Z' fill='%23FF5C5C'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_778_932'%3E%3Crect width='167' height='89' fill='white' transform='matrix(-1 -8.74228e-08 -8.74228e-08 1 167 0)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E")
+        @include bg-center
+          background-size: contain
+    & .blog-rows
+      & .blog-row
+        overflow: visible
+        max-width: 69.375%
+        margin: 0
+        padding: 0
+        &:nth-child(1)
+          display: flex
+          & .blog-card
+            min-width: auto
+            max-width: 100%
+            & .blog-card__wrapper
+              padding-bottom: 100%
+            &:nth-child(1)
+              width: 41.142%
+            &:nth-child(2)
+              width: 58.858%
+              & .blog-card__wrapper
+                padding-bottom: 69.9%
+        &:nth-child(2)
+          display: flex
+          & .blog-card
+            min-width: auto
+            max-width: 100%
+            &:nth-child(1)
+              width: 58.858%
+              & .blog-card__wrapper
+                padding-bottom: 69.9%
+            &:nth-child(2)
+              width: 41.142%
+
+            &:last-child
+              position: absolute
+              top: 0
+              right: 0
+              width: calc(30.625% - 20px)
+              & .blog-card__wrapper
+                padding-bottom: 147.45%
+
+
+  .home-case
+    margin-top: 150px
+    padding: 55px 0 47px 0
+    background-image: url("../img/home/home-case-bg__desktop.svg")
+    background-size: contain
+    background-position: bottom right var(--padding-container)
+    & .container
+      position: relative
+    & .section-title
+      font-size: 34px
+      margin: 0
+      max-width: 540px
+      margin-bottom: 76px
+    & .btn
+      position: absolute
+      bottom: -30px
+      right: var(--padding-container)
+      padding: 25px 0
+    & .logo
+      display: block
+      max-width: 100px
+      & img
+        display: block
+        width: 100%
+        max-width: 100%
+
+
+  .team
+    & .team-card
+      & .team-info
+        & .team-name
+          font-size: 24px
+          line-height: 107%
+          margin-bottom: 4px
+        & .team-pos
+          font-size: 18px
+          line-height: 150%
+          margin-bottom: 30px
+        & .team-sn
+          & .sn-border
+            --size: 54px
+
+
+  .process
+    margin-top: 150px
+    & .section-title__wrapper
+      width: 100%
+      display: flex
+      align-items: flex-end
+      justify-content: flex-start
+      gap: 0 80px
+      margin-bottom: 50px
+      & .section-title
+        margin: 0
+        line-height: 100%
+      & .section-subtitle
+        margin: 0
+        max-width: 140px
+
+    & .tabs-block
+      & .tabs-buttons
+        & .tab-btn
+          min-width: calc(12% - 12px)
+          max-width: calc(12% - 12px)
+          font-size: 14px
+          padding: 5px 0 24px 0
+          &:after
+            height: 13px
+          &._bigger
+            min-width: 40%
+            max-width: 40%
+
+
+    & .process-card
+      display: flex
+      flex-direction: row
+      gap: 0 40px
+      & .process-sidebar
+        max-width: 163px
+        min-width: 163px
+        & .process-sidebar__list
+          & li
+            margin-bottom: 14px
+            & .list-title
+              font-size: 14px
+              & img
+                min-width: 14px
+                max-width: 14px
+            & .list-desc
+              font-size: 14px
+              line-height: 150%
+        & .process-sidebar__title
+          display: block
+          font-size: 24px
+          font-weight: 700
+          line-height: 105%
+          letter-spacing: -0.48px
+          margin-bottom: 20px
+      & .process-main
+        max-width: 426px
+        & .process-main__title
+          display: none
+        & .process-main__desc
+          font-size: 14px
+          line-height: 180%
+
+      & .process-img
+        max-width: 220px
+        display: flex
+        align-items: flex-end
+        margin: 0 0 12px auto
+        & img
+          width: 100%
+          max-width: 100%
+          border-radius: 14px
+
+
+  .home-form
+    & .form-wrapper
+      display: flex
+      justify-content: space-between
+      padding: 35px
+
+    & .form-wrapper__right
+      width: 100%
+      max-width: 320px
+
+
+
+  footer
+    & .footer-cols
+      display: grid
+      grid-template-columns: repeat(4, auto)
+      grid-template-rows: repeat(2, auto)
+      justify-content: space-between
+      & .footer-col
+        grid-row: 1/3
+        &:nth-last-child(1)
+          grid-column: 5/6
+          grid-row: 1/2
+        &:nth-last-child(2)
+          grid-column: 5/6
+          grid-row: 2/3
+
+
+        & .logo
+          max-width: 100px
+
+        & .footer-title
+          font-size: 12px
+          line-height: 140%
+          margin-bottom: 30px
+
+        & .footer-list
+          font-size: 14px
+          line-height: 160%
+          & li
+            margin-bottom: 30px
+
+        & .sn
+          gap: 0 25px
+          & .sn-item
+            --size: 20px
+
+        & form
+          max-width: 190px
+
+
+    & .footer-bottom
+      justify-content: flex-start
+
+
+
+
+
+
+
+@media (min-width: 992px)
+  .portfolio
+    & .portfolio-cards
+      gap: 30px 0
+      & .case-card
+        flex-direction: row
+        gap: 0 60px
+        position: relative
+        align-items: center
+        // justify-content: space-between
+        padding-right: 100px
+        & .case-cart__img
+          max-width: 305px
+        & .case-cart__info
+          & .case-cart__labels
+            margin-bottom: 20px
+          & .case-title
+            font-size: 22px
+            line-height: 24px
+            margin-bottom: 6px
+          & .case-desc
+            font-size: 14px
+            max-width: 455px
+          & .btn-arrow
+            position: absolute
+            top: 50%
+            right: 0
+            transform: translateY(-50%)
+            margin: 0
+            width: 80px
+            height: 50px
+
+
+  .block-quote
+    & .container
+      align-items: flex-end
+    & .block-quote__image
+      max-width: 370px
+    & .block-quote__text
+      font-size: 42px
+      letter-spacing: -2.1px
+      max-width: 100%
+      padding-bottom: 7px
+      &._mob
+        display: none
+      &._desktop
+        display: block
+      & .word-img
+        display: inline-block
+        width: 33px
+        & img
+          width: 100%
+      & .word-row
+        &:nth-child(odd)
+          padding-left: 58px
+        &:last-child
+          text-align: end
+      & .word
+        &.word-mark
+          background-color: var(--based-red)
+          border-radius: 14px
+          padding: 0 17px
+          color: white
+          & span
+            color: white
+        & ._red
+          color: var(--based-black)
+
+
+
+  .statistics
+    & .cards
+      &:before
+        top: 60px
+        left: 140px
+
+  .ceo-block
+    & .cards
+      width: 100%
+      max-width: 23.125%
+      overflow: hidden
+      transition: all .5s
+      position: relative
+      border-radius: 15px
+      &.fade-in
+        max-width: calc(53.75% - 48px)
+        & .card
+          &.card-holder
+            opacity: 0
+            pointer-events: none
+      &.active
+        & .card
+          &.card-main
+            min-width: auto
+
+      & .card
+        &.card-main
+          min-width: calc(53.75vw - 18px - (var(--padding-container) * 2))
+          border-radius: 15px
+        &.card-holder
+          display: flex
+          align-items: center
+          justify-content: center
+          position: absolute
+          left: 0
+          top: 0
+          width: 100%
+          height: 100%
+          transition: all .3s .4s
+          border-radius: 15px
+          & img
+            max-width: 100%
+            display: block
+            width: 140px
+            height: 42px
+            object-fit: contain
+
+  .home-form
+    padding-bottom: 180px
+    & .form-wrapper
+      border-radius: 21px
+      padding: 37px 80px 41px 80px
+    & .form-wrapper__left
+      display: grid
+      grid-template-columns: repeat(2, auto)
+      gap: 40px 30px
+      & .section-title
+        padding: 0
+        margin: 0
+        color: #FFF
+        font-size: 58px
+        font-weight: 400
+        line-height: 105%
+        letter-spacing: -2.9px
+        text-transform: capitalize
+      & .form-desc
+        padding: 0
+        margin: 10px 0 0 0
+        font-size: 14px
+        line-height: 150%
+        max-width: 178px
+      & .form-img
+        display: block
+        grid-column: 1/3
+        grid-row: 2/3
+        max-width: 373px
+        & img
+          width: 100%
+          max-width: 100%
+
+
+    & .form-wrapper__right
+      width: 100%
+      max-width: 336px
+
+
+
+  footer
+    & .footer-cols
+      & .footer-col
+        & form
+          max-width: 226px
+
+
+
+@media (min-width: 1280px)
+  \:root
+    --padding-container: 20px
+    --header-height: 100px
+
+  .section-title
+    font-size: 90px
+    margin-bottom: 80px
+    font-weight: 400
+    line-height: 105%
+    letter-spacing: -4.5px
+
+
+
+  .industries
+    margin-top: 160px
+    & .tabs-block
+      & .tabs-buttons
+        gap: 0 50px
+        margin: 0
+        padding: 0
+        & .tab-btn
+          font-size: 18px
+          padding: 10px 23px
+
+      & .tab-content
+        margin: 60px 0 0 0
+        padding: 0
+        & .tab-item
+          & .cards-top
+            & .card
+              border-radius: 24px
+              padding: 67px 60px 66px 63px
+              & .card-img
+                max-width: 60px
+                margin-bottom: 30px
+              & .card-title
+                font-size: 30px
+                line-height: 110%
+                margin-bottom: 30px
+              & .card-desc
+                font-size: 18px
+                line-height: 180%
+                max-width: 282px
+
+          & .cards-bottom
+            height: 200px
+

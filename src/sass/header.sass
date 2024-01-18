@@ -6,9 +6,16 @@
   top: 0
   left: 0
   width: 100%
-  padding: 26px 0
+  // padding: 26px 0
   z-index: 2
   background-color: var(--bg-white)
+  height: 81px
+  display: flex
+  align-items: center
+  transition: height .3s
+  &.hold
+     height: 50px
+
   &.active
     & .hidden-header
       transform: translateX(0px)
@@ -146,10 +153,15 @@
       width: 100%
       border-radius: 10px
   & .slogan
+    padding-top: 10px
     font-size: 62px
     font-weight: 600
     line-height: 90%
     letter-spacing: -3.076px
+    max-width: 312px
+    & .slogan-row
+      &:last-child
+        text-align: end
     & .slogan-word
       display: inline-block
     & .slogan-img
@@ -160,4 +172,146 @@
       &._rhombus
         width: 45px
         transform: translateY(50%)
+      & img
+        width: 100%
+
+
+
+@media (min-width: 768px)
+  .fixed-header
+    height: 120px
+    &.hold
+      height: 120px
+    &.active
+      & .header-navigation
+        & .burger
+          & span
+            &:nth-child(1)
+              top: 22px
+            &:nth-child(3)
+              top: 22px
+
+    & .logo
+      max-width: 124px
+    & .header-navigation
+      gap: 0 95px
+      & .btn-call
+        font-size: 16px
+        padding: 16.2px 49.5px
+      & .burger
+        width: 60px
+        height: 50px
+        & span
+          height: 5px
+          &:nth-child(2)
+            top: 22px
+            width: 43px
+
+
+    & .hidden-header
+      & nav
+        & ul
+          & li
+            & a
+              font-size: 70px
+
+
+  .home-header
+    & .slogan
+      font-size: 106px
+      line-height: 82%
+      letter-spacing: -5.3px
+      max-width: 796px
+      padding-top: 50px
+      font-weight: 500
+      & br
+        display: none
+      & .slogan-row
+        &:last-child
+          text-align: center
+      & .slogan-img
+        &._mob
+          display: none
+        &._desk
+          display: inline-block
+        &._star
+          width: 70px
+          margin: 0 20px
+        &._rhombus
+          width: 78px
+          margin: 0 20px
+          transform: translateY(35%)
+
+
+
+
+
+
+@media (min-width: 992px)
+  .home-header
+    & .container
+      position: relative
+
+    & .header-img
+      max-width: 550px
+    & .home-header__left
+      gap: 80px 0
+    & .home-header__right
+      position: absolute
+      top: 224px
+      right: 100px
+      max-width: 222px
+      gap: 40px 0
+      & .header-description
+        max-width: 100%
+
+      & .btn-border
+        padding: 23px 0
+        width: 100%
+
+
+@media (min-width: 1280px)
+  .fixed-header
+    height: 100px
+
+  .home-header
+    // padding-top: 80px
+    & .slogan
+      font-size: 142px
+      line-height: 82%
+      max-width: 940px
+      padding-top: 10px
+      & .slogan-img
+        &._star
+          width: 93px
+        &._rhombus
+          width: 104px
+          transform: translateY(50%)
+    & .container
+      display: flex
+      flex-direction: row
+      height: 100%
+      min-height: calc( (var(--vh, 100vh) * 100) - var(--header-height) )
+    & .home-header__right
+      position: static
+      margin: 230px 0 0 -30px
+      max-width: 280px
+      gap: 110px 0
+      & .header-description
+        max-width: 280px
+        font-size: 18px
+        line-height: 160%
+
+    & .home-header__left
+      gap: 40px 0
+      justify-content: space-around
+
+
+    & .header-img
+      max-width: 740px
+      & img
+        border-radius: 24px
+
+
+
 

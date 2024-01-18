@@ -796,13 +796,19 @@ function hideHeader() {
     const containHide = () => header.classList.contains('hold');
 
     window.addEventListener('scroll', () => {
-        if (scrollPosition() > last_scroll && !containHide() && scrollPosition() > defaultOffset) {
+        if (scrollPosition() > defaultOffset && !containHide()){
             header.classList.add('hold');
-
-        } else if (scrollPosition() < last_scroll && containHide()) {
+        }else if (scrollPosition() < defaultOffset && containHide()){
             header.classList.remove('hold');
-
         }
+
+        // if (scrollPosition() > last_scroll && !containHide() && scrollPosition() > defaultOffset) {
+        //     header.classList.add('hold');
+        //
+        // } else if (scrollPosition() < last_scroll && containHide()) {
+        //     header.classList.remove('hold');
+        //
+        // }
 
         last_scroll = scrollPosition();
     })
@@ -815,6 +821,36 @@ if (document.querySelector('.swiper-ceo')){
     new Swiper('.swiper-ceo', {
         slidesPerView: 1.1,
         spaceBetween: 20,
+        initialSlide: 2,
+        breakpoints:{
+            992: {
+                slidesPerView: 'auto',
+                spaceBetween: 24
+            }
+        },
+        on: {
+            init: function (swiper) {
+                let slides = swiper.slides;
+
+                if (window.matchMedia('(min-width: 992px)').matches){
+                    slides[1].classList.add('active');
+                    slides[1].classList.add('fade-in');
+                }
+
+                slides.forEach(slide => {
+                    slide.addEventListener('click', () => {
+                        removeClass(slides, 'fade-in');
+                        removeClass(slides, 'active');
+
+                        slide.classList.add('fade-in');
+                        setTimeout(() => {
+                            slide.classList.add('active');
+                        }, 500)
+
+                    })
+                })
+            },
+        },
     })
 }
 
@@ -828,5 +864,11 @@ if (document.querySelector('.team-swiper')){
         },
         //slidesPerView: 1.45,
         spaceBetween: 64,
+        breakpoints:{
+            768: {
+               slidesPerView: 2.5,
+                spaceBetween: 90,
+            }
+        },
     })
 }
