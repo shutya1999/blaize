@@ -821,7 +821,6 @@ if (document.querySelector('.swiper-ceo')){
     new Swiper('.swiper-ceo', {
         slidesPerView: 1.1,
         spaceBetween: 20,
-        initialSlide: 2,
         breakpoints:{
             992: {
                 slidesPerView: 'auto',
