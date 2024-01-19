@@ -64,6 +64,11 @@ body
   font-style: normal
   font-weight: 400
   background-color: var(--bg-white)
+  &.hide-cursor
+    cursor: none!important
+    & a
+      cursor: none!important
+
 
 
 ul[class], ol[class]
@@ -95,6 +100,7 @@ input, button, textarea, select
   min-width: var(--size)
   max-width: var(--size)
   height: var(--size)
+  cursor: pointer
   @include bg-center
     background-size: contain
 
@@ -128,7 +134,7 @@ input, button, textarea, select
   border-radius: 200px
   background: var(--based-black)
   color: white
-  border: none
+  // border: none
   outline: none
   cursor: pointer
   font-size: 18px
@@ -137,8 +143,41 @@ input, button, textarea, select
   letter-spacing: -0.36px
   text-transform: uppercase
   padding: 20px 40px
+  position: relative
+  border: 1px solid var(--based-black)
+  &:after
+    content: ''
+    position: absolute
+    width: calc(100% + 16px)
+    height: calc(100% + 16px)
+    border: 5px solid var(--based-black)
+    left: -8px
+    top: -8px
+    border-radius: 100px
+    // transform: scale(0.9)
+    opacity: 0
+    transition: all .3s
+    pointer-events: none
   &.btn-red
     background: var(--based-red)
+    border-color: var(--based-red)
+    &:after
+      border-color: var(--based-red)
+    &:active, &.active
+      color: var(--based-red)
+      
+      
+  &:active, &.active
+    background-color: rgba(0,0,0,0)
+    color: var(--based-black)
+    &:after
+      opacity: 0!important
+  @media (hover: hover)
+    &:hover
+      &:after
+        opacity: 1
+
+
 
 .btn-border
   border-radius: 200px
@@ -153,18 +192,42 @@ input, button, textarea, select
   text-transform: uppercase
   padding: 18px 40px
   transition: all .3s
+  position: relative
+  overflow: hidden
   &.btn-black
     border: 2px solid var(--based-black)
     color: var(--based-black)
     box-shadow: 0 0 0 2px rgba(0,0,0,0)
+    &:after
+      background-color:  var(--based-black)
+  &:after
+    pointer-events: none
+    transform: translateY(5em)
+    content: ""
+    z-index: -1
+    position: absolute
+    width: 100%
+    padding-top: 100%
+    left: 0%
+    top: 0%
+    right: 0%
+    bottom: auto
+    border-radius: 50%
+    transition: border-radius 0.15s cubic-bezier(0.12, 0, 0.39, 0) 0.0s, transform 0.3s cubic-bezier(0.12, 0, 0.39, 0)
+
   @media (hover: hover)
     &:hover
+      color: white
       &.btn-black
-        box-shadow: 0 0 0 2px var(--based-black)
+        // box-shadow: 0 0 0 2px var(--based-black)
       &:active, &.active
         background-color: var(--based-black)
         color: white
         box-shadow: 0 0 0 2px rgba(0,0,0,0)
+      &:after
+        border-radius: 0%
+        transform: translateY(0em)
+        transition: border-radius 0.15s cubic-bezier(0.61, 1, 0.88, 1) 0.15s, transform 0.3s cubic-bezier(0.61, 1, 0.88, 1)
 
 .container
   width: 100%
@@ -729,9 +792,11 @@ input:-webkit-autofill:active
     flex-direction: column
     gap: 40px 0
     & .case-card
-      display: flex
-      flex-direction: column
-      gap: 20px 0
+      color: var(--based-black)
+      & .case-card__wrapper
+        display: flex
+        flex-direction: column
+        gap: 20px 0
       & .case-cart__img
         width: 100%
         & img
@@ -765,17 +830,17 @@ input:-webkit-autofill:active
           letter-spacing: -0.32px
           opacity: 0.5
 
-        & .btn-arrow
-          display: block
-          width: 56px
-          height: 35px
-          border: none
-          outline: none
-          padding: 0
-          margin: 20px 0 0 auto
-          background: url("data:image/svg+xml;charset=utf8,%3Csvg width='56' height='35' viewBox='0 0 56 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M38.4888 -7.64949e-07C38.4888 11.6667 44.3221 17.5 55.9888 17.5C44.3221 17.5 38.4888 23.3333 38.4888 35' stroke='%232B2B2D' stroke-width='2.70913'/%3E%3Cpath d='M54.3846 17.5H0' stroke='%232B2B2D' stroke-width='2.70913'/%3E%3C/svg%3E")
-          @include bg-center
-            background-size: contain
+      & .btn-arrow
+        display: block
+        width: 56px
+        height: 35px
+        border: none
+        outline: none
+        padding: 0
+        margin: 20px 0 0 auto
+        background: url("data:image/svg+xml;charset=utf8,%3Csvg width='56' height='35' viewBox='0 0 56 35' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M38.4888 -7.64949e-07C38.4888 11.6667 44.3221 17.5 55.9888 17.5C44.3221 17.5 38.4888 23.3333 38.4888 35' stroke='%232B2B2D' stroke-width='2.70913'/%3E%3Cpath d='M54.3846 17.5H0' stroke='%232B2B2D' stroke-width='2.70913'/%3E%3C/svg%3E")
+        @include bg-center
+          background-size: contain
 
 
 
@@ -957,6 +1022,8 @@ input:-webkit-autofill:active
   margin-top: 60px
   & .swiper-ceo
     overflow: visible
+    & .swiper-ceo__arrow
+      display: none
   & .cards
     height: auto
     & .card
@@ -2036,12 +2103,13 @@ footer
     & .portfolio-cards
       gap: 30px 0
       & .case-card
-        flex-direction: row
-        gap: 0 60px
         position: relative
-        align-items: center
-        // justify-content: space-between
-        padding-right: 100px
+        & .case-card__wrapper
+          flex-direction: row
+          gap: 0 60px
+          position: relative
+          align-items: center
+          padding-right: 100px
         & .case-cart__img
           max-width: 305px
         & .case-cart__info
@@ -2054,14 +2122,15 @@ footer
           & .case-desc
             font-size: 14px
             max-width: 455px
-          & .btn-arrow
-            position: absolute
-            top: 50%
-            right: 0
-            transform: translateY(-50%)
-            margin: 0
-            width: 80px
-            height: 50px
+
+        & .btn-arrow
+          position: absolute
+          top: 50%
+          right: 0
+          transform: translateY(-50%)
+          margin: 0
+          width: 80px
+          height: 50px
 
 
   .block-quote
@@ -2201,6 +2270,40 @@ footer
     --padding-container: 20px
     --header-height: 100px
 
+  .form-group
+    margin-bottom: 34px
+    & .form-input
+      font-size: 22px
+      padding-bottom: 9px
+      &::placeholder
+        font-size: 22px
+
+  .form-group
+    & .checkbox
+      & + label
+        font-size: 14px
+        line-height: 190%
+
+  .form-group
+    & textarea
+      min-height: 87px
+
+  .select
+    margin-bottom: 34px
+
+  .select__toggle
+    height: 40px
+    &:after
+      width: 32px
+      height: 32px
+    & label
+      font-size: 22px
+    & button
+      font-size: 22px!important
+
+  .select__option
+    font-size: 18px
+
   .section-title
     font-size: 90px
     margin-bottom: 80px
@@ -2244,3 +2347,464 @@ footer
           & .cards-bottom
             height: 200px
 
+
+  .custom-cursor
+    position: fixed
+    pointer-events: none
+    z-index: 99999
+    width: 236px
+    height: 236px
+    border-radius: 50%
+    background-color: white
+    transition: left .15s, top .15s, transform .5s, opacity .2s
+    opacity: 0
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='236' height='236' viewBox='0 0 236 236' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='118' cy='118' r='118' fill='%23E5E5E5'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M148.81 110.19C141.59 102.969 138.242 92.3817 138.242 79L144.242 79C144.242 91.4568 147.354 100.248 153.053 105.947C158.752 111.646 167.543 114.758 180 114.758L180 120.758C167.543 120.758 158.752 123.87 153.053 129.569C147.354 135.267 144.242 144.059 144.242 156.516L138.242 156.516C138.242 143.134 141.59 132.547 148.81 125.326C152.139 121.997 156.183 119.492 160.886 117.758C156.183 116.024 152.139 113.518 148.81 110.19Z' fill='%232B2B2D'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M56 114.758H176.447V120.758H56V114.758Z' fill='%232B2B2D'/%3E%3C/svg%3E")
+    @include bg-center
+      background-size: contain
+    &.active
+      opacity: 1
+    &.ceo-arrow-next
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='236' height='236' viewBox='0 0 236 236' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='118' cy='118' r='118' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M148.81 110.19C141.59 102.969 138.242 92.3817 138.242 79L144.242 79C144.242 91.4568 147.354 100.248 153.053 105.947C158.752 111.646 167.543 114.758 180 114.758L180 120.758C167.543 120.758 158.752 123.87 153.053 129.569C147.354 135.267 144.242 144.059 144.242 156.516L138.242 156.516C138.242 143.134 141.59 132.547 148.81 125.326C152.139 121.997 156.183 119.492 160.886 117.758C156.183 116.024 152.139 113.518 148.81 110.19Z' fill='%232B2B2D'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M56 114.758H176.447V120.758H56V114.758Z' fill='%232B2B2D'/%3E%3C/svg%3E")
+    &.ceo-arrow-prev
+      transform: rotate(180deg)
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='236' height='236' viewBox='0 0 236 236' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='118' cy='118' r='118' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M148.81 110.19C141.59 102.969 138.242 92.3817 138.242 79L144.242 79C144.242 91.4568 147.354 100.248 153.053 105.947C158.752 111.646 167.543 114.758 180 114.758L180 120.758C167.543 120.758 158.752 123.87 153.053 129.569C147.354 135.267 144.242 144.059 144.242 156.516L138.242 156.516C138.242 143.134 141.59 132.547 148.81 125.326C152.139 121.997 156.183 119.492 160.886 117.758C156.183 116.024 152.139 113.518 148.81 110.19Z' fill='%232B2B2D'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M56 114.758H176.447V120.758H56V114.758Z' fill='%232B2B2D'/%3E%3C/svg%3E")
+    &.active-menu
+      width: 236px
+      height: 236px
+      mix-blend-mode: exclusion
+      background-color: var(--based-black)
+      // background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='236' height='236' viewBox='0 0 236 236' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='118' cy='118' r='118' fill='%232B2B2D'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M148.81 110.19C141.59 102.969 138.242 92.3817 138.242 79L144.242 79C144.242 91.4568 147.354 100.248 153.053 105.947C158.752 111.646 167.543 114.758 180 114.758L180 120.758C167.543 120.758 158.752 123.87 153.053 129.569C147.354 135.267 144.242 144.059 144.242 156.516L138.242 156.516C138.242 143.134 141.59 132.547 148.81 125.326C152.139 121.997 156.183 119.492 160.886 117.758C156.183 116.024 152.139 113.518 148.81 110.19Z' fill='%23E5E5E5'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M56 114.758H176.447V120.758H56V114.758Z' fill='%23E5E5E5'/%3E%3C/svg%3E")
+
+
+  .portfolio
+    & .portfolio-cards
+      gap: 10px 0
+      & .case-card
+        transition: all 1s
+        position: relative
+
+        &:hover
+          & .case-card__wrapper
+            background-color: white
+            transform: translateX(16.3%)
+          & .btn-arrow
+            opacity: 0
+            pointer-events: none
+
+        & .case-card__wrapper
+          gap: 0 90px
+          padding: 40px
+          border-radius: 37px
+          max-width: 86%
+          position: static
+          transition: all .5s
+        & .case-cart__img
+          max-width: 530px
+          & img
+            border-radius: 24px
+        & .case-cart__info
+          & .case-cart__labels
+            margin-bottom: 40px
+            & .case-label
+              font-size: 18px
+              padding: 7px 19px
+          & .case-title
+            font-size: 30px
+            margin-bottom: 16px
+          & .case-desc
+            font-size: 18px
+            max-width: 585px
+            line-height: 180%
+        & .btn-arrow
+          transition: all .3s
+        & .btn-hover
+          opacity: 0
+          position: fixed
+          top: 0
+          left: 0
+          width: 25px
+          height: 25px
+          border-radius: 100%
+          background-color: white
+
+
+  .block-quote
+    margin-top: 200px
+    & .block-quote__image
+      max-width: 587px
+    & .block-quote__text
+      font-size: 67px
+      line-height: 120%
+      &:before
+        width: 41px
+        height: 37px
+        bottom: calc(100% + 40px)
+      & .word-row
+        &:nth-child(odd)
+          padding-left: 90px
+      & .word
+        &.word-mark
+          padding: 2px 30px
+          border-radius: 24px
+
+
+  .statistics
+    & .section-title__wrapper
+      gap: 0 17px
+      margin-bottom: 72px
+      & .section-title
+        max-width: 912px
+        line-height: 100%
+      & .section-subtitle
+        font-size: 30px
+        max-width: 270px
+
+  .statistics
+    & .cards
+      grid-template-columns: repeat(2,432px)
+      gap: 30px
+      padding-right: 154px
+      &:before
+        display: none
+      & .card-stat
+        padding: 84px 50px 62px 100px
+        border-radius: 20px
+        &:before
+          width: 63px
+          height: 127px
+          top: 22px
+        &._white
+          position: relative
+          &:after
+            content: ''
+            display: block
+            position: absolute
+            right: calc(100% + 30px)
+            top: 0
+            transform: translateY(-50%)
+            width: 125px
+            height: 125px
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='79' height='79' viewBox='0 0 79 79' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='79' height='79' rx='14' fill='%232B2B2D'/%3E%3Cpath d='M38.8715 73.1262C40.0196 54.829 54.5078 40.2465 72.6871 39.091C54.5078 37.9355 40.0196 23.3532 38.8715 5.05585C37.7235 23.3532 23.235 37.9355 5.05591 39.091C23.235 40.2465 37.7235 54.829 38.8715 73.1262Z' fill='%23E5E5E5'/%3E%3C/svg%3E")
+            @include bg-center
+              background-size: contain
+        &._red
+          & .card-stat__desc
+            opacity: 0.8
+        &._black
+          transform: translateX(154px)
+          & .card-stat__desc
+            opacity: 0.6
+        & .card-stat__count
+          font-size: 46px
+          line-height: 100%
+          margin-bottom: 13px
+        & .card-stat__title
+          font-size: 30px
+          line-height: 100%
+        & .card-stat__desc
+          margin-top: 48px
+          font-size: 18px
+          max-width: 255px
+
+
+  .ceo-block
+    & .swiper-ceo
+      position: relative
+      & .swiper-slide
+        min-height: 415px
+      & .swiper-ceo__arrow
+        display: block
+        position: absolute
+        width: 50%
+        height: 100%
+        top: 0
+        z-index: 3
+        opacity: 0
+        &._next
+          right: 0
+        &._prev
+          left: 0
+
+    & .cards
+      & .card.card-main
+        & .desc
+          font-size: 18px
+          line-height: 160%
+        & .author-info
+          margin-top: 21px
+          max-width: 100%
+          font-size: 16px
+
+      & .card
+        &.card-holder
+          & img
+            width: 200px
+            height: 90px
+
+
+  .expertise
+    & .cards
+      grid-template-columns: repeat(3, 310px)
+      justify-content: start
+      gap: 70px 155px
+      & .expertise-card
+        & .img
+          width: 90px
+          margin-bottom: 30px
+          & img
+            width: 100%
+        & .title
+          font-size: 30px
+          padding: 10px 0
+          margin-bottom: 20px
+        & .desc
+          font-size: 18px
+          line-height: 160%
+          padding: 10px 0
+    & .expertise-bottom
+      max-width: 1050px
+      margin-top: 40px
+      & img
+        border-radius: 24px
+      & ._bg
+        width: 280px
+        max-width: 100%
+        height: 280px
+        bottom: -130.078px
+        right: -130.25px
+        border-radius: 0
+
+
+  .use
+    margin-top: 150px
+    & .section-title__wrapper
+      gap: 0 130px
+      margin-bottom: 80px
+      align-items: center
+      & .section-title
+        line-height: 110%
+      & .section-subtitle
+        font-size: 18px
+        max-width: 270px
+
+    & .use-desktop
+      gap: 30px
+      & .tech-card
+        height: 200px
+        width: calc(30% - 20px)
+        transition: all .5s
+        &.hover
+          width: calc(30% - 20px)
+        &.hover-zoom
+          width: calc(40% - 20px)
+        & .img
+          width: 260px
+
+        &:nth-child(8n+2),
+        &:nth-child(10n+4),
+        &:nth-child(7n+8)
+          width: calc(40% - 20px)
+          &.hover
+            width: calc(30% - 20px)
+          &.hover-zoom
+            width: calc(40% - 20px)
+
+  .blog-card
+    border-radius: 24px
+    &:hover
+      & .blog-labels
+        opacity: 1
+      & .blog-card__wrapper
+        &:before
+          opacity: 1
+          transform: translateY(0px)
+
+
+    & .blog-card__wrapper
+      &:before
+        transition: all .4s
+        opacity: 0
+        transform: translateY(100%)
+    & .blog-labels
+      gap: 12px 0
+      top: 40px
+      left: 47px
+      transition: all .3s
+      opacity: 0
+      & .blog-label
+        font-size: 18px
+        line-height: 130%
+        padding: 8px 16px
+    & .blog-title
+      font-size: 30px
+      line-height: 110%
+      left: 47px
+      bottom: 40px
+
+
+
+  .home-blog
+    margin-top: 250px
+
+
+  .home-case
+    background: none
+    padding: 0
+    & .container
+      position: relative
+      background-image: url("../img/home/home-case-bg__desktop.svg")
+      background-size: contain
+      background-position: bottom right var(--padding-container)
+      background-repeat: no-repeat
+    & .section-title
+      font-size: 47px
+      max-width: 744px
+      padding-top: 88px
+      margin-bottom: 140px
+    & .logo
+      padding-bottom: 81px
+
+    & .btn
+      bottom: 60px
+
+
+  .team
+    margin-top: 250px
+    & .team-card
+      & .team-img
+        max-width: 490px
+        margin-bottom: 50px
+        & svg
+          width: 605px
+          right: 0
+      & .team-info
+        & .team-name
+          font-size: 30px
+          margin-bottom: 16px
+        & .team-pos
+          font-size: 18px
+          line-height: 150%
+          margin-bottom: 40px
+        & .team-sn
+          gap: 0 40px
+          & .sn-border
+            --size: 70px
+
+
+  .process
+    & .section-title__wrapper
+      gap: 0 130px
+      margin-bottom: 60px
+      & .section-title
+        margin-bottom: 20px
+      & .section-subtitle
+        font-size: 18px
+        max-width: 220px
+
+
+    & .tabs-block
+      & .tabs-buttons
+        gap: 0 20px
+        padding: 0
+        margin: 0
+        & .tab-btn
+          font-size: 18px
+          padding: 10px 0 42px 10px
+          min-width: calc(12% - 18px)
+          max-width: calc(12% - 18px)
+          &:after
+            height: 22px
+          &._bigger
+            min-width: calc(40% - 10px)
+            max-width: calc(40% - 10px)
+
+    & .tab-content
+      margin-top: 60px
+    & .process-card
+      gap: 0 67px
+      padding-bottom: 100px
+      & .process-sidebar
+        min-width: 237px
+        max-width: 237px
+        & .process-sidebar__title
+          font-size: 30px
+          margin-bottom: 30px
+          text-transform: uppercase
+
+        & .process-sidebar__list
+          & li
+            margin-bottom: 30px
+            & .list-title
+              font-size: 18px
+              & img
+                min-width: 24px
+                max-width: 24px
+            & .list-desc
+              font-size: 18px
+      & .process-main
+        max-width: 575px
+        & .process-main__desc
+          font-size: 18px
+
+      & .process-img
+        max-width: 433px
+        transform: translateY(100px)
+
+
+  .home-form
+    margin-top: 250px
+    padding-bottom: 250px
+    & .form-wrapper
+      padding: 60px 154px 65px 135px
+    & .form-wrapper__right
+      max-width: 530px
+      & form
+        border-radius: 24px
+        padding: 40px 45px
+        transform: translateY(165px)
+
+    & .form-wrapper__left
+      gap: 65px 40px
+      & .section-title
+        font-size: 90px
+      & .form-desc
+        font-size: 18px
+        max-width: 281px
+        margin-top: 16px
+
+      & .form-img
+        max-width: 588px
+
+
+  footer
+    padding: 80px 0 11px 0
+    & .footer-cols
+      grid-template-rows: 1fr
+      margin-bottom: 100px
+      & .footer-col
+        &:nth-last-child(1)
+          grid-column: 4/5
+          grid-row: 1/2
+        &:nth-last-child(2)
+          grid-column: 5/6
+          grid-row: 1/2
+
+        & .logo
+          max-width: 120px
+        & .footer-title
+          font-size: 16px
+          line-height: 140%
+          margin-bottom: 20px
+        & .footer-list
+          font-size: 14px
+          line-height: 160%
+          & li
+            margin-bottom: 10px
+
+        & form
+          max-width: 277px
+          min-width: 277px
+
+
+    & .footer-bottom
+      font-size: 14px

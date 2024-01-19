@@ -91,6 +91,7 @@ btns_anchor.forEach(btn => {
 const burger = document.querySelector('.burger');
 
 burger.addEventListener('click', () => {
+    document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
     header.classList.toggle('active');
     closeAllModal();
     bodyLockToggle();
@@ -286,7 +287,7 @@ if (overlayModal) {
 function closeAllModal() {
     //fadeOut(overlayModal);
     // bodyUnlock();
-    overlayModal.classList.remove('active');
+    // overlayModal.classList.remove('active');
     document.querySelectorAll('._js-modal').forEach(modal => {
         modal.classList.remove('active');
     })
@@ -320,7 +321,7 @@ if (btnsOpenModal.length) {
                             // If need show blur overlay
                             if (modal_node.dataset.overlay === '') {
                                 console.log(3);
-                                overlayModal.classList.remove('active');
+                                // overlayModal.classList.remove('active');
                                 //fadeOut(overlayModal);
                             }
                         } else {
@@ -330,7 +331,7 @@ if (btnsOpenModal.length) {
                             // If need show blur overlay
                             if (modal_node.dataset.overlay === '') {
                                 console.log(4);
-                                overlayModal.classList.add('active');
+                                // overlayModal.classList.add('active');
                                 //fadeIn(overlayModal);
                             }
                         }
@@ -343,7 +344,7 @@ if (btnsOpenModal.length) {
 
                         if (modal_node.dataset.overlay === '') {
                             console.log(1);
-                            overlayModal.classList.add('active');
+                            // overlayModal.classList.add('active');
                             //fadeIn(overlayModal);
                         }
                     }
@@ -369,7 +370,7 @@ if (btnsCloseModal.length > 0) {
             // If need show blur overlay
             if (modal.dataset.overlay === '') {
                 console.log(2);
-                overlayModal.classList.remove('active');
+                // overlayModal.classList.remove('active');
                 //fadeOut(overlayModal);
             }
         })
@@ -443,16 +444,16 @@ let form_groups_required = document.querySelectorAll('.form-group.required, .for
 form_groups_required.forEach(form_group => validate(form_group))
 
 const formGroups = document.querySelectorAll('.form-group');
-if (formGroups.length){
+if (formGroups.length) {
     formGroups.forEach(formGroup => {
         const btnClear = formGroup.querySelector('.btn-clear'),
             input = formGroup.querySelector('.form-input');
 
-        if(btnClear){
+        if (btnClear) {
             input.addEventListener('input', () => {
-                if (input.value.trim() !== '' && !formGroup.classList.contains('_show-btn-clear') && !formGroup.classList.contains('has-error')){
+                if (input.value.trim() !== '' && !formGroup.classList.contains('_show-btn-clear') && !formGroup.classList.contains('has-error')) {
                     formGroup.classList.add('_show-btn-clear');
-                }else if (input.value.trim() === ''){
+                } else if (input.value.trim() === '') {
                     formGroup.classList.remove('_show-btn-clear');
                 }
             })
@@ -796,65 +797,118 @@ function hideHeader() {
     const containHide = () => header.classList.contains('hold');
 
     window.addEventListener('scroll', () => {
-        if (scrollPosition() > defaultOffset && !containHide()){
+        if (scrollPosition() > defaultOffset && !containHide()) {
             header.classList.add('hold');
-        }else if (scrollPosition() < defaultOffset && containHide()){
+
+            // setTimeout(() => {
+            //     document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+            // }, 310)
+        } else if (scrollPosition() < defaultOffset && containHide()) {
             header.classList.remove('hold');
+
+            // setTimeout(() => {
+            //     document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+            // }, 310)
         }
 
-        // if (scrollPosition() > last_scroll && !containHide() && scrollPosition() > defaultOffset) {
-        //     header.classList.add('hold');
-        //
-        // } else if (scrollPosition() < last_scroll && containHide()) {
-        //     header.classList.remove('hold');
-        //
-        // }
 
         last_scroll = scrollPosition();
     })
 }
+
 hideHeader();
 
 
 // Swiper CEO
-if (document.querySelector('.swiper-ceo')){
+let ceoBlockPrev = document.querySelector('.ceo-block .swiper-ceo__arrow._prev'),
+    ceoBlockNext = document.querySelector('.ceo-block .swiper-ceo__arrow._next');
+
+if (document.querySelector('.swiper-ceo')) {
     new Swiper('.swiper-ceo', {
         slidesPerView: 1.1,
         spaceBetween: 20,
-        breakpoints:{
+        breakpoints: {
             992: {
                 slidesPerView: 'auto',
                 spaceBetween: 24
-            }
+            },
+            1280: {
+                allowTouchMove: false,
+            },
         },
         on: {
             init: function (swiper) {
                 let slides = swiper.slides;
 
-                if (window.matchMedia('(min-width: 992px)').matches){
+                if (window.matchMedia('(min-width: 992px)').matches) {
                     slides[1].classList.add('active');
                     slides[1].classList.add('fade-in');
                 }
 
                 slides.forEach(slide => {
                     slide.addEventListener('click', () => {
-                        removeClass(slides, 'fade-in');
-                        removeClass(slides, 'active');
+                        if (!slide.classList.contains('active')) {
+                            removeClass(slides, 'fade-in');
+                            removeClass(slides, 'active');
 
-                        slide.classList.add('fade-in');
-                        setTimeout(() => {
-                            slide.classList.add('active');
-                        }, 500)
-
+                            slide.classList.add('fade-in');
+                            setTimeout(() => {
+                                slide.classList.add('active');
+                            }, 500)
+                        }
                     })
                 })
+
+                if (ceoBlockNext) {
+                    ceoBlockNext.addEventListener('click', () => {
+                        let active = 0;
+
+                        slides.forEach((slide, index) => {
+                            if (slide.classList.contains('active')) {
+                                active = index;
+                            }
+                        })
+
+                        if (active < (slides.length - 1)) {
+                            removeClass(slides, 'fade-in');
+                            removeClass(slides, 'active');
+
+                            slides[active + 1].classList.add('fade-in');
+                            setTimeout(() => {
+                                slides[active + 1].classList.add('active');
+                            }, 500)
+                        }
+                    })
+                }
+
+                if (ceoBlockPrev) {
+                    ceoBlockPrev.addEventListener('click', () => {
+                        let active = 0;
+
+                        slides.forEach((slide, index) => {
+                            if (slide.classList.contains('active')) {
+                                active = index;
+                            }
+                        })
+
+                        if (active > 0) {
+                            removeClass(slides, 'fade-in');
+                            removeClass(slides, 'active');
+
+                            slides[active - 1].classList.add('fade-in');
+                            setTimeout(() => {
+                                slides[active - 1].classList.add('active');
+                            }, 500)
+                        }
+                    })
+                }
             },
         },
     })
 }
 
 // Swiper Team
-if (document.querySelector('.team-swiper')){
+if (document.querySelector('.team-swiper')) {
     new Swiper('.team-swiper', {
         slidesPerView: 1.45,
         freeMode: {
@@ -863,11 +917,141 @@ if (document.querySelector('.team-swiper')){
         },
         //slidesPerView: 1.45,
         spaceBetween: 64,
-        breakpoints:{
+        breakpoints: {
             768: {
-               slidesPerView: 2.5,
+                slidesPerView: 2.5,
                 spaceBetween: 90,
             }
         },
     })
 }
+
+
+function cursor() {
+    let cursor = document.querySelector('.custom-cursor'),
+        caseCards = document.querySelectorAll('.case-card'),
+        hiddenMenu = document.querySelector('.hidden-header'),
+        posX = 0,
+        posY = 0,
+        mouseX = 0,
+        mouseY = 0;
+
+    console.log(hiddenMenu);
+
+    gsap.to({}, 0.004, {
+        repeat: -1,
+        onRepeat: function () {
+            posX += (mouseX - posX) / 7;
+            posY += (mouseY - posY) / 7;
+
+            gsap.set(cursor, {
+                css: {
+                    left: mouseX - (cursor.clientWidth / 2),
+                    top: mouseY - (cursor.clientWidth / 2),
+                }
+            })
+        }
+    });
+
+    window.addEventListener('mousemove', function (e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    })
+    if (caseCards.length) {
+        caseCards.forEach(caseCard => {
+            caseCard.addEventListener('mouseenter', () => {
+                cursor.classList.add('active');
+                document.body.classList.add('hide-cursor');
+            })
+
+            caseCard.addEventListener('mouseleave', () => {
+                cursor.classList.remove('active');
+                document.body.classList.remove('hide-cursor');
+            })
+        })
+    }
+    if (hiddenMenu){
+        hiddenMenu.addEventListener('mouseenter', () => {
+            cursor.classList.add('active');
+            cursor.classList.add('active-menu');
+            document.body.classList.add('hide-cursor');
+        })
+
+        hiddenMenu.addEventListener('mouseleave', () => {
+            cursor.classList.remove('active');
+            cursor.classList.remove('active-menu');
+            document.body.classList.remove('hide-cursor');
+        })
+    }
+    if (ceoBlockPrev) {
+        ceoBlockPrev.addEventListener('mouseenter', () => {
+            cursor.classList.add('active');
+            cursor.classList.add('ceo-arrow-prev');
+
+            document.body.classList.add('hide-cursor');
+        })
+
+        ceoBlockPrev.addEventListener('mouseleave', () => {
+            cursor.classList.remove('active');
+            cursor.classList.remove('ceo-arrow-prev');
+            document.body.classList.remove('hide-cursor');
+        })
+    }
+    if (ceoBlockNext) {
+        ceoBlockNext.addEventListener('mouseenter', () => {
+            cursor.classList.add('active');
+            cursor.classList.add('ceo-arrow-next');
+
+            document.body.classList.add('hide-cursor');
+        })
+
+        ceoBlockNext.addEventListener('mouseleave', () => {
+            cursor.classList.remove('active');
+            cursor.classList.remove('ceo-arrow-next');
+            document.body.classList.remove('hide-cursor');
+        })
+    }
+
+}
+
+cursor();
+
+// Tech card hover
+let techCard = document.querySelectorAll('.use-desktop .tech-card');
+if(techCard.length){
+    let techCard_arr =  Array.from(techCard);
+
+    var res = [];
+    let size = 3;
+
+    for (var i = 0; i < techCard_arr.length; i += size) {
+        res.push(techCard_arr.slice(i, i + size));
+    }
+
+    for (let i = 0; i < res.length; i++) {
+        let arr_chunk = res[i];
+        for (let j = 0; j < arr_chunk.length; j++) {
+            let elem = arr_chunk[j];
+
+
+            elem.addEventListener('mouseenter', () => {
+                removeClass(techCard, 'hover-zoom');
+                removeClass(techCard, 'hover');
+
+                addClass(arr_chunk, 'hover');
+                elem.classList.add('hover-zoom');
+
+            })
+
+            elem.addEventListener('mouseleave', () => {
+                removeClass(techCard, 'hover-zoom');
+                removeClass(techCard, 'hover');
+            })
+
+        }
+    }
+}
+
+
+
+

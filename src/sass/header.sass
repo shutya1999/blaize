@@ -121,6 +121,7 @@
             font-size: 39px
             line-height: 105%
             letter-spacing: -1.95px
+            text-transform: capitalize
 
 
 .home-header
@@ -271,8 +272,39 @@
 
 
 @media (min-width: 1280px)
+
   .fixed-header
-    height: 100px
+    height: 130px
+    &.hold
+      height: 100px
+    & .hidden-header
+      transition: all 1s
+      & .container
+        height: 100%
+      & .bg-elem
+        width: 124px
+        left: 0
+        bottom: 120px
+      & nav
+        max-width: 1330px
+        & ul
+          display: flex
+          justify-content: flex-end
+          flex-wrap: wrap
+          gap: 124px 128px
+          & li
+            & a
+              text-align: right
+              font-size: 77px
+              font-weight: 400
+              line-height: 105%
+              letter-spacing: -3.85px
+
+            //&:nth-child(3n+1)
+            //  background: red
+            //  &:after
+            //    content: '<br>'
+
 
   .home-header
     // padding-top: 80px
@@ -311,6 +343,8 @@
       max-width: 740px
       & img
         border-radius: 24px
+
+
 
 
 
