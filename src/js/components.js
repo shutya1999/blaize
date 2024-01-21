@@ -1,3 +1,57 @@
+// Smooth scroll
+window.addEventListener('load', () => {
+    // gsap.registerPlugin(ScrollSmoother);
+    // ScrollSmoother.create({
+    //     smooth: 1,
+    //     // effects: true,
+    // });
+
+
+    gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+
+    const circle = document.querySelector('.scroll-bar__thumb');
+
+    const smoother = ScrollSmoother.create({
+        smooth: 2,
+        effects: true,
+        smoothTouch: 0.1,
+    });
+
+    let scrollTween = gsap.to(circle, {
+        y: function (){
+            return window.innerHeight - circle.getBoundingClientRect().height;
+        },
+        ease: "none",
+        scrollTrigger: {
+            start: 0,
+            end:'max',
+            scrub: true
+        }
+    });
+
+    Draggable.create('.scroll-bar__thumb', {
+        type: "y",
+        bounds: '.scroll-bar',
+        inertia: true,
+        onPress() {
+            scrollTween.scrollTrigger.disable(false);
+        },
+        onDrag() {
+            let progress = gsap.utils.normalize(this.minY, this.maxY, this.y);
+            let to = smoother.scrollTrigger.end * progress;
+            smoother.scrollTo(to, true);
+        },
+        onRelease() {
+            let progress = gsap.utils.normalize(this.minY, this.maxY, this.y);
+            scrollTween.scrollTrigger.enable();
+            scrollTween.progress(progress);
+        }
+    })[0];
+
+})
+
+
+
 const header = document.querySelector('header');
 
 let recalcAccordionHeight;
@@ -849,77 +903,40 @@ if (document.querySelector('.swiper-ceo')) {
         spaceBetween: 20,
         breakpoints: {
             992: {
-                slidesPerView: 'auto',
-                spaceBetween: 24
-            },
-            1280: {
-                allowTouchMove: false,
+                slidesPerView: 3,
+                initialSlide: 1,
+                loop: true,
+                centeredSlides: true,
+                speed: 700,
             },
         },
         on: {
-            init: function (swiper) {
-                let slides = swiper.slides;
-
-                if (window.matchMedia('(min-width: 992px)').matches) {
-                    slides[1].classList.add('active');
-                    slides[1].classList.add('fade-in');
-                }
+            beforeInit: function (swiper){
+                let slides = swiper.el.querySelectorAll('.swiper-slide');
+                let mainCardMaxHeight = slides[0].querySelector('.card-main').getBoundingClientRect().height;
 
                 slides.forEach(slide => {
-                    slide.addEventListener('click', () => {
-                        if (!slide.classList.contains('active')) {
-                            removeClass(slides, 'fade-in');
-                            removeClass(slides, 'active');
+                    let mainCardHeight = slide.querySelector('.card-main').getBoundingClientRect().height;
+                    if (mainCardHeight > mainCardMaxHeight){
+                        mainCardMaxHeight = mainCardHeight;
+                    }
 
-                            slide.classList.add('fade-in');
-                            setTimeout(() => {
-                                slide.classList.add('active');
-                            }, 500)
-                        }
-                    })
                 })
 
+                slides.forEach(slide => {
+                    slide.querySelector('.card-main').style.maxHeight = mainCardMaxHeight + 'px';
+                })
+            },
+            init: function (swiper) {
                 if (ceoBlockNext) {
                     ceoBlockNext.addEventListener('click', () => {
-                        let active = 0;
-
-                        slides.forEach((slide, index) => {
-                            if (slide.classList.contains('active')) {
-                                active = index;
-                            }
-                        })
-
-                        if (active < (slides.length - 1)) {
-                            removeClass(slides, 'fade-in');
-                            removeClass(slides, 'active');
-
-                            slides[active + 1].classList.add('fade-in');
-                            setTimeout(() => {
-                                slides[active + 1].classList.add('active');
-                            }, 500)
-                        }
+                        swiper.slideNext();
                     })
                 }
 
                 if (ceoBlockPrev) {
                     ceoBlockPrev.addEventListener('click', () => {
-                        let active = 0;
-
-                        slides.forEach((slide, index) => {
-                            if (slide.classList.contains('active')) {
-                                active = index;
-                            }
-                        })
-
-                        if (active > 0) {
-                            removeClass(slides, 'fade-in');
-                            removeClass(slides, 'active');
-
-                            slides[active - 1].classList.add('fade-in');
-                            setTimeout(() => {
-                                slides[active - 1].classList.add('active');
-                            }, 500)
-                        }
+                        swiper.slidePrev();
                     })
                 }
             },
@@ -1050,22 +1067,45 @@ if(techCard.length){
 
     for (let i = 0; i < res.length; i++) {
         let arr_chunk = res[i];
+
+        let indexBigCart = 0;
+        let maxWidthCard = arr_chunk[0].clientWidth;
+
+        // Find index big card
+        for (let j = 0; j < arr_chunk.length; j++) {
+            if (arr_chunk[j].clientWidth > maxWidthCard){
+                maxWidthCard = arr_chunk[j].clientWidth;
+                indexBigCart = j;
+            }
+        }
+
         for (let j = 0; j < arr_chunk.length; j++) {
             let elem = arr_chunk[j];
 
-
             elem.addEventListener('mouseenter', () => {
-                removeClass(techCard, 'hover-zoom');
-                removeClass(techCard, 'hover');
 
-                addClass(arr_chunk, 'hover');
-                elem.classList.add('hover-zoom');
+                if (indexBigCart === j){
+                    arr_chunk[j].classList.add('zoom-out');
+                    for (let k = 0; k < arr_chunk.length; k++) {
+                        if (indexBigCart !== k){
+                            arr_chunk[k].classList.add('zoom-in-half');
+                        }
+                    }
+                }else {
+                    elem.classList.add('zoom-in');
 
+                    for (let k = 0; k < arr_chunk.length; k++) {
+                        if (j !== k){
+                            arr_chunk[k].classList.add('zoom-out');
+                        }
+                    }
+                }
             })
 
             elem.addEventListener('mouseleave', () => {
-                removeClass(techCard, 'hover-zoom');
-                removeClass(techCard, 'hover');
+                removeClass(techCard, 'zoom-in');
+                removeClass(techCard, 'zoom-out');
+                removeClass(techCard, 'zoom-in-half');
             })
 
         }

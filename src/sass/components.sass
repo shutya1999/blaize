@@ -17,7 +17,7 @@
 
 .main
   overflow: hidden
-  margin-top: var(--header-height)
+  padding-top: var(--header-height)
 
 \:root
   --padding-container: 16px
@@ -52,6 +52,14 @@ html
     & body
       overflow: hidden
 
+    & .scroll-bar
+      opacity: 0
+      pointer-events: none
+
+
+@-moz-document url-prefix()
+  html
+    scrollbar-width: none
 
 
 body
@@ -64,11 +72,39 @@ body
   font-style: normal
   font-weight: 400
   background-color: var(--bg-white)
+  overflow: auto
+  -ms-overflow-style: none
+  scrollbar-width: none
+  &::-webkit-scrollbar
+    opacity: 0
+    display: none
+    width: 0
+    height: 0
+
   &.hide-cursor
     cursor: none!important
     & a
       cursor: none!important
 
+.scroll-bar
+  z-index: 99999
+  position: fixed
+  width: 8px
+  height: 100%
+  background: rgba(222, 222, 222, .75)
+  top: 0
+  right: 0
+  margin: auto
+  transition: opacity 0.3s
+  display: none
+  & .scroll-bar__thumb
+    width: 100%
+    height: 50px
+    border-radius: 50px
+    background: rgba(0, 0, 0, .5)
+
+  @media (hover: hover)
+    display: block
 
 
 ul[class], ol[class]
@@ -1496,6 +1532,7 @@ input:-webkit-autofill:active
           & .blog-card__wrapper
             padding-bottom: 146%
       &:nth-child(2)
+        direction: rtl
         & .blog-card
           min-width: 74.3%
           max-width: 74.3%
@@ -1901,6 +1938,7 @@ footer
               & .blog-card__wrapper
                 padding-bottom: 69.9%
         &:nth-child(2)
+          direction: initial
           display: flex
           & .blog-card
             min-width: auto
@@ -2177,6 +2215,31 @@ footer
         left: 140px
 
   .ceo-block
+    & .swiper-ceo
+      position: relative
+      overflow: hidden
+      margin: 0 auto
+      & .swiper-slide
+        min-width: auto
+        max-width: 50%
+        background-color: #d9d9d9
+        border-radius: 14px
+        &.swiper-slide-active
+          width: 50% !important
+          & .card
+            &.card-holder
+              opacity: 0
+              pointer-events: none
+            &.card-main
+              opacity: 1
+              //& .desc
+              //  display: block
+
+        &.swiper-slide-prev
+          width: calc(25% - 20px) !important
+        &.swiper-slide-next
+          width: calc(25% - 20px) !important
+
     & .cards
       width: 100%
       max-width: 23.125%
@@ -2184,21 +2247,15 @@ footer
       transition: all .5s
       position: relative
       border-radius: 15px
-      &.fade-in
-        max-width: calc(53.75% - 48px)
-        & .card
-          &.card-holder
-            opacity: 0
-            pointer-events: none
-      &.active
-        & .card
-          &.card-main
-            min-width: auto
-
       & .card
         &.card-main
-          min-width: calc(53.75vw - 18px - (var(--padding-container) * 2))
+          //min-width: calc(53.75vw - 18px - (var(--padding-container) * 2))
           border-radius: 15px
+          opacity: 0
+          transition: all .3s
+          & .desc
+            overflow: hidden
+          //  display: none
         &.card-holder
           display: flex
           align-items: center
@@ -2356,7 +2413,7 @@ footer
     height: 236px
     border-radius: 50%
     background-color: white
-    transition: left .15s, top .15s, transform .5s, opacity .2s
+    transition: left 50ms, top 50ms, transform .5s, opacity .2s
     opacity: 0
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='236' height='236' viewBox='0 0 236 236' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='118' cy='118' r='118' fill='%23E5E5E5'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M148.81 110.19C141.59 102.969 138.242 92.3817 138.242 79L144.242 79C144.242 91.4568 147.354 100.248 153.053 105.947C158.752 111.646 167.543 114.758 180 114.758L180 120.758C167.543 120.758 158.752 123.87 153.053 129.569C147.354 135.267 144.242 144.059 144.242 156.516L138.242 156.516C138.242 143.134 141.59 132.547 148.81 125.326C152.139 121.997 156.183 119.492 160.886 117.758C156.183 116.024 152.139 113.518 148.81 110.19Z' fill='%232B2B2D'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M56 114.758H176.447V120.758H56V114.758Z' fill='%232B2B2D'/%3E%3C/svg%3E")
     @include bg-center
@@ -2464,6 +2521,7 @@ footer
       grid-template-columns: repeat(2,432px)
       gap: 30px
       padding-right: 154px
+      // min-height: 100vw
       &:before
         display: none
       & .card-stat
@@ -2507,11 +2565,29 @@ footer
           max-width: 255px
 
 
+
   .ceo-block
+    overflow: hidden
     & .swiper-ceo
-      position: relative
-      & .swiper-slide
-        min-height: 415px
+      //position: relative
+      //overflow: hidden
+      //margin: 0 auto
+      //& .swiper-slide
+      //  min-width: auto
+      //  max-width: 100%
+      //  &.swiper-slide-active
+      //    width: 50% !important
+      //    & .card
+      //      &.card-holder
+      //        opacity: 0
+      //      &.card-main
+      //        min-width: auto
+      //
+      //  &.swiper-slide-prev
+      //    width: calc(25% - 20px) !important
+      //  &.swiper-slide-next
+      //    width: calc(25% - 20px) !important
+
       & .swiper-ceo__arrow
         display: block
         position: absolute
@@ -2593,10 +2669,12 @@ footer
         height: 200px
         width: calc(30% - 20px)
         transition: all .5s
-        &.hover
-          width: calc(30% - 20px)
-        &.hover-zoom
-          width: calc(40% - 20px)
+        &.zoom-in
+          width: calc(40% - 20px) !important
+        &.zoom-out
+          width: calc(30% - 20px) !important
+        &.zoom-in-half
+          width: calc(35% - 20px) !important
         & .img
           width: 260px
 
@@ -2604,10 +2682,6 @@ footer
         &:nth-child(10n+4),
         &:nth-child(7n+8)
           width: calc(40% - 20px)
-          &.hover
-            width: calc(30% - 20px)
-          &.hover-zoom
-            width: calc(40% - 20px)
 
   .blog-card
     border-radius: 24px
@@ -2712,11 +2786,14 @@ footer
           padding: 10px 0 42px 10px
           min-width: calc(12% - 18px)
           max-width: calc(12% - 18px)
+          transition: all .3s
           &:after
             height: 22px
           &._bigger
             min-width: calc(40% - 10px)
             max-width: calc(40% - 10px)
+          &:hover
+            color: var(--based-red)
 
     & .tab-content
       margin-top: 60px
