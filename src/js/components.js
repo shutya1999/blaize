@@ -1,12 +1,5 @@
 // Smooth scroll
 window.addEventListener('load', () => {
-    // gsap.registerPlugin(ScrollSmoother);
-    // ScrollSmoother.create({
-    //     smooth: 1,
-    //     // effects: true,
-    // });
-
-
     gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
     const circle = document.querySelector('.scroll-bar__thumb');
@@ -14,17 +7,17 @@ window.addEventListener('load', () => {
     const smoother = ScrollSmoother.create({
         smooth: 2,
         effects: true,
-        smoothTouch: 0.1,
+        // smoothTouch: 0.1,
     });
 
     let scrollTween = gsap.to(circle, {
-        y: function (){
+        y: function () {
             return window.innerHeight - circle.getBoundingClientRect().height;
         },
         ease: "none",
         scrollTrigger: {
             start: 0,
-            end:'max',
+            end: 'max',
             scrub: true
         }
     });
@@ -49,7 +42,6 @@ window.addEventListener('load', () => {
     })[0];
 
 })
-
 
 
 const header = document.querySelector('header');
@@ -132,10 +124,10 @@ btns_anchor.forEach(btn => {
 
         const target = document.querySelector(`${hash}`);
 
-        if (target){
+        if (target) {
             const topOffset = target.offsetTop - header.clientHeight - 20;
 
-            if (btn.closest('header')){
+            if (btn.closest('header')) {
                 header.classList.remove('active');
                 bodyUnlock();
             }
@@ -144,7 +136,7 @@ btns_anchor.forEach(btn => {
                 top: topOffset,
                 behavior: "smooth"
             });
-        }else {
+        } else {
             window.location.href = btn.href;
         }
         //
@@ -894,6 +886,7 @@ hideHeader();
 
 
 // Swiper CEO
+
 let ceoBlockPrev = document.querySelector('.ceo-block .swiper-ceo__arrow._prev'),
     ceoBlockNext = document.querySelector('.ceo-block .swiper-ceo__arrow._next');
 
@@ -911,21 +904,23 @@ if (document.querySelector('.swiper-ceo')) {
             },
         },
         on: {
-            beforeInit: function (swiper){
-                let slides = swiper.el.querySelectorAll('.swiper-slide');
-                let mainCardMaxHeight = slides[0].querySelector('.card-main').getBoundingClientRect().height;
+            beforeInit: function (swiper) {
+                if (window.matchMedia('(min-width: 992px)').matches) {
+                    let slides = swiper.el.querySelectorAll('.swiper-slide');
+                    let mainCardMaxHeight = slides[0].querySelector('.card-main').getBoundingClientRect().height;
 
-                slides.forEach(slide => {
-                    let mainCardHeight = slide.querySelector('.card-main').getBoundingClientRect().height;
-                    if (mainCardHeight > mainCardMaxHeight){
-                        mainCardMaxHeight = mainCardHeight;
-                    }
+                    slides.forEach(slide => {
+                        let mainCardHeight = slide.querySelector('.card-main').getBoundingClientRect().height;
+                        if (mainCardHeight > mainCardMaxHeight) {
+                            mainCardMaxHeight = mainCardHeight;
+                        }
 
-                })
+                    })
 
-                slides.forEach(slide => {
-                    slide.querySelector('.card-main').style.maxHeight = mainCardMaxHeight + 'px';
-                })
+                    slides.forEach(slide => {
+                        slide.querySelector('.card-main').style.maxHeight = mainCardMaxHeight + 'px';
+                    })
+                }
             },
             init: function (swiper) {
                 if (ceoBlockNext) {
@@ -943,6 +938,7 @@ if (document.querySelector('.swiper-ceo')) {
         },
     })
 }
+
 
 // Swiper Team
 if (document.querySelector('.team-swiper')) {
@@ -1007,7 +1003,7 @@ function cursor() {
             })
         })
     }
-    if (hiddenMenu){
+    if (hiddenMenu) {
         hiddenMenu.addEventListener('mouseenter', () => {
             cursor.classList.add('active');
             cursor.classList.add('active-menu');
@@ -1055,8 +1051,8 @@ cursor();
 
 // Tech card hover
 let techCard = document.querySelectorAll('.use-desktop .tech-card');
-if(techCard.length){
-    let techCard_arr =  Array.from(techCard);
+if (techCard.length) {
+    let techCard_arr = Array.from(techCard);
 
     var res = [];
     let size = 3;
@@ -1073,7 +1069,7 @@ if(techCard.length){
 
         // Find index big card
         for (let j = 0; j < arr_chunk.length; j++) {
-            if (arr_chunk[j].clientWidth > maxWidthCard){
+            if (arr_chunk[j].clientWidth > maxWidthCard) {
                 maxWidthCard = arr_chunk[j].clientWidth;
                 indexBigCart = j;
             }
@@ -1084,18 +1080,18 @@ if(techCard.length){
 
             elem.addEventListener('mouseenter', () => {
 
-                if (indexBigCart === j){
+                if (indexBigCart === j) {
                     arr_chunk[j].classList.add('zoom-out');
                     for (let k = 0; k < arr_chunk.length; k++) {
-                        if (indexBigCart !== k){
+                        if (indexBigCart !== k) {
                             arr_chunk[k].classList.add('zoom-in-half');
                         }
                     }
-                }else {
+                } else {
                     elem.classList.add('zoom-in');
 
                     for (let k = 0; k < arr_chunk.length; k++) {
-                        if (j !== k){
+                        if (j !== k) {
                             arr_chunk[k].classList.add('zoom-out');
                         }
                     }

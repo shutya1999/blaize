@@ -2,18 +2,12 @@
 
 // Smooth scroll
 window.addEventListener('load', function () {
-  // gsap.registerPlugin(ScrollSmoother);
-  // ScrollSmoother.create({
-  //     smooth: 1,
-  //     // effects: true,
-  // });
-
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
   var circle = document.querySelector('.scroll-bar__thumb');
   var smoother = ScrollSmoother.create({
     smooth: 2,
-    effects: true,
-    smoothTouch: 0.1
+    effects: true
+    // smoothTouch: 0.1,
   });
   var scrollTween = gsap.to(circle, {
     y: function y() {
@@ -809,6 +803,7 @@ function hideHeader() {
 hideHeader();
 
 // Swiper CEO
+
 var ceoBlockPrev = document.querySelector('.ceo-block .swiper-ceo__arrow._prev'),
   ceoBlockNext = document.querySelector('.ceo-block .swiper-ceo__arrow._next');
 if (document.querySelector('.swiper-ceo')) {
@@ -826,17 +821,19 @@ if (document.querySelector('.swiper-ceo')) {
     },
     on: {
       beforeInit: function beforeInit(swiper) {
-        var slides = swiper.el.querySelectorAll('.swiper-slide');
-        var mainCardMaxHeight = slides[0].querySelector('.card-main').getBoundingClientRect().height;
-        slides.forEach(function (slide) {
-          var mainCardHeight = slide.querySelector('.card-main').getBoundingClientRect().height;
-          if (mainCardHeight > mainCardMaxHeight) {
-            mainCardMaxHeight = mainCardHeight;
-          }
-        });
-        slides.forEach(function (slide) {
-          slide.querySelector('.card-main').style.maxHeight = mainCardMaxHeight + 'px';
-        });
+        if (window.matchMedia('(min-width: 992px)').matches) {
+          var slides = swiper.el.querySelectorAll('.swiper-slide');
+          var mainCardMaxHeight = slides[0].querySelector('.card-main').getBoundingClientRect().height;
+          slides.forEach(function (slide) {
+            var mainCardHeight = slide.querySelector('.card-main').getBoundingClientRect().height;
+            if (mainCardHeight > mainCardMaxHeight) {
+              mainCardMaxHeight = mainCardHeight;
+            }
+          });
+          slides.forEach(function (slide) {
+            slide.querySelector('.card-main').style.maxHeight = mainCardMaxHeight + 'px';
+          });
+        }
       },
       init: function init(swiper) {
         if (ceoBlockNext) {
