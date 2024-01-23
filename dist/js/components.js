@@ -5,7 +5,7 @@ window.addEventListener('load', function () {
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
   var circle = document.querySelector('.scroll-bar__thumb');
   var smoother = ScrollSmoother.create({
-    smooth: 2,
+    smooth: 1.5,
     effects: true
     // smoothTouch: 0.1,
   });
@@ -776,7 +776,7 @@ animation();
 function hideHeader() {
   var last_scroll = 0;
   var header = document.querySelector('header'),
-    defaultOffset = 100;
+    defaultOffset = 500;
   var scrollPosition = function scrollPosition() {
     return window.pageYOffset || document.documentElement.scrollTop;
   };
@@ -786,16 +786,8 @@ function hideHeader() {
   window.addEventListener('scroll', function () {
     if (scrollPosition() > defaultOffset && !containHide()) {
       header.classList.add('hold');
-
-      // setTimeout(() => {
-      //     document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
-      // }, 310)
     } else if (scrollPosition() < defaultOffset && containHide()) {
       header.classList.remove('hold');
-
-      // setTimeout(() => {
-      //     document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
-      // }, 310)
     }
     last_scroll = scrollPosition();
   });
@@ -955,7 +947,7 @@ if (techCard.length) {
   for (var i = 0; i < techCard_arr.length; i += size) {
     res.push(techCard_arr.slice(i, i + size));
   }
-  var _loop2 = function _loop2() {
+  var _loop2 = function _loop2(_i3) {
     var arr_chunk = res[_i3];
     var indexBigCart = 0;
     var maxWidthCard = arr_chunk[0].clientWidth;
@@ -970,26 +962,43 @@ if (techCard.length) {
     var _loop3 = function _loop3(_j) {
       var elem = arr_chunk[_j];
       elem.addEventListener('mouseenter', function () {
-        if (indexBigCart === _j) {
-          arr_chunk[_j].classList.add('zoom-out');
-          for (var k = 0; k < arr_chunk.length; k++) {
-            if (indexBigCart !== k) {
-              arr_chunk[k].classList.add('zoom-in-half');
+        // console.log(res[i]);
+        if (!elem.classList.contains('_booked')) {
+          if (indexBigCart === _j) {
+            arr_chunk[_j].classList.add('zoom-out');
+            for (var k = 0; k < arr_chunk.length; k++) {
+              if (indexBigCart !== k) {
+                arr_chunk[k].classList.add('zoom-in-half');
+              }
+            }
+          } else {
+            elem.classList.add('zoom-in');
+            for (var _k = 0; _k < arr_chunk.length; _k++) {
+              if (_j !== _k) {
+                arr_chunk[_k].classList.add('zoom-out');
+              }
             }
           }
-        } else {
-          elem.classList.add('zoom-in');
-          for (var _k = 0; _k < arr_chunk.length; _k++) {
-            if (_j !== _k) {
-              arr_chunk[_k].classList.add('zoom-out');
-            }
-          }
+          addClass(res[_i3], '_booked');
         }
       });
+      elem.addEventListener('transitionend', function (e) {
+        removeClass(techCard, '_booked');
+      });
       elem.addEventListener('mouseleave', function () {
-        removeClass(techCard, 'zoom-in');
-        removeClass(techCard, 'zoom-out');
-        removeClass(techCard, 'zoom-in-half');
+        if (!elem.classList.contains('_booked')) {
+          removeClass(techCard, 'zoom-in');
+          removeClass(techCard, 'zoom-out');
+          removeClass(techCard, 'zoom-in-half');
+          removeClass(techCard, '_booked');
+        } else {
+          setTimeout(function () {
+            removeClass(techCard, 'zoom-in');
+            removeClass(techCard, 'zoom-out');
+            removeClass(techCard, 'zoom-in-half');
+            removeClass(techCard, '_booked');
+          }, 500);
+        }
       });
     };
     for (var _j = 0; _j < arr_chunk.length; _j++) {
@@ -997,6 +1006,6 @@ if (techCard.length) {
     }
   };
   for (var _i3 = 0; _i3 < res.length; _i3++) {
-    _loop2();
+    _loop2(_i3);
   }
 }

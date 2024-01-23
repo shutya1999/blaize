@@ -12,9 +12,17 @@
   height: 81px
   display: flex
   align-items: center
-  transition: height .3s
+  transition: height .5s
   &.hold
-     height: 50px
+    height: 36px
+    & .logo
+      max-width: 60px
+      //transform: scale(0.8)
+    & .header-navigation
+      & .btn-call
+        //transform: scale(0.8)
+        padding: 5px 22.5px
+
 
   &.active
     & .hidden-header
@@ -23,16 +31,29 @@
       & .burger
         & span
           &:nth-child(1)
-            transform: rotate(45deg)
-            top: 13px
-            left: 0px
+            top: 9px
+            width: 0px
+            left: 50%
+            transform: translateX(-50%)
           &:nth-child(2)
-            opacity: 0
-            transform: scale(0.7)
+            width: 100%
+            -webkit-transform: rotate(45deg)
+            -moz-transform: rotate(45deg)
+            -o-transform: rotate(45deg)
+            transform: rotate(45deg)
+
           &:nth-child(3)
+            width: 100%
+            -webkit-transform: rotate(-45deg)
+            -moz-transform: rotate(-45deg)
+            -o-transform: rotate(-45deg)
             transform: rotate(-45deg)
-            top: 13px
-            left: 0px
+
+          &:nth-child(4)
+            top: 9px
+            width: 0px
+            left: 50%
+            transform: translateX(-50%)
 
   & .container
     display: flex
@@ -42,6 +63,7 @@
     display: block
     width: 100%
     max-width: 76px
+    transition: all .5s
     & img
       width: 100%
 
@@ -55,35 +77,44 @@
       font-weight: 600
       padding: 8.5px 22.5px
       letter-spacing: -0.218px
+      transition: all .5s
+
     & .burger
-      display: block
-      width: 34px
-      height: 29px
-      background: none
-      border: none
-      outline: none
-      cursor: pointer
+      width: 28px
+      height: 21px
       position: relative
+      margin: 0
+      transform: rotate(0deg)
+      transition: .5s ease-in-out
+      cursor: pointer
+      border: none
+      background: none
       padding: 0
-      & span
-        height: 3px
-        position: absolute
-        left: 0
+      span
         display: block
+        position: absolute
+        height: 3px
         width: 100%
-        background-color: var(--based-black)
-        transition: all .5s
+        background: var(--based-black)
+        opacity: 1
+        left: 0
+        transform: rotate(0deg)
+        transition: .25s ease-in-out
         &:nth-child(1)
-          top: 0
-        &:nth-child(2)
-          width: 24px
-          top: 12px
-        &:nth-child(3)
-          bottom: 0
+          top: 0px
+        &:nth-child(2), &:nth-child(3)
+          top: 9px
+          width: 20px
+          left: 0
+
+        &:nth-child(4)
+          top: 18px
+
+
 
   & .hidden-header
     position: fixed
-    top: var(--header-height)
+    top: calc(var(--header-height) - 2px)
     left: 0
     width: 100%
     height: calc(vh-part(100) - var(--header-height))
@@ -180,17 +211,24 @@
 
 @media (min-width: 768px)
   .fixed-header
-    height: 120px
+    height: 80px
     &.hold
-      height: 120px
+      height: 60px
+      & .logo
+        max-width: 76px
+      & .header-navigation
+        & .btn-call
+          padding: 10.21px 48.44px
+          font-size: 14px
+        & .burger
+          transform: scale(0.75)
     &.active
       & .header-navigation
         & .burger
           & span
-            &:nth-child(1)
-              top: 22px
-            &:nth-child(3)
-              top: 22px
+            &:nth-child(1), &:nth-child(4)
+              top: 17px
+
 
     & .logo
       max-width: 124px
@@ -198,15 +236,17 @@
       gap: 0 95px
       & .btn-call
         font-size: 16px
-        padding: 16.2px 49.5px
+        padding: 15.21px 48.44px
       & .burger
-        width: 60px
-        height: 50px
+        width: 50px
+        height: 41px
         & span
           height: 5px
-          &:nth-child(2)
-            top: 22px
-            width: 43px
+          &:nth-child(2), &:nth-child(3)
+            top: 17px
+            width: 35px
+          &:nth-child(4)
+            top: 36px
 
 
     & .hidden-header
@@ -274,9 +314,12 @@
 @media (min-width: 1280px)
 
   .fixed-header
-    height: 130px
+    //height: 130px
     &.hold
-      height: 100px
+      & .header-navigation
+        & .btn-call
+          padding: 11.3px 54.91px
+
     & .hidden-header
       transition: all 1s
       & .container

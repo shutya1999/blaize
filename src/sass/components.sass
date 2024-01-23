@@ -523,9 +523,9 @@ input, button, textarea, select
   z-index: 2
   transition: all .3s
   position: absolute
-  left: -1px
-  top: calc(100% + 1px)
-  width: calc(100% + 2px)
+  left: 0px
+  top: 100%
+  width: 100%
   border: none
   background-color: #e5e5e5
   &::-webkit-scrollbar
@@ -542,8 +542,6 @@ input, button, textarea, select
     display: none
 
 .select__options
-  // margin-bottom: 10px
-  // padding: 2px 0
   list-style: none
 
 .select__option
@@ -554,7 +552,7 @@ input, button, textarea, select
   font-weight: 400
   transition: 0.2s background-color ease-in-out
   color: #1F1F23
-  // border: 1px solid rgba(0,0,0,0)
+  // border-radius: 100px
   &._click-disabled
     pointer-events: none!important
   &:hover
@@ -571,6 +569,7 @@ input, button, textarea, select
   color: var(--black)
   position: relative
   border-color: var(--black)
+  // background-color: white
   &::after
     display: none
     content: ''
@@ -671,40 +670,40 @@ input:-webkit-autofill:active
       display: none
       &.active
         display: block
+//
+//@keyframes t-anim-1
+//  0%
+//    min-width: 110%
+//    max-width: 110%
+//    max-height: 0px
+//    opacity: 0
+//  50%
+//    min-width: 110%
+//    max-width: 110%
+//    max-height: 100%
+//    opacity: 1
+//  100%
+//    min-width: 60%
+//    max-width: 60%
+//    max-height: 100%
+//    opacity: 1
 
-@keyframes t-anim-1
-  0%
-    min-width: 110%
-    max-width: 110%
-    max-height: 0px
-    opacity: 0
-  50%
-    min-width: 110%
-    max-width: 110%
-    max-height: 100%
-    opacity: 1
-  100%
-    min-width: 60%
-    max-width: 60%
-    max-height: 100%
-    opacity: 1
-
-@keyframes t-anim-2
-  0%
-    min-width: 50%
-    max-width: 50%
-    max-height: 0px
-    opacity: 0
-  50%
-    min-width: 50%
-    max-width: 50%
-    max-height: 100%
-    opacity: 1
-  100%
-    min-width: 150%
-    max-width: 150%
-    max-height: 100%
-    opacity: 1
+//@keyframes t-anim-2
+//  0%
+//    min-width: 45%
+//    max-width: 45%
+//    max-height: 0px
+//    opacity: 0
+//  50%
+//    min-width: 45%
+//    max-width: 45%
+//    max-height: 100%
+//    opacity: 1
+//  100%
+//    min-width: 150%
+//    max-width: 150%
+//    max-height: 100%
+//    opacity: 1
 
 .industries
   margin-top: 100px
@@ -724,11 +723,17 @@ input:-webkit-autofill:active
         align-items: center
         gap: 0 7px
         padding: 9px 20.5px
+        transition: all .3s
+        text-transform: capitalize
         & svg
           width: 21px
           height: auto
         &.active
           border-color: var(--based-black)
+        @media (hover: hover)
+          &:hover
+            border-color: var(--based-black)
+
 
     & .tab-content
       margin: 31px calc(var(--padding-container) * -1) 0 calc(var(--padding-container) * -1)
@@ -747,12 +752,12 @@ input:-webkit-autofill:active
         &.active
           & .cards-bottom
             & .card
-              &._red
-                animation: t-anim-1 1.2s .1s forwards
-              &._black
-                animation: t-anim-1 1.2s .1s forwards
-              &._img
-                animation: t-anim-2 1.2s .1s forwards
+              //&._red
+              //  animation: t-anim-1 1.2s .1s forwards
+              //&._black
+              //  animation: t-anim-1 1.2s .1s forwards
+              //&._img
+              //  animation: t-anim-2 1.2s .1s forwards
 
         & .cards
           display: flex
@@ -788,27 +793,27 @@ input:-webkit-autofill:active
           margin-top: 20px
           height: 100px
           & .card
-            max-height: 0px
-            overflow: hidden
+            //max-height: 0px
+            //overflow: hidden
             &._red
               background-color: var(--based-red)
               min-width: 110%
               max-width: 110%
-              // order: 2
+              display: none
             &._black
               background-color: var(--based-black)
               display: flex
               align-items: center
               justify-content: center
-              min-width: 110%
-              max-width: 110%
+              min-width: 165%
+              max-width: 165%
               // order: 3
               & img
                 width: 60px
             &._img
               width: 100%
-              min-width: 50%
-              max-width: 50%
+              min-width: 110%
+              max-width: 110%
               // order: 1
               & picture
                 width: 100%
@@ -1409,6 +1414,42 @@ input:-webkit-autofill:active
         text-transform: uppercase
         padding: 17.41px 0
 
+      & .select
+        margin: 0 -24px 24px -24px
+        width: calc(100% + 48px)
+        border-radius: 14px
+        transition: all .3s, box-shadow 0s
+        &.select_show
+          background: #E5E5E5
+          & .select__toggle
+            box-shadow: -3px -24px 18.8px -20px rgba(0, 0, 0, 0.08)
+          & .select__dropdown, & .select__backdrop
+            &:not(._empty)
+              max-height: calc(30px  * 5 + 20px)
+              box-shadow: 0px 40px 44.8px 0px rgba(0, 0, 0, 0.08)
+              //transition: all .3s, box-shadow 0s
+
+        & .select__toggle
+          height: 50px
+          padding: 0 44px 0 24px
+          box-shadow: 0 0 0 rgba(0,0,0,0)
+          transition: all .3s
+          & label
+            left: 24px
+          &:after
+            right: 24px
+        & .select__dropdown
+          border-radius: 0 0 14px 14px
+          transition: opacity 0.2s, max-height 0.3s, box-shadow 100ms
+          overflow: hidden !important
+          & .select__options
+            // padding: 10px 0
+          & .select__option
+            padding: 6px 24px
+            border-radius: 100px
+            &.select__option_selected
+              background-color: white
+
 
 .use
   margin-top: 100px
@@ -1649,7 +1690,7 @@ footer
 @media (min-width: 768px)
   \:root
     --padding-container: 32px
-    --header-height: 120px
+    --header-height: 80px
 
   .section-title
     font-size: 58px
@@ -1700,20 +1741,23 @@ footer
 
       & .tab-content
         & .tab-item
-          &.active
-            & .cards-bottom
-              & .card
-                &._red
-                  animation: t-anim-1 1.5s .2s forwards
-                &._black
-                  animation: t-anim-2 1.5s .2s forwards
-                &._img
-                  animation: t-anim-3 1.5s .2s forwards
+          //&.active
+          //  & .cards-bottom
+          //    & .card
+          //      &._red
+          //        animation: t-anim-1 1.5s .2s forwards
+          //      &._black
+          //        animation: t-anim-2 1.5s .2s forwards
+          //      &._img
+          //        animation: t-anim-3 1.5s .2s forwards
 
           & .cards-top
+            display: grid
+            grid-template-columns: repeat(3, 1fr)
+            gap: 25px
             & .card
-              min-width: 28.5%
-              max-width: 28.5%
+              min-width: auto
+              max-width: 100%
               padding: 40px
               & .card-img
                 max-width: 40px
@@ -1728,18 +1772,19 @@ footer
           & .cards-bottom
             max-width: calc( var(--vw, 100vw) - (var(--padding-container) * 2))
             height: 128px
+            margin-top: 25px
             & .card
-              max-height: 0px
-              overflow: hidden
+              //max-height: 0px
+              //overflow: hidden
               min-width: auto!important
               max-width: 100%!important
               transition: none
               &._red
                 width: 40%
               &._black
-                width: 40%
+                width: 19%
               &._img
-                width: 20%
+                width: 81%
 
 
   .portfolio
@@ -1883,18 +1928,34 @@ footer
       display: none
     & .use-desktop
       display: flex
-      flex-wrap: wrap
+      flex-direction: column
       gap: 20px
+      & .use-desktop__row
+        display: flex
+        flex-direction: row
+        gap: 20px
+        &:nth-child(odd)
+          & .tech-card
+            &:nth-child(even)
+              background: var(--based-black)
+            &:nth-child(2)
+              max-width: calc(40% - 14px)
+        &:nth-child(even)
+          & .tech-card
+            &:nth-child(odd)
+              background: var(--based-black)
+            &:nth-child(1)
+              max-width: calc(40% - 14px)
+
       & .tech-card
         height: 130px
         background: white
-        width: calc(30% - 14px)
-        &:nth-child(8n+2),
-        &:nth-child(10n+4),
-        &:nth-child(7n+8)
-          width: calc(40% - 14px)
-        &:nth-child(even)
-          background: var(--based-black)
+        width: 100%
+        max-width: calc(30% - 14px)
+        //&:nth-child(8n+2),
+        //&:nth-child(10n+4),
+        //&:nth-child(7n+8)
+        //  width: calc(40% - 14px)
 
   .blog-card
     & .blog-title
@@ -2075,7 +2136,6 @@ footer
           width: 100%
           max-width: 100%
           border-radius: 14px
-
 
   .home-form
     & .form-wrapper
@@ -2379,17 +2439,26 @@ footer
         margin: 0
         padding: 0
         & .tab-btn
-          font-size: 18px
-          padding: 10px 23px
+          font-size: 24px
+          padding: 9.4px 31px
 
       & .tab-content
         margin: 60px 0 0 0
         padding: 0
         & .tab-item
+          overflow: visible
           & .cards-top
+            gap: 60px
             & .card
               border-radius: 24px
               padding: 67px 60px 66px 63px
+              min-width: auto
+              max-width: 100%
+              transition: all .5s
+              @media (hover: hover)
+                &:hover
+                  transform: translate(-5px, -5px)
+                  box-shadow: 5px 10px 20px 0px rgba(0,0,0,.2)
               & .card-img
                 max-width: 60px
                 margin-bottom: 30px
@@ -2404,6 +2473,18 @@ footer
 
           & .cards-bottom
             height: 200px
+            margin-top: 60px
+            gap: 0 60px
+            & .card
+              &._black
+                width: 200px
+                min-width: 200px!important
+                max-width: 200px!important
+                border-radius: 24px
+              &._img
+                width: 100%
+                & img
+                  border-radius: 24px
 
 
   .custom-cursor
@@ -2436,7 +2517,7 @@ footer
 
   .portfolio
     & .portfolio-cards
-      gap: 10px 0
+      gap: 20px 0
       & .case-card
         transition: all 1s
         position: relative
@@ -2444,16 +2525,22 @@ footer
         &:hover
           & .case-card__wrapper
             background-color: white
-            transform: translateX(16.3%)
+            transform: translateX(11%)
           & .btn-arrow
             opacity: 0
             pointer-events: none
+          & .case-cart__info
+            & .case-cart__labels
+              & .case-label
+                background-color: var(--based-black)
+                color: white
+
 
         & .case-card__wrapper
           gap: 0 90px
           padding: 40px
           border-radius: 37px
-          max-width: 86%
+          max-width: 90%
           position: static
           transition: all .5s
         & .case-cart__img
@@ -2466,6 +2553,7 @@ footer
             & .case-label
               font-size: 18px
               padding: 7px 19px
+              transition: all .3s
           & .case-title
             font-size: 30px
             margin-bottom: 16px
@@ -2520,9 +2608,9 @@ footer
   .statistics
     & .cards
       grid-template-columns: repeat(2,432px)
-      gap: 30px
+      gap: 60px
       padding-right: 154px
-      // min-height: 100vw
+      padding-top: 300px
       &:before
         display: none
       & .card-stat
@@ -2622,7 +2710,7 @@ footer
   .expertise
     & .cards
       grid-template-columns: repeat(3, 310px)
-      justify-content: start
+      justify-content: space-between
       gap: 70px 155px
       & .expertise-card
         & .img
@@ -2666,23 +2754,38 @@ footer
 
     & .use-desktop
       gap: 30px
+      display: flex
+      flex-direction: column
+      & .use-desktop__row
+        display: flex
+        flex-direction: row
+        gap: 30px
+        &:nth-child(odd)
+          & .tech-card
+            &:nth-child(even)
+              background: var(--based-black)
+            &:nth-child(2)
+              max-width: calc(40% - 20px)
+        &:nth-child(even)
+          & .tech-card
+            &:nth-child(odd)
+              background: var(--based-black)
+            &:nth-child(1)
+              max-width: calc(40% - 20px)
+
       & .tech-card
         height: 200px
-        width: calc(30% - 20px)
+        width: 100%
+        max-width: calc(30% - 20px)
         transition: all .5s
         &.zoom-in
-          width: calc(40% - 20px) !important
+          max-width: calc(40% - 20px) !important
         &.zoom-out
-          width: calc(30% - 20px) !important
+          max-width: calc(30% - 20px) !important
         &.zoom-in-half
-          width: calc(35% - 20px) !important
+          max-width: calc(35% - 20px) !important
         & .img
           width: 260px
-
-        &:nth-child(8n+2),
-        &:nth-child(10n+4),
-        &:nth-child(7n+8)
-          width: calc(40% - 20px)
 
   .blog-card
     border-radius: 24px
@@ -2840,6 +2943,33 @@ footer
         border-radius: 24px
         padding: 40px 45px
         transform: translateY(165px)
+        & .select
+          margin: 0 -45px 24px -45px
+          width: calc(100% + 90px)
+          border-radius: 24px
+          &.select_show
+            box-shadow: -3px -24px 18.8px -20px rgba(0, 0, 0, 0.08)
+            & .select__dropdown, & .select__backdrop
+              &:not(._empty)
+                max-height: calc(60px  * 5 + 37px)
+                // box-shadow: 0px 40px 44.8px 0px rgba(0, 0, 0, 0.08)
+
+          & .select__toggle
+            height: 50px
+            padding: 0 90px 0 45px
+            & label
+              left: 45px
+            &:after
+              right: 45px
+          & .select__dropdown
+            border-radius: 0 0 24px 24px
+            & .select__options
+              padding: 14px 12px
+            & .select__option
+              font-size: 22px
+              padding: 13px 33px
+              &.select__option_selected
+                background-color: white
 
     & .form-wrapper__left
       gap: 65px 40px

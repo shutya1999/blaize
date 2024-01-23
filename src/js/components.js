@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
     const circle = document.querySelector('.scroll-bar__thumb');
 
     const smoother = ScrollSmoother.create({
-        smooth: 2,
+        smooth: 1.5,
         effects: true,
         // smoothTouch: 0.1,
     });
@@ -40,7 +40,6 @@ window.addEventListener('load', () => {
             scrollTween.progress(progress);
         }
     })[0];
-
 })
 
 
@@ -857,24 +856,18 @@ animation();
 function hideHeader() {
     let last_scroll = 0;
     const header = document.querySelector('header'),
-        defaultOffset = 100;
+        defaultOffset = 500;
 
     const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop;
     const containHide = () => header.classList.contains('hold');
 
     window.addEventListener('scroll', () => {
+
+
         if (scrollPosition() > defaultOffset && !containHide()) {
             header.classList.add('hold');
-
-            // setTimeout(() => {
-            //     document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
-            // }, 310)
         } else if (scrollPosition() < defaultOffset && containHide()) {
             header.classList.remove('hold');
-
-            // setTimeout(() => {
-            //     document.documentElement.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
-            // }, 310)
         }
 
 
@@ -1078,32 +1071,49 @@ if (techCard.length) {
         for (let j = 0; j < arr_chunk.length; j++) {
             let elem = arr_chunk[j];
 
+
             elem.addEventListener('mouseenter', () => {
 
-                if (indexBigCart === j) {
-                    arr_chunk[j].classList.add('zoom-out');
-                    for (let k = 0; k < arr_chunk.length; k++) {
-                        if (indexBigCart !== k) {
-                            arr_chunk[k].classList.add('zoom-in-half');
+                // console.log(res[i]);
+                if (!elem.classList.contains('_booked')){
+                    if (indexBigCart === j) {
+                        arr_chunk[j].classList.add('zoom-out');
+                        for (let k = 0; k < arr_chunk.length; k++) {
+                            if (indexBigCart !== k) {
+                                arr_chunk[k].classList.add('zoom-in-half');
+                            }
                         }
-                    }
-                } else {
-                    elem.classList.add('zoom-in');
+                    } else {
+                        elem.classList.add('zoom-in');
 
-                    for (let k = 0; k < arr_chunk.length; k++) {
-                        if (j !== k) {
-                            arr_chunk[k].classList.add('zoom-out');
+                        for (let k = 0; k < arr_chunk.length; k++) {
+                            if (j !== k) {
+                                arr_chunk[k].classList.add('zoom-out');
+                            }
                         }
                     }
+                    addClass(res[i], '_booked');
                 }
             })
 
-            elem.addEventListener('mouseleave', () => {
-                removeClass(techCard, 'zoom-in');
-                removeClass(techCard, 'zoom-out');
-                removeClass(techCard, 'zoom-in-half');
+            elem.addEventListener('transitionend', (e) => {
+                removeClass(techCard, '_booked');
             })
-
+            elem.addEventListener('mouseleave', () => {
+                if (!elem.classList.contains('_booked')){
+                    removeClass(techCard, 'zoom-in');
+                    removeClass(techCard, 'zoom-out');
+                    removeClass(techCard, 'zoom-in-half');
+                    removeClass(techCard, '_booked');
+                }else {
+                    setTimeout(() => {
+                        removeClass(techCard, 'zoom-in');
+                        removeClass(techCard, 'zoom-out');
+                        removeClass(techCard, 'zoom-in-half');
+                        removeClass(techCard, '_booked');
+                    }, 500)
+                }
+            })
         }
     }
 }
