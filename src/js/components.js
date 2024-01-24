@@ -138,16 +138,6 @@ btns_anchor.forEach(btn => {
         } else {
             window.location.href = btn.href;
         }
-        //
-        // const topOffset = target.offsetTop - document.querySelector('nav').clientHeight - 20;
-        // window.scrollTo({
-        //     top: topOffset,
-        //     behavior: "smooth"
-        // });
-        //
-        // if (btn.closest('.nav') && btn.closest('.nav').classList.contains('active')) {
-        //     btn.closest('.nav').classList.remove('active');
-        // }
     })
 })
 

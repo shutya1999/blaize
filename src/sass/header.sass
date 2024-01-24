@@ -154,8 +154,46 @@
             letter-spacing: -1.95px
             text-transform: capitalize
 
+@keyframes anim-rotate-left
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(-360deg)
+
+//@keyframes anim-rotate-clock
+//  0%
+//    transform: rotate(0deg)
+//  25%
+//    transform: rotate(90deg)
+//  50%
+//    transform: rotate(180deg)
+//  75%
+//    transform: rotate(270deg)
+//  100%
+//    transform: rotate(360deg)
+
+
+@keyframes anim-rotate-clock
+  from
+    transform: rotate(0)
+  to
+    transform: rotate(1turn)
+
+
+
 
 .home-header
+  &._active
+    & .slogan
+      & .slogan-row
+        overflow: visible
+      & .slogan-word
+        & span
+          transform: translateY(0px)
+      & .slogan-img
+        & img
+          transform: translateY(0px)
+
   & .container
     display: flex
     flex-direction: column
@@ -192,18 +230,44 @@
     letter-spacing: -3.076px
     max-width: 312px
     & .slogan-row
+      // overflow: hidden
       &:last-child
         text-align: end
+      &:nth-child(1)
+        & .slogan-word
+          & span
+            transition-delay: 300ms
+      &:nth-child(2)
+        & .slogan-word
+          & span
+            transition-delay: 500ms
+      &:nth-child(3)
+        & .slogan-word
+          & span
+            transition-delay: 700ms
     & .slogan-word
       display: inline-block
+      overflow: hidden
+      & span
+        display: inline-block
+        transform: translateY(102%)
+        transition: all .5s .3s
+
     & .slogan-img
       display: inline-block
       width: 40px
+      overflow: hidden
+      & img
+        transition: all .5s 300ms
+        transform: translateY(100%)
       &._desk
         display: none
+      &._star
+        animation: anim-rotate-left 15s infinite linear
       &._rhombus
         width: 45px
         transform: translateY(50%)
+        // animation: anim-rotate-clock steps(4) 10s infinite
       & img
         width: 100%
 
