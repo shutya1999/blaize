@@ -6,7 +6,6 @@
   top: 0
   left: 0
   width: 100%
-  // padding: 26px 0
   z-index: 2
   background-color: var(--bg-white)
   height: 81px
@@ -17,10 +16,8 @@
     height: 36px
     & .logo
       max-width: 60px
-      //transform: scale(0.8)
     & .header-navigation
       & .btn-call
-        //transform: scale(0.8)
         padding: 5px 22.5px
 
 
@@ -54,6 +51,10 @@
             width: 0px
             left: 50%
             transform: translateX(-50%)
+
+  //& .o-page__noise
+  //  position: absolute
+
 
   & .container
     display: flex
@@ -124,7 +125,7 @@
     align-items: center
     transform: translateX(100%)
     transition: all .5s
-    background: var(--bg-white)
+    // background: var(--bg-white)
     z-index: 2
     & .bg-elem
       position: absolute
@@ -160,26 +161,6 @@
   100%
     transform: rotate(-360deg)
 
-//@keyframes anim-rotate-clock
-//  0%
-//    transform: rotate(0deg)
-//  25%
-//    transform: rotate(90deg)
-//  50%
-//    transform: rotate(180deg)
-//  75%
-//    transform: rotate(270deg)
-//  100%
-//    transform: rotate(360deg)
-
-
-@keyframes anim-rotate-clock
-  from
-    transform: rotate(0)
-  to
-    transform: rotate(1turn)
-
-
 
 
 .home-header
@@ -191,8 +172,17 @@
         & span
           transform: translateY(0px)
       & .slogan-img
+        &._star
+          animation: anim-rotate-left 15s infinite linear 500ms
         & img
           transform: translateY(0px)
+
+    & .home-header__right
+      opacity: 1
+    & .header-img
+      opacity: 1
+      transform: translateY(0px)
+
 
   & .container
     display: flex
@@ -208,6 +198,8 @@
     flex-direction: column
     align-items: flex-end
     gap: 32px 0
+    opacity: 0
+    transition: all .5s 300ms
     & .header-description
       width: 100%
       max-width: 70.78%
@@ -219,6 +211,9 @@
   & .header-img
     width: 100%
     max-width: 89.8%
+    opacity: 0
+    transform: translateY(20%)
+    transition: all .5s 300ms
     & img
       width: 100%
       border-radius: 10px
@@ -230,7 +225,6 @@
     letter-spacing: -3.076px
     max-width: 312px
     & .slogan-row
-      // overflow: hidden
       &:last-child
         text-align: end
       &:nth-child(1)
@@ -251,7 +245,7 @@
       & span
         display: inline-block
         transform: translateY(102%)
-        transition: all .5s .3s
+        transition: all .5s .7s
 
     & .slogan-img
       display: inline-block
@@ -263,7 +257,8 @@
       &._desk
         display: none
       &._star
-        animation: anim-rotate-left 15s infinite linear
+        // transform-origin: center
+        // animation: anim-rotate-left 15s infinite linear 200ms
       &._rhombus
         width: 45px
         transform: translateY(50%)
@@ -271,7 +266,61 @@
       & img
         width: 100%
 
+@keyframes noise
+  0%, 100%
+    background-position: 0 0
 
+  10%
+    background-position: -5% -10%
+
+  20%
+    background-position: -15% 5%
+
+  30%
+    background-position: 7% -25%
+
+  40%
+    background-position: 20% 25%
+
+  50%
+    background-position: -25% 10%
+
+  60%
+    background-position: 15% 5%
+
+  70%
+    background-position: 0% 15%
+
+  80%
+    background-position: 25% 35%
+
+  90%
+    background-position: -10% 10%
+
+
+
+.o-page__noise
+  z-index: -1
+  background-color: #fff
+  transition: all .4s
+  position: fixed
+  top: 0%
+  bottom: 0%
+  left: 0%
+  right: 0%
+  &._absolute
+    position: absolute
+  &:before
+    content: ""
+    z-index: -20
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background: url('../img/components/noize.png')
+    animation: 0.2s infinite noise
+    pointer-events: none
 
 @media (min-width: 768px)
   .fixed-header
@@ -324,7 +373,7 @@
   .home-header
     & .slogan
       font-size: 106px
-      line-height: 82%
+      // line-height: 82%
       letter-spacing: -5.3px
       max-width: 796px
       padding-top: 50px
@@ -334,6 +383,8 @@
       & .slogan-row
         &:last-child
           text-align: center
+        &:nth-child(2)
+          margin: -15px 0
       & .slogan-img
         &._mob
           display: none
@@ -417,7 +468,7 @@
     // padding-top: 80px
     & .slogan
       font-size: 142px
-      line-height: 82%
+      // line-height: 82%
       max-width: 940px
       padding-top: 10px
       & .slogan-img
