@@ -5,7 +5,7 @@ window.addEventListener('load', () => {
     const circle = document.querySelector('.scroll-bar__thumb');
 
     const smoother = ScrollSmoother.create({
-        smooth: 1.5,
+        smooth: 1,
         effects: true,
         // smoothTouch: 0.1,
     });

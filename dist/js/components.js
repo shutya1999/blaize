@@ -5,7 +5,7 @@ window.addEventListener('load', function () {
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
   var circle = document.querySelector('.scroll-bar__thumb');
   var smoother = ScrollSmoother.create({
-    smooth: 1.5,
+    smooth: 1,
     effects: true
     // smoothTouch: 0.1,
   });
