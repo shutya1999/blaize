@@ -646,8 +646,8 @@ input:-webkit-autofill:active
     align-items: flex-end
     justify-content: flex-start
     overflow: auto
-    -ms-overflow-style: auto
-    scrollbar-width: auto
+    -ms-overflow-style: none
+    scrollbar-width: none
     &::-webkit-scrollbar
       opacity: 0
       display: none
@@ -768,8 +768,9 @@ input:-webkit-autofill:active
             max-width: 89.8%
         & .cards-top
           & .card
-            background: #D9D9D9
+            // background: #D9D9D9
             padding: 45px 45px 40px 45px
+            overflow: hidden
             & .card-img
               width: 100%
               max-width: 45px
@@ -1938,24 +1939,17 @@ footer
           & .tech-card
             &:nth-child(even)
               background: var(--based-black)
-            &:nth-child(2)
-              max-width: calc(40% - 14px)
         &:nth-child(even)
           & .tech-card
             &:nth-child(odd)
               background: var(--based-black)
-            &:nth-child(1)
-              max-width: calc(40% - 14px)
 
       & .tech-card
         height: 130px
         background: white
         width: 100%
-        max-width: calc(30% - 14px)
-        //&:nth-child(8n+2),
-        //&:nth-child(10n+4),
-        //&:nth-child(7n+8)
-        //  width: calc(40% - 14px)
+        max-width: calc(33% - 14px)
+
 
   .blog-card
     & .blog-title
@@ -2313,7 +2307,7 @@ footer
           //min-width: calc(53.75vw - 18px - (var(--padding-container) * 2))
           border-radius: 15px
           opacity: 0
-          transition: all .3s
+          transition: all .15s
           & .desc
             overflow: hidden
           //  display: none
@@ -2435,7 +2429,7 @@ footer
     margin-top: 160px
     & .tabs-block
       & .tabs-buttons
-        gap: 0 50px
+        gap: 0 45px
         margin: 0
         padding: 0
         & .tab-btn
@@ -2562,6 +2556,9 @@ footer
             max-width: 585px
             line-height: 180%
         & .btn-arrow
+          width: 124px
+          height: 77px
+          background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='124' height='79' viewBox='0 0 124 79' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M92.8103 31.8596C85.5897 24.6389 82.2422 14.0516 82.2422 0.66992L88.2422 0.66992C88.2422 13.1268 91.3544 21.9184 97.053 27.6169C102.752 33.3155 111.543 36.4277 124 36.4277L124 42.4277C111.543 42.4277 102.752 45.5399 97.053 51.2385C91.3544 56.9371 88.2422 65.7287 88.2422 78.1855L82.2422 78.1855C82.2422 64.8038 85.5897 54.2165 92.8103 46.9958C96.139 43.6672 100.183 41.1617 104.886 39.4277C100.183 37.6938 96.139 35.1882 92.8103 31.8596Z' fill='%232B2B2D'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 36.4277H120.447V42.4277H0V36.4277Z' fill='%232B2B2D'/%3E%3C/svg%3E")
           transition: all .3s
         & .btn-hover
           opacity: 0
@@ -2610,7 +2607,7 @@ footer
       grid-template-columns: repeat(2,432px)
       gap: 60px
       padding-right: 154px
-      padding-top: 300px
+      // padding-top: 300px
       &:before
         display: none
       & .card-stat
@@ -2658,25 +2655,6 @@ footer
   .ceo-block
     overflow: hidden
     & .swiper-ceo
-      //position: relative
-      //overflow: hidden
-      //margin: 0 auto
-      //& .swiper-slide
-      //  min-width: auto
-      //  max-width: 100%
-      //  &.swiper-slide-active
-      //    width: 50% !important
-      //    & .card
-      //      &.card-holder
-      //        opacity: 0
-      //      &.card-main
-      //        min-width: auto
-      //
-      //  &.swiper-slide-prev
-      //    width: calc(25% - 20px) !important
-      //  &.swiper-slide-next
-      //    width: calc(25% - 20px) !important
-
       & .swiper-ceo__arrow
         display: block
         position: absolute
@@ -2764,26 +2742,20 @@ footer
           & .tech-card
             &:nth-child(even)
               background: var(--based-black)
-            &:nth-child(2)
-              max-width: calc(40% - 20px)
         &:nth-child(even)
           & .tech-card
             &:nth-child(odd)
               background: var(--based-black)
-            &:nth-child(1)
-              max-width: calc(40% - 20px)
 
       & .tech-card
         height: 200px
         width: 100%
-        max-width: calc(30% - 20px)
+        max-width: calc(33% - 15px)
         transition: all .5s
         &.zoom-in
-          max-width: calc(40% - 20px) !important
+          max-width: calc(40% - 15px)
         &.zoom-out
-          max-width: calc(30% - 20px) !important
-        &.zoom-in-half
-          max-width: calc(35% - 20px) !important
+          max-width: calc(29.49% - 15px)
         & .img
           width: 260px
 

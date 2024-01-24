@@ -471,9 +471,9 @@ function validate(form_group) {
   var valid_type_arr = form_group.dataset.valid.split(',');
   if (valid_type_arr.length > 0) {
     var error_count = 0;
-    var _loop = function _loop(_i) {
-      var valid_type = valid_type_arr[_i];
-      if (valid_type_arr[_i].indexOf('maxlength') !== -1) {
+    var _loop = function _loop(i) {
+      var valid_type = valid_type_arr[i];
+      if (valid_type_arr[i].indexOf('maxlength') !== -1) {
         valid_type = 'maxlength';
       }
       switch (valid_type) {
@@ -481,7 +481,7 @@ function validate(form_group) {
           {
             form_group.querySelector('input, textarea').addEventListener('blur', function () {
               if (form_group.classList.contains('required')) {
-                if (_i === 0) {
+                if (i === 0) {
                   error_count = +!validateField(form_group, valid_type);
                 } else {
                   if (error_count === 0) {
@@ -496,7 +496,7 @@ function validate(form_group) {
           {
             form_group.querySelector('input').addEventListener('blur', function () {
               if (form_group.classList.contains('required')) {
-                if (_i === 0) {
+                if (i === 0) {
                   error_count = +!validateField(form_group, valid_type);
                 } else {
                   if (error_count === 0) {
@@ -511,7 +511,7 @@ function validate(form_group) {
           {
             form_group.querySelector('input').addEventListener('change', function () {
               if (form_group.classList.contains('required')) {
-                if (_i === 0) {
+                if (i === 0) {
                   error_count = +!validateField(form_group, valid_type);
                 } else {
                   if (error_count === 0) {
@@ -525,11 +525,11 @@ function validate(form_group) {
         case 'maxlength':
           {
             form_group.querySelector('input, textarea').addEventListener('blur', function () {
-              if (_i === 0) {
-                error_count = +!validateField(form_group, valid_type_arr[_i]);
+              if (i === 0) {
+                error_count = +!validateField(form_group, valid_type_arr[i]);
               } else {
                 if (error_count === 0) {
-                  error_count = +!validateField(form_group, valid_type_arr[_i]);
+                  error_count = +!validateField(form_group, valid_type_arr[i]);
                 }
               }
             });
@@ -538,7 +538,7 @@ function validate(form_group) {
         case 'cyrillic':
           {
             form_group.querySelector('input, textarea').addEventListener('blur', function () {
-              if (_i === 0) {
+              if (i === 0) {
                 error_count = +!validateField(form_group, valid_type);
               } else {
                 if (error_count === 0) {
@@ -551,7 +551,7 @@ function validate(form_group) {
         case 'number':
           {
             form_group.querySelector('input, textarea').addEventListener('blur', function () {
-              if (_i === 0) {
+              if (i === 0) {
                 error_count = +!validateField(form_group, valid_type);
               } else {
                 if (error_count === 0) {
@@ -563,8 +563,8 @@ function validate(form_group) {
           }
       }
     };
-    for (var _i = 0; _i < valid_type_arr.length; _i++) {
-      _loop(_i);
+    for (var i = 0; i < valid_type_arr.length; i++) {
+      _loop(i);
     }
   }
 }
@@ -677,14 +677,14 @@ function validateForm(form) {
   required_fields.forEach(function (form_group) {
     var valid_type_arr = form_group.dataset.valid.split(',');
     var error_valid_count = 0;
-    for (var _i2 = 0; _i2 < valid_type_arr.length; _i2++) {
-      var valid_type = valid_type_arr[_i2];
-      if (valid_type_arr[_i2].indexOf('maxlength') !== -1) {
+    for (var i = 0; i < valid_type_arr.length; i++) {
+      var valid_type = valid_type_arr[i];
+      if (valid_type_arr[i].indexOf('maxlength') !== -1) {
         valid_type = 'maxlength';
       }
-      if (_i2 === 0) {
+      if (i === 0) {
         // error_valid_count = ;
-        if (!validateField(form_group, valid_type_arr[_i2])) {
+        if (!validateField(form_group, valid_type_arr[i])) {
           error_valid_count = 1;
           errors += 1;
           errors_fields.push(form_group);
@@ -693,7 +693,7 @@ function validateForm(form) {
         }
       } else {
         if (error_valid_count === 0) {
-          if (!validateField(form_group, valid_type_arr[_i2])) {
+          if (!validateField(form_group, valid_type_arr[i])) {
             error_valid_count = 1;
             errors += 1;
             errors_fields.push(form_group);
@@ -931,71 +931,110 @@ cursor();
 // Tech card hover
 var techCard = document.querySelectorAll('.use-desktop .tech-card');
 if (techCard.length) {
-  var techCard_arr = Array.from(techCard);
-  var res = [];
-  var size = 3;
-  for (var i = 0; i < techCard_arr.length; i += size) {
-    res.push(techCard_arr.slice(i, i + size));
-  }
-  var _loop2 = function _loop2(_i3) {
-    var arr_chunk = res[_i3];
-    var indexBigCart = 0;
-    var maxWidthCard = arr_chunk[0].clientWidth;
-
-    // Find index big card
-    for (var j = 0; j < arr_chunk.length; j++) {
-      if (arr_chunk[j].clientWidth > maxWidthCard) {
-        maxWidthCard = arr_chunk[j].clientWidth;
-        indexBigCart = j;
+  techCard.forEach(function (card, index) {
+    card.addEventListener('mouseenter', function () {
+      // if (!card.classList.contains('_booked')){
+      card.classList.add('zoom-in');
+      var cardInRows = card.closest('.use-desktop__row').querySelectorAll('.tech-card');
+      for (var i = 0; i < cardInRows.length; i++) {
+        console.log(cardInRows[i]);
+        if (cardInRows[i] !== card) {
+          cardInRows[i].classList.add('zoom-out');
+        }
       }
-    }
-    var _loop3 = function _loop3(_j) {
-      var elem = arr_chunk[_j];
-      elem.addEventListener('mouseenter', function () {
-        // console.log(res[i]);
-        if (!elem.classList.contains('_booked')) {
-          if (indexBigCart === _j) {
-            arr_chunk[_j].classList.add('zoom-out');
-            for (var k = 0; k < arr_chunk.length; k++) {
-              if (indexBigCart !== k) {
-                arr_chunk[k].classList.add('zoom-in-half');
-              }
-            }
-          } else {
-            elem.classList.add('zoom-in');
-            for (var _k = 0; _k < arr_chunk.length; _k++) {
-              if (_j !== _k) {
-                arr_chunk[_k].classList.add('zoom-out');
-              }
-            }
-          }
-          addClass(res[_i3], '_booked');
-        }
-      });
-      elem.addEventListener('transitionend', function (e) {
-        removeClass(techCard, '_booked');
-      });
-      elem.addEventListener('mouseleave', function () {
-        if (!elem.classList.contains('_booked')) {
-          removeClass(techCard, 'zoom-in');
-          removeClass(techCard, 'zoom-out');
-          removeClass(techCard, 'zoom-in-half');
-          removeClass(techCard, '_booked');
-        } else {
-          setTimeout(function () {
-            removeClass(techCard, 'zoom-in');
-            removeClass(techCard, 'zoom-out');
-            removeClass(techCard, 'zoom-in-half');
-            removeClass(techCard, '_booked');
-          }, 500);
-        }
-      });
-    };
-    for (var _j = 0; _j < arr_chunk.length; _j++) {
-      _loop3(_j);
-    }
-  };
-  for (var _i3 = 0; _i3 < res.length; _i3++) {
-    _loop2(_i3);
-  }
+
+      // addClass(techCard, '_booked');
+      // }
+    });
+
+    // card.addEventListener('transitionend', () => {
+    //     removeClass(techCard, '_booked');
+    // })
+    card.addEventListener('mouseleave', function () {
+      removeClass(techCard, 'zoom-in');
+      removeClass(techCard, 'zoom-out');
+    });
+  });
+
+  // let techCard_arr = Array.from(techCard);
+  //
+  // var res = [];
+  // let size = 3;
+  //
+  // for (var i = 0; i < techCard_arr.length; i += size) {
+  //     res.push(techCard_arr.slice(i, i + size));
+  // }
+  //
+  // for (let i = 0; i < res.length; i++) {
+  //     let arr_chunk = res[i];
+  //
+  //     let indexBigCart = 0;
+  //     let maxWidthCard = arr_chunk[0].clientWidth;
+  //
+  //     // Find index big card
+  //     for (let j = 0; j < arr_chunk.length; j++) {
+  //         if (arr_chunk[j].clientWidth > maxWidthCard) {
+  //             maxWidthCard = arr_chunk[j].clientWidth;
+  //             indexBigCart = j;
+  //         }
+  //     }
+  //
+  //     for (let j = 0; j < arr_chunk.length; j++) {
+  //         let elem = arr_chunk[j];
+  //
+  //
+  //         elem.addEventListener('mouseenter', () => {
+  //
+  //             if (indexBigCart === j) {
+  //                 arr_chunk[j].classList.add('hover');
+  //                 // for (let k = 0; k < arr_chunk.length; k++) {
+  //                 //     if (indexBigCart !== k) {
+  //                 //         arr_chunk[k].classList.add('zoom-in-half');
+  //                 //     }
+  //                 // }
+  //             } else {
+  //
+  //             }
+  //
+  //             // if (!elem.classList.contains('_booked')){
+  //             //     if (indexBigCart === j) {
+  //             //         arr_chunk[j].classList.add('zoom-out');
+  //             //         for (let k = 0; k < arr_chunk.length; k++) {
+  //             //             if (indexBigCart !== k) {
+  //             //                 arr_chunk[k].classList.add('zoom-in-half');
+  //             //             }
+  //             //         }
+  //             //     } else {
+  //             //         elem.classList.add('zoom-in');
+  //             //
+  //             //         for (let k = 0; k < arr_chunk.length; k++) {
+  //             //             if (j !== k) {
+  //             //                 arr_chunk[k].classList.add('zoom-out');
+  //             //             }
+  //             //         }
+  //             //     }
+  //             //     addClass(res[i], '_booked');
+  //             // }
+  //         })
+  //
+  //         // elem.addEventListener('transitionend', (e) => {
+  //         //     removeClass(techCard, '_booked');
+  //         // })
+  //         elem.addEventListener('mouseleave', () => {
+  //             // if (!elem.classList.contains('_booked')){
+  //             //     removeClass(techCard, 'zoom-in');
+  //             //     removeClass(techCard, 'zoom-out');
+  //             //     removeClass(techCard, 'zoom-in-half');
+  //             //     removeClass(techCard, '_booked');
+  //             // }else {
+  //             //     setTimeout(() => {
+  //             //         removeClass(techCard, 'zoom-in');
+  //             //         removeClass(techCard, 'zoom-out');
+  //             //         removeClass(techCard, 'zoom-in-half');
+  //             //         removeClass(techCard, '_booked');
+  //             //     }, 500)
+  //             // }
+  //         })
+  //     }
+  // }
 }
