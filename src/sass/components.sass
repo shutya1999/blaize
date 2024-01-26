@@ -137,8 +137,22 @@ input, button, textarea, select
   max-width: var(--size)
   height: var(--size)
   cursor: pointer
+  position: relative
   @include bg-center
     background-size: contain
+
+  &:after
+    content: ''
+    display: block
+    width: 100%
+    height: 100%
+    position: absolute
+    opacity: 0
+    pointer-events: none
+    transition: all .3s
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='124' height='124' viewBox='0 0 124 124' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='124' height='124' rx='24' fill='%232B2B2D'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M80.3929 57.858C76.3167 53.7819 74.4271 47.8052 74.4271 40.251L77.8142 40.251C77.8142 47.2831 79.571 52.2461 82.788 55.463C86.0049 58.68 90.9679 60.4368 98 60.4368L98 63.8239C90.9679 63.8239 86.0049 65.5808 82.788 68.7977C79.571 72.0147 77.8142 76.9777 77.8141 84.0098L74.4271 84.0098C74.4271 76.4556 76.3167 70.4789 80.3929 66.4027C82.272 64.5236 84.5549 63.1092 87.2101 62.1304C84.5549 61.1515 82.272 59.7371 80.3929 57.858Z' fill='%23E5E5E5'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M28 60.437H95.9944V63.8241H28V60.437Z' fill='%23E5E5E5'/%3E%3C/svg%3E")
+    @include bg-center
+      background-size: contain
 
   &._linkedin
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='70' height='70' viewBox='0 0 70 70' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='69' height='69' rx='12.5' stroke='%232B2B2D' stroke-opacity='0.4'/%3E%3Cpath d='M46.9273 21H23.0672C21.9242 21 21 21.9023 21 23.018V46.9766C21 48.0922 21.9242 49 23.0672 49H46.9273C48.0703 49 49 48.0922 49 46.982V23.018C49 21.9023 48.0703 21 46.9273 21ZM29.307 44.8602H25.1508V31.4945H29.307V44.8602ZM27.2289 29.6734C25.8945 29.6734 24.8172 28.5961 24.8172 27.2672C24.8172 25.9383 25.8945 24.8609 27.2289 24.8609C28.5578 24.8609 29.6352 25.9383 29.6352 27.2672C29.6352 28.5906 28.5578 29.6734 27.2289 29.6734ZM44.8602 44.8602H40.7094V38.3633C40.7094 36.8156 40.682 34.8195 38.5492 34.8195C36.3891 34.8195 36.0609 36.5094 36.0609 38.2539V44.8602H31.9156V31.4945H35.8969V33.3211H35.9516C36.5039 32.2711 37.8602 31.1609 39.8781 31.1609C44.0836 31.1609 44.8602 33.9281 44.8602 37.5266V44.8602Z' fill='%232B2B2D'/%3E%3C/svg%3E")
@@ -146,6 +160,14 @@ input, button, textarea, select
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='70' height='70' viewBox='0 0 70 70' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='69' height='69' rx='12.5' stroke='%232B2B2D' stroke-opacity='0.4'/%3E%3Cpath d='M41.3263 24.9038H44.6998L37.3297 33.3273L46 44.7898H39.2112L33.894 37.8378L27.8099 44.7898H24.4344L32.3174 35.7799L24 24.9038H30.9611L35.7674 31.2581L41.3263 24.9038ZM40.1423 42.7706H42.0116L29.9454 26.8169H27.9395L40.1423 42.7706Z' fill='%232B2B2D'/%3E%3C/svg%3E")
   &._email
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='70' height='70' viewBox='0 0 70 70' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='0.5' y='0.5' width='69' height='69' rx='12.5' stroke='%232B2B2D' stroke-opacity='0.4'/%3E%3Cpath d='M46.572 24.2891H23.7829C23.4145 24.2891 23.0629 24.3717 22.7448 24.5369L35.1188 36.7463L37.8984 34.1194L47.6101 24.5369C47.292 24.3717 46.9403 24.2891 46.572 24.2891ZM48.7487 25.6604L39.6063 34.6811L48.7487 43.7019C48.8994 43.388 48.9999 43.041 48.9999 42.6776V26.6847C48.9999 26.3212 48.8994 25.9743 48.7487 25.6604ZM21.6061 25.6604C21.4554 25.9743 21.355 26.3212 21.355 26.6847V42.661C21.355 43.0245 21.4387 43.3715 21.6061 43.6854L30.7318 34.6811L21.6061 25.6604Z' fill='%232B2B2D'/%3E%3Cpath d='M38.4671 35.8047L35.6875 38.4316C35.5368 38.5803 35.3191 38.6629 35.1182 38.6629C34.9173 38.6629 34.6996 38.5803 34.5489 38.4316L31.8866 35.8047L22.7441 44.8255C23.0623 44.9742 23.4139 45.0733 23.7823 45.0733H46.5713C46.9397 45.0733 47.2914 44.9907 47.6095 44.8255L38.4671 35.8047Z' fill='%232B2B2D'/%3E%3C/svg%3E")
+
+
+
+  @media (hover: hover)
+    &:hover
+      &:after
+        opacity: 1
+        pointer-events: auto
 
 
 .sn-item
@@ -1126,7 +1148,7 @@ input:-webkit-autofill:active
 
 
 .home-case
-  margin-top: 140px
+  margin-top: 100px
   padding-bottom: 40px
   background-repeat: no-repeat
   background-image: url("../img/home/home-case-bg__mob.svg")
@@ -1150,10 +1172,9 @@ input:-webkit-autofill:active
 
 
 .team
-  margin-top: 100px
+  margin-top: 150px
   & .team-swiper
     overflow: visible
-    // & .swiper-slide
 
   & .team-card
     &:nth-child(3n+1)
@@ -1418,7 +1439,8 @@ input:-webkit-autofill:active
       font-weight: 600
       line-height: 160%
       letter-spacing: -0.32px
-
+  & .use-swiper-arrows
+    display: none
   & .use-swiper
     padding: 0 var(--padding-container)
     margin: 0 calc( var(--padding-container) * -1)
@@ -1469,43 +1491,28 @@ input:-webkit-autofill:active
       @include bg-center
         background-size: contain
 
-
-  & .blog-rows
+  & .blog-cards
     display: flex
-    flex-direction: column
-    gap: 20px
-    & .blog-row
-      display: flex
-      align-items: flex-end
-      justify-content: flex-start
-      overflow: auto
-      -ms-overflow-style: auto
-      scrollbar-width: auto
-      gap: 0 20px
-      padding: 0 var(--padding-container)
-      margin: 0 calc( var(--padding-container) * -1)
-      &::-webkit-scrollbar
-        opacity: 0
-        display: none
-        width: 0
-        height: 0
-      &:nth-child(1)
-        & .blog-card
-          min-width: 74.3%
-          max-width: 74.3%
-          & .blog-card__wrapper
-            padding-bottom: 146%
-      &:nth-child(2)
-        direction: rtl
-        & .blog-card
-          min-width: 74.3%
-          max-width: 74.3%
-          & .blog-card__wrapper
-            padding-bottom: 100%
+    align-items: flex-end
+    justify-content: flex-start
+    overflow: auto
+    -ms-overflow-style: auto
+    scrollbar-width: auto
+    gap: 0 20px
+    padding: 0 var(--padding-container)
+    margin: 0 calc( var(--padding-container) * -1)
+    &::-webkit-scrollbar
+      opacity: 0
+      display: none
+      width: 0
+      height: 0
 
 
-
-
+    & .blog-card
+      min-width: 81vw
+      max-width: 81vw
+      & .blog-card__wrapper
+        padding-bottom: 146%
 
 
 
@@ -1849,80 +1856,71 @@ footer
       line-height: 110%
 
   .home-blog
-    margin-top: 150px
+    margin-top: 200px
     & .section-title
       &:after
         display: none
-    & .blog-rows__wrapper
+
+    & .blog-cards
+      display: grid
+      grid-template-columns: repeat(10, 1fr)
+      gap: 20px
+      align-items: start
       position: relative
       &:before
         content: ''
         display: block
-        width: calc(30.625% - 20px)
+        width: calc(28.625% - 20px)
         height: 23%
         position: absolute
         bottom: 0
-        right: 0
+        right: var(--padding-container)
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='167' height='89' viewBox='0 0 167 89' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_778_932)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M89.4644 -2.26964e-05L77.5357 -2.37392e-05L77.5357 68.7317L28.674 20.131L20.2392 28.5208L69.1009 77.1214L-6.74217e-06 77.1214L-7.77944e-06 88.9864L69.1008 88.9864L20.2392 137.587L28.674 145.976L77.5357 97.3757L77.5357 166.108L89.4644 166.108L89.4644 97.3757L138.326 145.976L146.76 137.587L97.8987 88.9864L167 88.9864L167 77.1214L97.8987 77.1214L146.76 28.5207L138.326 20.131L89.4644 68.7316L89.4644 -2.26964e-05Z' fill='%23FF5C5C'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_778_932'%3E%3Crect width='167' height='89' fill='white' transform='matrix(-1 -8.74228e-08 -8.74228e-08 1 167 0)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E")
         @include bg-center
           background-size: contain
-    & .blog-rows
-      & .blog-row
-        overflow: visible
-        max-width: 69.375%
-        margin: 0
-        padding: 0
+      & .blog-card
+        min-width: auto
+        max-width: 100%
         &:nth-child(1)
-          display: flex
-          & .blog-card
-            min-width: auto
-            max-width: 100%
-            & .blog-card__wrapper
-              padding-bottom: 100%
-            &:nth-child(1)
-              width: 41.142%
-            &:nth-child(2)
-              width: 58.858%
-              & .blog-card__wrapper
-                padding-bottom: 69.9%
+          grid-column: 1/4
+          & .blog-card__wrapper
+            padding-bottom: 100%
         &:nth-child(2)
-          direction: initial
-          display: flex
-          & .blog-card
-            min-width: auto
-            max-width: 100%
-            &:nth-child(1)
-              width: 58.858%
-              & .blog-card__wrapper
-                padding-bottom: 69.9%
-            &:nth-child(2)
-              width: 41.142%
+          grid-column: 4/8
+          & .blog-card__wrapper
+            padding-bottom: 73.66%
+        &:nth-child(3)
+          grid-column: 1/5
+          grid-row: 2/3
+          & .blog-card__wrapper
+            padding-bottom: 73.66%
+        &:nth-child(4)
+          grid-column: 5/8
+          grid-row: 2/3
+          & .blog-card__wrapper
+            padding-bottom: 100%
+        &:nth-child(5)
+          grid-column: 8/11
+          grid-row: 1/3
 
-            &:last-child
-              position: absolute
-              top: 0
-              right: 0
-              width: calc(30.625% - 20px)
-              & .blog-card__wrapper
-                padding-bottom: 147.45%
 
 
   .home-case
     margin-top: 150px
-    padding: 55px 0 47px 0
+    padding: 0px 0 20px 0
     background-image: url("../img/home/home-case-bg__desktop.svg")
     background-size: contain
     background-position: bottom right var(--padding-container)
     & .container
       position: relative
     & .section-title
-      font-size: 34px
-      margin: 0
-      max-width: 540px
-      margin-bottom: 76px
+      font-size: 58px
+      margin: 0 0 30px 0
+      max-width: 570px
+      opacity: 0.9
     & .btn
       position: absolute
-      bottom: -30px
+      bottom: -20px
       right: var(--padding-container)
       padding: 25px 0
     & .logo
@@ -1935,6 +1933,7 @@ footer
 
 
   .team
+    margin-top: 200px
     & .team-card
       & .team-info
         & .team-name
@@ -1951,7 +1950,7 @@ footer
 
 
   .process
-    margin-top: 150px
+    margin-top: 200px
     & .section-title__wrapper
       width: 100%
       display: flex
@@ -2646,7 +2645,7 @@ footer
     margin-top: 150px
     & .section-title__wrapper
       gap: 0 130px
-      margin-bottom: 80px
+      margin-bottom: 100px
       align-items: center
       & .section-title
         line-height: 110%
@@ -2654,34 +2653,47 @@ footer
         font-size: 18px
         max-width: 270px
 
-    & .use-desktop
-      gap: 30px
-      display: flex
-      flex-direction: column
-      & .use-desktop__row
-        display: flex
-        flex-direction: row
-        gap: 30px
-        &:nth-child(odd)
-          & .tech-card
-            &:nth-child(even)
-              background: var(--based-black)
-        &:nth-child(even)
-          & .tech-card
-            &:nth-child(odd)
-              background: var(--based-black)
+    & .use-swiper__wrapper
+      position: relative
+    & .use-swiper-arrows
+      display: block
+      position: absolute
+      top: 50%
+      transform: translateY(-50%)
+      width: 124px
+      height: 124px
+      cursor: pointer
+      transition: all .3s
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='124' height='124' viewBox='0 0 124 124' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='62' cy='62' r='61' transform='matrix(1 0 0 -1 0 124)' stroke='%232B2B2D' stroke-width='2'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M78.6983 59.3018C74.6928 55.2963 72.8359 49.4232 72.8359 42L76.1642 42C76.1642 48.9101 77.8906 53.7871 81.0518 56.9482C84.213 60.1094 89.0899 61.8358 96.0001 61.8358L96.0001 65.1642C89.0899 65.1642 84.213 66.8906 81.0518 70.0518C77.8906 73.2129 76.1642 78.0899 76.1642 85L72.8359 85C72.8359 77.5768 74.6928 71.7037 78.6983 67.6982C80.5448 65.8518 82.7881 64.4619 85.3973 63.5C82.7881 62.5381 80.5448 61.1482 78.6983 59.3018Z' fill='%232B2B2D'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M27.2139 61.8358H94.0292V65.1642H27.2139V61.8358Z' fill='%232B2B2D'/%3E%3C/svg%3E")
+      @include bg-center
+        background-size: contain
 
-      & .tech-card
-        height: 200px
-        width: 100%
-        max-width: calc(33% - 15px)
-        transition: all .5s
-        &.zoom-in
-          max-width: calc(40% - 15px)
-        &.zoom-out
-          max-width: calc(29.49% - 15px)
+      &:hover
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='124' height='124' viewBox='0 0 124 124' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='62' cy='62' r='61' transform='matrix(1 0 0 -1 0 124)' stroke='%23FF5C5C' fill='%23FF5C5C' stroke-width='2'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M78.6983 59.3018C74.6928 55.2963 72.8359 49.4232 72.8359 42L76.1642 42C76.1642 48.9101 77.8906 53.7871 81.0518 56.9482C84.213 60.1094 89.0899 61.8358 96.0001 61.8358L96.0001 65.1642C89.0899 65.1642 84.213 66.8906 81.0518 70.0518C77.8906 73.2129 76.1642 78.0899 76.1642 85L72.8359 85C72.8359 77.5768 74.6928 71.7037 78.6983 67.6982C80.5448 65.8518 82.7881 64.4619 85.3973 63.5C82.7881 62.5381 80.5448 61.1482 78.6983 59.3018Z' fill='white'/%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M27.2139 61.8358H94.0292V65.1642H27.2139V61.8358Z' fill='white'/%3E%3C/svg%3E")
+
+      &.use-swiper-prev
+        transform: translateY(-50%) rotate(180deg)
+      &.use-swiper-next
+        right: 0
+    & .use-swiper
+      max-width: calc(100% - 308px)
+      margin: 0 auto
+      & .swiper-slide
         & .img
-          width: 260px
+          border-width: 2px
+          transition: all .5s
+          & img
+            transition: all .5s
+            width: 170px
+            height: 60px
+        &:hover
+          & .img
+            border-color: var(--based-red)
+            background-color: var(--based-red)
+            & img
+              opacity: 0
+              &.hover
+                opacity: 1
 
   .blog-card
     border-radius: 24px
@@ -2718,32 +2730,37 @@ footer
 
 
   .home-blog
-    margin-top: 250px
+    margin-top: 300px
+    & .blog-cards
+      gap: 30px
+      &:before
+        height: 25%
+
 
 
   .home-case
     background: none
     padding: 0
+    margin-top: 300px
     & .container
       position: relative
-      background-image: url("../img/home/home-case-bg__desktop.svg")
-      background-size: contain
-      background-position: bottom right var(--padding-container)
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='756' height='394' viewBox='0 0 756 394' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M153.035 133.608C179.011 53.9444 253.547 0.00205866 337.448 0.00205866C392.238 -0.251208 444.547 22.8745 481.223 63.5988L481.517 63.49C563.495 46.1536 647.479 83.733 689.429 156.393C717.044 203.716 723.171 260.58 706.24 312.704L706.482 312.905C762.484 375.232 771.932 466.754 729.981 539.414C702.806 586.99 656.624 620.728 603.018 632.128L602.965 632.436C576.989 712.1 502.453 766.042 418.552 766.042C363.762 766.296 311.453 743.17 274.778 702.446L274.483 702.555C192.505 719.891 108.521 682.311 66.5706 609.651C38.9564 562.329 32.8293 505.465 49.7596 453.341L49.5184 453.14C-6.48453 390.813 -15.9316 299.291 26.0186 226.632C53.1942 179.055 99.3762 145.317 152.982 133.917L153.035 133.608ZM194.167 364.42L194.139 193.837C194.119 177.329 197.005 161.026 202.505 145.593L202.017 145.475C221.764 89.8012 274.916 49.8918 337.448 49.7917L337.194 50.046C370.811 50.046 403.128 61.5926 429.043 82.9723L272.432 173.392C270.671 174.409 269.072 175.602 267.648 176.946C262.489 181.617 259.522 188.366 259.522 195.601V402.091L194.167 364.42ZM143.671 188.793V369.632C143.671 371.664 143.905 373.646 144.356 375.549C145.821 382.354 150.183 388.299 156.449 391.917L335.275 495.162L269.974 532.925L122.23 447.658C107.923 439.421 95.2479 428.77 84.6322 416.291L84.286 416.655C45.945 371.716 37.9585 305.731 69.1377 251.526L69.2308 251.874C86.0395 222.76 112.198 200.546 143.671 188.793ZM378 470.655L302.108 426.839V339.206L378 295.39L453.892 339.206V426.838L378 470.655ZM92.6272 488.843L249.239 579.263C251.005 580.282 252.844 581.072 254.724 581.633C261.345 583.759 268.667 582.952 274.928 579.338L453.753 476.093L453.806 551.527L306.091 636.843C291.805 645.115 276.243 650.766 260.128 653.72L260.27 654.202C202.181 664.937 141.042 638.861 109.69 584.757L110.037 584.85C93.2284 555.736 87.0697 521.976 92.6272 488.843ZM418.806 715.998C385.189 715.998 352.872 704.452 326.957 683.072L483.568 592.652C485.331 591.635 486.932 590.44 488.356 589.095C493.513 584.424 496.478 577.676 496.478 570.443V363.954L561.833 401.624L561.861 572.208C561.881 588.716 558.995 605.019 553.495 620.452L553.983 620.57C534.235 676.243 481.084 716.152 418.552 716.253L418.806 715.998ZM612.329 577.252V396.412C612.329 394.375 612.094 392.39 611.641 390.483C610.173 383.683 605.813 377.743 599.551 374.128L420.725 270.883L486.027 233.12L633.77 318.387C648.077 326.623 660.752 337.275 671.368 349.754L671.714 349.39C710.055 394.329 718.042 460.314 686.862 514.519L686.769 514.171C669.96 543.285 643.802 565.499 612.329 577.252ZM645.963 181.195C662.772 210.308 668.93 244.069 663.373 277.202L506.761 186.783C505.005 185.769 503.176 184.982 501.306 184.421C494.677 182.283 487.343 183.087 481.072 186.707L302.247 289.951L302.194 214.517L449.909 129.201C464.195 120.93 479.757 115.278 495.872 112.324L495.73 111.842C553.819 101.107 614.958 127.184 646.31 181.288L645.963 181.195Z' fill='url(%23paint0_linear_778_1014)'/%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_778_1014' x1='378' y1='204' x2='378' y2='554' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='white'/%3E%3Cstop offset='1' stop-color='%23D9D9D9' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='white'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E")
+      background-size: 756px auto
+      background-position: top 20px right
       background-repeat: no-repeat
     & .section-title
-      font-size: 47px
-      max-width: 744px
-      padding-top: 88px
-      margin-bottom: 140px
-    & .logo
-      padding-bottom: 81px
+      font-size: 90px
+      max-width: 770px
+      line-height: 100%
+      letter-spacing: -4.5px
+      margin-bottom: 80px
 
     & .btn
-      bottom: 60px
+      bottom: 0px
 
 
   .team
-    margin-top: 250px
+    margin-top: 300px
     & .team-card
       & .team-img
         max-width: 490px
@@ -2760,12 +2777,14 @@ footer
           line-height: 150%
           margin-bottom: 40px
         & .team-sn
-          gap: 0 40px
+          gap: 0 30px
           & .sn-border
-            --size: 70px
+            --size: 124px
+            // border-radius: 22px
 
 
   .process
+    margin-top: 300px
     & .section-title__wrapper
       gap: 0 130px
       margin-bottom: 60px
@@ -2799,7 +2818,8 @@ footer
       margin-top: 60px
     & .process-card
       gap: 0 67px
-      padding-bottom: 100px
+      padding: 0
+      // padding-bottom: 100px
       & .process-sidebar
         min-width: 237px
         max-width: 237px
@@ -2819,17 +2839,18 @@ footer
             & .list-desc
               font-size: 18px
       & .process-main
-        max-width: 575px
+        max-width: 700px
         & .process-main__desc
           font-size: 18px
 
       & .process-img
         max-width: 433px
-        transform: translateY(100px)
+        transform: none
+        // transform: translateY(100px)
 
 
   .home-form
-    margin-top: 250px
+    margin-top: 300px
     padding-bottom: 250px
     & .form-wrapper
       padding: 60px 154px 65px 135px

@@ -864,7 +864,11 @@ if (document.querySelector('.use-swiper')) {
       enabled: true,
       sticky: false
     },
-    //slidesPerView: 1.45,
+    // Navigation form swiper
+    navigation: {
+      nextEl: '.use-swiper-next',
+      prevEl: '.use-swiper-prev'
+    },
     breakpoints: {
       768: {
         slidesPerView: 4,
