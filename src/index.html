@@ -16,14 +16,13 @@
 
 @@include('_header.html')
 
-<div class="o-page__noise"></div>
 
 <div id="smooth-wrapper">
     <div id="smooth-content">
         <div class="main" id="main">
             <section class="home-header _anim-items _anim-no-hide">
                 <div class="container">
-                    <div class="home-header__left">
+<!--                    <div class="home-header__left">-->
                         <div class="slogan">
                             <div class="slogan-row">
                                 <div class="slogan-img _star _mob">
@@ -55,14 +54,14 @@
                         <div class="header-img">
                             <picture>
                                 <source srcset="./img/home/header-img_desktop.webp" type="image/webp" media="(min-width: 768px)">
-                                <source srcset="./img/home/header-img_desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
+                                <source srcset="./img/home/header-img_desktop.png" type="image/png" media="(min-width: 768px)">
 
                                 <source srcset="./img/home/header-img_mob.webp" type="image/webp">
-                                <source srcset="./img/home/header-img_mob.jpg" type="image/jpeg">
-                                <img src="./img/home/header-img_mob.jpg" alt="">
+                                <source srcset="./img/home/header-img_mob.png" type="image/png">
+                                <img src="./img/home/header-img_mob.png" alt="">
                             </picture>
                         </div>
-                    </div>
+<!--                    </div>-->
                     <div class="home-header__right">
                         <div class="header-description">
                             <p>
@@ -150,7 +149,7 @@
                                 </svg>
                                 healtcare
                             </button>
-                            <button class="tab-btn" data-id="6">
+                            <button class="tab-btn _js-tab-btn" data-id="6">
                                 <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <g clip-path="url(#clip0_715_666)">
                                         <path d="M15.3 12.5999H4.80001C4.61436 12.5999 4.43631 12.6737 4.30504 12.8049C4.17376 12.9362 4.10001 13.1143 4.10001 13.2999C4.10001 13.4856 4.17376 13.6636 4.30504 13.7949C4.43631 13.9262 4.61436 13.9999 4.80001 13.9999H15.3V15.3999H4.80001C4.24306 15.3999 3.70891 15.1787 3.31509 14.7848C2.92126 14.391 2.70001 13.8569 2.70001 13.2999V2.7999C2.70001 2.4286 2.84751 2.0725 3.11006 1.80995C3.37261 1.5474 3.72871 1.3999 4.10001 1.3999H15.3V12.5999ZM4.10001 11.2349C4.21341 11.2118 4.33031 11.1999 4.45001 11.1999H13.9V2.7999H4.10001V11.2349ZM11.8 6.2999H6.20001V4.8999H11.8V6.2999Z"
@@ -170,7 +169,7 @@
                                 <div class="cards cards-top">
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-1.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Software <br> Development</p>
                                         <div class="card-desc">
@@ -178,11 +177,10 @@
                                                 We create, deliver and maintain military-grade blockchain solutions for various industries from PoC to enterprise scale.
                                             </p>
                                         </div>
-                                        <div class="o-page__noise _absolute"></div>
                                     </div>
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-2.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Security <br> Audit</p>
                                         <div class="card-desc">
@@ -193,32 +191,13 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-3.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Product <br> Design</p>
                                         <div class="card-desc">
                                             <p>
                                                 Our team turns any idea into bulletproof solutions capable of fitting millions in compliance with business requirements.
                                             </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cards cards-bottom">
-                                    <div class="card _red">
-                                    </div>
-                                    <div class="card _img">
-                                        <picture class="img">
-                                            <source srcset="./img/home/industries-card-img-bottom_desktop.webp" type="image/webp" media="(min-width: 768px)">
-                                            <source srcset="./img/home/industries-card-img-bottom_desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
-
-                                            <source srcset="./img/home/industries-card-img-bottom_mob.webp" type="image/webp">
-                                            <source srcset="./img/home/industries-card-img-bottom_mob.jpg" type="image/jpeg">
-                                            <img src="./img/home/industries-card-img-bottom_mob.jpg" alt="" loading="lazy">
-                                        </picture>
-                                    </div>
-                                    <div class="card _black">
-                                        <div class="icon">
-                                            <img src="./img/components/curved-rhombus.svg" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -227,7 +206,7 @@
                                 <div class="cards cards-top">
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-1.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Software <br> Development</p>
                                         <div class="card-desc">
@@ -238,7 +217,7 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-2.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Security <br> Audit</p>
                                         <div class="card-desc">
@@ -249,32 +228,13 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-3.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Product <br> Design</p>
                                         <div class="card-desc">
                                             <p>
                                                 Our team turns any idea into bulletproof solutions capable of fitting millions in compliance with business requirements.
                                             </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cards cards-bottom">
-                                    <div class="card _red">
-                                    </div>
-                                    <div class="card _img">
-                                        <picture class="img">
-                                            <source srcset="./img/home/industries-card-img-bottom_desktop.webp" type="image/webp" media="(min-width: 768px)">
-                                            <source srcset="./img/home/industries-card-img-bottom_desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
-
-                                            <source srcset="./img/home/industries-card-img-bottom_mob.webp" type="image/webp">
-                                            <source srcset="./img/home/industries-card-img-bottom_mob.jpg" type="image/jpeg">
-                                            <img src="./img/home/industries-card-img-bottom_mob.jpg" alt="" loading="lazy">
-                                        </picture>
-                                    </div>
-                                    <div class="card _black">
-                                        <div class="icon">
-                                            <img src="./img/components/curved-rhombus.svg" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -283,7 +243,7 @@
                                 <div class="cards cards-top">
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-1.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Software <br> Development</p>
                                         <div class="card-desc">
@@ -294,7 +254,7 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-2.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Security <br> Audit</p>
                                         <div class="card-desc">
@@ -305,32 +265,13 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-3.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Product <br> Design</p>
                                         <div class="card-desc">
                                             <p>
                                                 Our team turns any idea into bulletproof solutions capable of fitting millions in compliance with business requirements.
                                             </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cards cards-bottom">
-                                    <div class="card _red">
-                                    </div>
-                                    <div class="card _img">
-                                        <picture class="img">
-                                            <source srcset="./img/home/industries-card-img-bottom_desktop.webp" type="image/webp" media="(min-width: 768px)">
-                                            <source srcset="./img/home/industries-card-img-bottom_desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
-
-                                            <source srcset="./img/home/industries-card-img-bottom_mob.webp" type="image/webp">
-                                            <source srcset="./img/home/industries-card-img-bottom_mob.jpg" type="image/jpeg">
-                                            <img src="./img/home/industries-card-img-bottom_mob.jpg" alt="" loading="lazy">
-                                        </picture>
-                                    </div>
-                                    <div class="card _black">
-                                        <div class="icon">
-                                            <img src="./img/components/curved-rhombus.svg" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -339,7 +280,7 @@
                                 <div class="cards cards-top">
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-1.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Software <br> Development</p>
                                         <div class="card-desc">
@@ -350,7 +291,7 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-2.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Security <br> Audit</p>
                                         <div class="card-desc">
@@ -361,32 +302,13 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-3.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Product <br> Design</p>
                                         <div class="card-desc">
                                             <p>
                                                 Our team turns any idea into bulletproof solutions capable of fitting millions in compliance with business requirements.
                                             </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cards cards-bottom">
-                                    <div class="card _red">
-                                    </div>
-                                    <div class="card _img">
-                                        <picture class="img">
-                                            <source srcset="./img/home/industries-card-img-bottom_desktop.webp" type="image/webp" media="(min-width: 768px)">
-                                            <source srcset="./img/home/industries-card-img-bottom_desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
-
-                                            <source srcset="./img/home/industries-card-img-bottom_mob.webp" type="image/webp">
-                                            <source srcset="./img/home/industries-card-img-bottom_mob.jpg" type="image/jpeg">
-                                            <img src="./img/home/industries-card-img-bottom_mob.jpg" alt="" loading="lazy">
-                                        </picture>
-                                    </div>
-                                    <div class="card _black">
-                                        <div class="icon">
-                                            <img src="./img/components/curved-rhombus.svg" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -395,7 +317,7 @@
                                 <div class="cards cards-top">
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-1.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Software <br> Development</p>
                                         <div class="card-desc">
@@ -406,7 +328,7 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-2.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Security <br> Audit</p>
                                         <div class="card-desc">
@@ -417,32 +339,13 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-3.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Product <br> Design</p>
                                         <div class="card-desc">
                                             <p>
                                                 Our team turns any idea into bulletproof solutions capable of fitting millions in compliance with business requirements.
                                             </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="cards cards-bottom">
-                                    <div class="card _red">
-                                    </div>
-                                    <div class="card _img">
-                                        <picture class="img">
-                                            <source srcset="./img/home/industries-card-img-bottom_desktop.webp" type="image/webp" media="(min-width: 768px)">
-                                            <source srcset="./img/home/industries-card-img-bottom_desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
-
-                                            <source srcset="./img/home/industries-card-img-bottom_mob.webp" type="image/webp">
-                                            <source srcset="./img/home/industries-card-img-bottom_mob.jpg" type="image/jpeg">
-                                            <img src="./img/home/industries-card-img-bottom_mob.jpg" alt="" loading="lazy">
-                                        </picture>
-                                    </div>
-                                    <div class="card _black">
-                                        <div class="icon">
-                                            <img src="./img/components/curved-rhombus.svg" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -451,7 +354,7 @@
                                 <div class="cards cards-top">
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-1.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Software <br> Development</p>
                                         <div class="card-desc">
@@ -462,7 +365,7 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-2.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Security <br> Audit</p>
                                         <div class="card-desc">
@@ -473,7 +376,7 @@
                                     </div>
                                     <div class="card">
                                         <div class="card-img">
-                                            <img src="./img/home/industries-card-img-3.svg" alt="">
+                                            <img src="./img/home/industries-card-img.png" alt="">
                                         </div>
                                         <p class="card-title">Product <br> Design</p>
                                         <div class="card-desc">
@@ -483,27 +386,14 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="cards cards-bottom">
-                                    <div class="card _red">
-                                    </div>
-                                    <div class="card _img">
-                                        <picture class="img">
-                                            <source srcset="./img/home/industries-card-img-bottom_desktop.webp" type="image/webp" media="(min-width: 768px)">
-                                            <source srcset="./img/home/industries-card-img-bottom_desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
-
-                                            <source srcset="./img/home/industries-card-img-bottom_mob.webp" type="image/webp">
-                                            <source srcset="./img/home/industries-card-img-bottom_mob.jpg" type="image/jpeg">
-                                            <img src="./img/home/industries-card-img-bottom_mob.jpg" alt="" loading="lazy">
-                                        </picture>
-                                    </div>
-                                    <div class="card _black">
-                                        <div class="icon">
-                                            <img src="./img/components/curved-rhombus.svg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div class="industries-footer">
+                        <img src="./img/home/industries-footer-1.svg" alt="">
+                        <img src="./img/home/industries-footer-2.svg" alt="">
+                        <img src="./img/home/industries-footer-3.svg" alt="">
                     </div>
                 </div>
             </section>
@@ -600,64 +490,21 @@
                     <div class="author-info">
                         <p class="author-name">Pasha Bergman</p>
                         <p class="author-position">CEO at Blaize.AI</p>
-
-                        <div class="img">
-                            <img src="./img/components/curved-rhombus__black.svg" alt="">
-                        </div>
                     </div>
                     <div class="block-quote__text _mob">
                         <div class="word">Customers</div>
-                        <div class="word word-mark">follow</div>
+                        <div class="word">follow</div>
                         <div class="word">
                             <span class="_red">better experiences</span>
                         </div>
                         <div class="word">powered by</div>
                         <div class="word">AI.</div>
-                        <div class="word word-mark"><span class="_red">You can ignore it</span></div>
-                        <div class="word">and stand still, but</div>
+                        <div class="word">You can ignore it and</div>
+                        <div class="word">stand still, but</div>
                         <div class="word">you'll be</div>
-                        <div class="word">standing alone.</div>
-                    </div>
-                    <div class="block-quote__text _desktop">
-                        <div class="word-row">
-                            <div class="word">Customers</div>
-                            <div class="word word-mark">
-                                <div class="word-img">
-                                    <img src="./img/components/star__white.svg" alt="">
-                                </div>
-                                follow
-                            </div>
-                        </div>
-                        <div class="word-row">
-                            <div class="word">
-                                <span class="_red">better experiences</span>
-                            </div>
-                        </div>
-                        <div class="word-row">
-                            <div class="word">powered by</div>
-
-                            <div class="word-img">
-                                <img src="./img/components/curved-rhombus__black.svg" alt="">
-                            </div>
-
-                            <div class="word">AI.</div>
-                        </div>
-                        <div class="word-row">
-                            <div class="word word-mark"><span class="_red">You can ignore it</span></div>
-                            <div class="word">and</div>
-                        </div>
-                        <div class="word-row">
-                            <div class="word">stand still, but</div>
-
-                            <div class="word-img">
-                                <img src="./img/components/star-2.svg" alt="">
-                            </div>
-
-                            <div class="word">you'll be</div>
-                        </div>
-                        <div class="word-row">
-                            <div class="word">standing alone.</div>
-                        </div>
+                        <div class="word _mob"><span class="_red">standing</span></div>
+                        <div class="word _mob"><span class="_red">alone.</span></div>
+                        <div class="word _desk"><span class="_red">standing alone.</span></div>
                     </div>
                     <div class="block-quote__image">
                         <div class="author-info">
@@ -939,18 +786,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="expertise-bottom">
-                        <picture>
-                            <source srcset="./img/home/expertise-bottom__desktop.webp" type="image/webp" media="(min-width: 768px)">
-                            <source srcset="./img/home/expertise-bottom__desktop.jpg" type="image/jpeg" media="(min-width: 768px)">
-
-                            <source srcset="./img/home/expertise-bottom__mob.webp" type="image/webp">
-                            <source srcset="./img/home/expertise-bottom__mob.jpg" type="image/jpeg">
-                            <img src="./img/home/expertise-bottom__mob.jpg" alt="">
-                        </picture>
-
-                        <img src="./img/home/expertise-img-bottom-bg.svg" alt="" class="_bg">
-                    </div>
                 </div>
             </section>
 
@@ -965,220 +800,42 @@
                         </div>
                     </div>
 
-                    <div class="use-mobile">
-                        <div class="marque-block">
-                            <div class="marque-items marquee">
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-1.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-2.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-3.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-4.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-5.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-6.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div aria-hidden="true" class="marque-items marquee">
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-1.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-2.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-3.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-4.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-5.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-6.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="marque-block">
-                            <div class="marque-items marquee reverce">
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-1.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-2.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-3.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-4.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-5.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-6.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div aria-hidden="true" class="marque-items marquee reverce">
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-1.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-2.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-3.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-4.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-5.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="marque-item">
-                                    <div class="tech-card">
-                                        <div class="img">
-                                            <img src="./img/home/use-img-6.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="use-desktop">
-                        <div class="use-desktop__row">
-                            <div class="tech-card">
+                    <div class="swiper use-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
                                 <div class="img">
-                                    <img src="./img/home/use-img-1__black.png" alt="">
+                                    <img src="./img/home/use-img-1.svg" alt="">
+                                    <img class="hover" src="./img/home/use-img-1__white.svg" alt="">
                                 </div>
                             </div>
-                            <div class="tech-card">
+                            <div class="swiper-slide">
                                 <div class="img">
-                                    <img src="./img/home/use-img-2__black.png" alt="">
+                                    <img src="./img/home/use-img-2.svg" alt="">
+                                    <img class="hover" src="./img/home/use-img-2__white.svg" alt="">
                                 </div>
                             </div>
-                            <div class="tech-card">
+                            <div class="swiper-slide">
                                 <div class="img">
-                                    <img src="./img/home/use-img-3__black.png" alt="">
+                                    <img src="./img/home/use-img-3.svg" alt="">
+                                    <img class="hover" src="./img/home/use-img-3__white.svg" alt="">
                                 </div>
                             </div>
-                        </div>
-                        <div class="use-desktop__row">
-                            <div class="tech-card">
+                            <div class="swiper-slide">
                                 <div class="img">
-                                    <img src="./img/home/use-img-4__black.png" alt="">
+                                    <img src="./img/home/use-img-4.svg" alt="">
+                                    <img class="hover" src="./img/home/use-img-4__white.svg" alt="">
                                 </div>
                             </div>
-                            <div class="tech-card">
+                            <div class="swiper-slide">
                                 <div class="img">
-                                    <img src="./img/home/use-img-5__black.png" alt="">
+                                    <img src="./img/home/use-img-3.svg" alt="">
+                                    <img class="hover" src="./img/home/use-img-3__white.svg" alt="">
                                 </div>
                             </div>
-                            <div class="tech-card">
+                            <div class="swiper-slide">
                                 <div class="img">
-                                    <img src="./img/home/use-img-6__black.png" alt="">
+                                    <img src="./img/home/use-img-4.svg" alt="">
+                                    <img class="hover" src="./img/home/use-img-4__white.svg" alt="">
                                 </div>
                             </div>
                         </div>

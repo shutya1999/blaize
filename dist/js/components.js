@@ -4,40 +4,44 @@
 window.addEventListener('load', function () {
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
   var circle = document.querySelector('.scroll-bar__thumb');
-  var smoother = ScrollSmoother.create({
-    smooth: 1,
-    effects: true
-    // smoothTouch: 0.1,
-  });
-  var scrollTween = gsap.to(circle, {
-    y: function y() {
-      return window.innerHeight - circle.getBoundingClientRect().height;
-    },
-    ease: "none",
-    scrollTrigger: {
-      start: 0,
-      end: 'max',
-      scrub: true
-    }
-  });
-  Draggable.create('.scroll-bar__thumb', {
-    type: "y",
-    bounds: '.scroll-bar',
-    inertia: true,
-    onPress: function onPress() {
-      scrollTween.scrollTrigger.disable(false);
-    },
-    onDrag: function onDrag() {
-      var progress = gsap.utils.normalize(this.minY, this.maxY, this.y);
-      var to = smoother.scrollTrigger.end * progress;
-      smoother.scrollTo(to, true);
-    },
-    onRelease: function onRelease() {
-      var progress = gsap.utils.normalize(this.minY, this.maxY, this.y);
-      scrollTween.scrollTrigger.enable();
-      scrollTween.progress(progress);
-    }
-  })[0];
+
+  // Виправ код щоб Smooth Scroll від Gsap працював тільки на десктопі
+  if (!supportsTouch) {
+    var smoother = ScrollSmoother.create({
+      smooth: 1,
+      effects: true
+      // smoothTouch: 0.1,
+    });
+    var scrollTween = gsap.to(circle, {
+      y: function y() {
+        return window.innerHeight - circle.getBoundingClientRect().height;
+      },
+      ease: "none",
+      scrollTrigger: {
+        start: 0,
+        end: 'max',
+        scrub: true
+      }
+    });
+    Draggable.create('.scroll-bar__thumb', {
+      type: "y",
+      bounds: '.scroll-bar',
+      inertia: true,
+      onPress: function onPress() {
+        scrollTween.scrollTrigger.disable(false);
+      },
+      onDrag: function onDrag() {
+        var progress = gsap.utils.normalize(this.minY, this.maxY, this.y);
+        var to = smoother.scrollTrigger.end * progress;
+        smoother.scrollTo(to, true);
+      },
+      onRelease: function onRelease() {
+        var progress = gsap.utils.normalize(this.minY, this.maxY, this.y);
+        scrollTween.scrollTrigger.enable();
+        scrollTween.progress(progress);
+      }
+    })[0];
+  }
 });
 var header = document.querySelector('header');
 var recalcAccordionHeight;
@@ -851,6 +855,27 @@ if (document.querySelector('.team-swiper')) {
     }
   });
 }
+
+// Swiper .use-swiper
+if (document.querySelector('.use-swiper')) {
+  new Swiper('.use-swiper', {
+    slidesPerView: 1.5,
+    freeMode: {
+      enabled: true,
+      sticky: false
+    },
+    //slidesPerView: 1.45,
+    breakpoints: {
+      768: {
+        slidesPerView: 4,
+        speed: 700,
+        freeMode: {
+          enabled: false
+        }
+      }
+    }
+  });
+}
 function cursor() {
   var cursor = document.querySelector('.custom-cursor'),
     caseCards = document.querySelectorAll('.case-card'),
@@ -927,114 +952,3 @@ function cursor() {
   }
 }
 cursor();
-
-// Tech card hover
-var techCard = document.querySelectorAll('.use-desktop .tech-card');
-if (techCard.length) {
-  techCard.forEach(function (card, index) {
-    card.addEventListener('mouseenter', function () {
-      // if (!card.classList.contains('_booked')){
-      card.classList.add('zoom-in');
-      var cardInRows = card.closest('.use-desktop__row').querySelectorAll('.tech-card');
-      for (var i = 0; i < cardInRows.length; i++) {
-        console.log(cardInRows[i]);
-        if (cardInRows[i] !== card) {
-          cardInRows[i].classList.add('zoom-out');
-        }
-      }
-
-      // addClass(techCard, '_booked');
-      // }
-    });
-
-    // card.addEventListener('transitionend', () => {
-    //     removeClass(techCard, '_booked');
-    // })
-    card.addEventListener('mouseleave', function () {
-      removeClass(techCard, 'zoom-in');
-      removeClass(techCard, 'zoom-out');
-    });
-  });
-
-  // let techCard_arr = Array.from(techCard);
-  //
-  // var res = [];
-  // let size = 3;
-  //
-  // for (var i = 0; i < techCard_arr.length; i += size) {
-  //     res.push(techCard_arr.slice(i, i + size));
-  // }
-  //
-  // for (let i = 0; i < res.length; i++) {
-  //     let arr_chunk = res[i];
-  //
-  //     let indexBigCart = 0;
-  //     let maxWidthCard = arr_chunk[0].clientWidth;
-  //
-  //     // Find index big card
-  //     for (let j = 0; j < arr_chunk.length; j++) {
-  //         if (arr_chunk[j].clientWidth > maxWidthCard) {
-  //             maxWidthCard = arr_chunk[j].clientWidth;
-  //             indexBigCart = j;
-  //         }
-  //     }
-  //
-  //     for (let j = 0; j < arr_chunk.length; j++) {
-  //         let elem = arr_chunk[j];
-  //
-  //
-  //         elem.addEventListener('mouseenter', () => {
-  //
-  //             if (indexBigCart === j) {
-  //                 arr_chunk[j].classList.add('hover');
-  //                 // for (let k = 0; k < arr_chunk.length; k++) {
-  //                 //     if (indexBigCart !== k) {
-  //                 //         arr_chunk[k].classList.add('zoom-in-half');
-  //                 //     }
-  //                 // }
-  //             } else {
-  //
-  //             }
-  //
-  //             // if (!elem.classList.contains('_booked')){
-  //             //     if (indexBigCart === j) {
-  //             //         arr_chunk[j].classList.add('zoom-out');
-  //             //         for (let k = 0; k < arr_chunk.length; k++) {
-  //             //             if (indexBigCart !== k) {
-  //             //                 arr_chunk[k].classList.add('zoom-in-half');
-  //             //             }
-  //             //         }
-  //             //     } else {
-  //             //         elem.classList.add('zoom-in');
-  //             //
-  //             //         for (let k = 0; k < arr_chunk.length; k++) {
-  //             //             if (j !== k) {
-  //             //                 arr_chunk[k].classList.add('zoom-out');
-  //             //             }
-  //             //         }
-  //             //     }
-  //             //     addClass(res[i], '_booked');
-  //             // }
-  //         })
-  //
-  //         // elem.addEventListener('transitionend', (e) => {
-  //         //     removeClass(techCard, '_booked');
-  //         // })
-  //         elem.addEventListener('mouseleave', () => {
-  //             // if (!elem.classList.contains('_booked')){
-  //             //     removeClass(techCard, 'zoom-in');
-  //             //     removeClass(techCard, 'zoom-out');
-  //             //     removeClass(techCard, 'zoom-in-half');
-  //             //     removeClass(techCard, '_booked');
-  //             // }else {
-  //             //     setTimeout(() => {
-  //             //         removeClass(techCard, 'zoom-in');
-  //             //         removeClass(techCard, 'zoom-out');
-  //             //         removeClass(techCard, 'zoom-in-half');
-  //             //         removeClass(techCard, '_booked');
-  //             //     }, 500)
-  //             // }
-  //         })
-  //     }
-  // }
-}

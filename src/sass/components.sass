@@ -71,7 +71,7 @@ body
   font-size: 16px
   font-style: normal
   font-weight: 400
-  // background-color: var(--bg-white)
+  background-color: var(--bg-white)
   overflow: auto
   -ms-overflow-style: none
   scrollbar-width: none
@@ -670,51 +670,16 @@ input:-webkit-autofill:active
       display: none
       &.active
         display: block
-//
-//@keyframes t-anim-1
-//  0%
-//    min-width: 110%
-//    max-width: 110%
-//    max-height: 0px
-//    opacity: 0
-//  50%
-//    min-width: 110%
-//    max-width: 110%
-//    max-height: 100%
-//    opacity: 1
-//  100%
-//    min-width: 60%
-//    max-width: 60%
-//    max-height: 100%
-//    opacity: 1
-
-//@keyframes t-anim-2
-//  0%
-//    min-width: 45%
-//    max-width: 45%
-//    max-height: 0px
-//    opacity: 0
-//  50%
-//    min-width: 45%
-//    max-width: 45%
-//    max-height: 100%
-//    opacity: 1
-//  100%
-//    min-width: 150%
-//    max-width: 150%
-//    max-height: 100%
-//    opacity: 1
 
 .industries
   margin-top: 100px
   & .tabs-block
     & .tabs-buttons
       margin: 0 calc(var(--padding-container) * -1)
-      // padding: 0 var(--padding-container)
       padding: 0 var(--padding-container) 1px var(--padding-container)
       & .tab-btn
         border-radius: 50px
-        border: 0.7px solid rgba(0,0,0,0)
+        border: 1px solid rgba(0,0,0,0)
         font-size: 16px
         font-weight: 500
         line-height: 105%
@@ -748,33 +713,23 @@ input:-webkit-autofill:active
           display: none
           width: 0
           height: 0
-
-        &.active
-          & .cards-bottom
-            & .card
-              //&._red
-              //  animation: t-anim-1 1.2s .1s forwards
-              //&._black
-              //  animation: t-anim-1 1.2s .1s forwards
-              //&._img
-              //  animation: t-anim-2 1.2s .1s forwards
-
         & .cards
           display: flex
           gap: 0 20px
           & .card
-            border-radius: 14px
+            border-radius: 20px
             min-width: 89.8%
             max-width: 89.8%
         & .cards-top
           & .card
-            // background: #D9D9D9
-            padding: 45px 45px 40px 45px
+            background: white
+            padding: 32px 30px 35px 30px
             overflow: hidden
             & .card-img
               width: 100%
-              max-width: 45px
-              margin-bottom: 21px
+              max-width: 100%
+              margin-bottom: 27px
+              border-radius: 6px
               & img
                 width: 100%
             & .card-title
@@ -782,53 +737,63 @@ input:-webkit-autofill:active
               font-weight: 600
               line-height: 110%
               letter-spacing: -0.48px
-              margin-bottom: 16px
+              margin-bottom: 20px
             & .card-desc
               font-size: 16px
               line-height: 180%
               letter-spacing: -0.32px
               opacity: 0.6
               max-width: 83%
-
-        & .cards-bottom
-          margin-top: 20px
-          height: 100px
-          & .card
-            //max-height: 0px
-            //overflow: hidden
-            &._red
-              background-color: var(--based-red)
-              min-width: 110%
-              max-width: 110%
-              display: none
-            &._black
-              background-color: var(--based-black)
-              display: flex
-              align-items: center
-              justify-content: center
-              min-width: 165%
-              max-width: 165%
-              // order: 3
-              & img
-                width: 60px
-            &._img
-              width: 100%
-              min-width: 110%
-              max-width: 110%
-              // order: 1
-              & picture
-                width: 100%
-                height: 100%
-              & img
-                width: 100%
-                height: 100%
-                object-fit: cover
-                border-radius: 14px
+  & .industries-footer
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    overflow: hidden
+    margin: 30px calc(var(--padding-container) * -1) 0 calc(var(--padding-container) * -1)
+    padding: 0 var(--padding-container)
+    & img
+      min-width: 134px
+      max-width: 134px
+      height: 134px
+      border-radius: 50%
 
 
+.parallax-background
+  height: calc(var(--vh,1vh) * 100)
+  transition: all .1s
+  display: -webkit-box
+  display: -ms-flexbox
+  display: flex
+  background-color: #cadeb8
+  & .bg
+    background-image: url("https://www.giesserei-garching.de/wp-content/uploads/2022/06/LP_IMG_09.2.jpg")
+    -webkit-box-flex: 1
+    -ms-flex: 1 1 50%
+    flex: 1 1 50%
+    width: 200px
+    background-position: center
+    background-repeat: no-repeat
+    background-size: cover
+    background-attachment: fixed
+  & .text
+    display: -webkit-box
+    display: -ms-flexbox
+    display: flex
+    -webkit-box-pack: center
+    -ms-flex-pack: center
+    justify-content: center
+    -webkit-box-align: center
+    -ms-flex-align: center
+    align-items: center
+    padding: 0
+    -webkit-box-flex: 1
+    -ms-flex: 1 1 50%
+    flex: 1 1 50%
+    height: 100%
+    width: 100%
 
 .portfolio
-  margin-top: 100px
+  margin-top: 80px
   & .portfolio-cards
     display: flex
     flex-direction: column
@@ -905,34 +870,37 @@ input:-webkit-autofill:active
       font-weight: 400
       line-height: 160%
       letter-spacing: -0.3px
-    & .img
-      position: absolute
-      top: 50%
-      width: 52px
-      right: 0
-      transform: translateY(-50%)
-      & img
-        width: 100%
   & .block-quote__image
     width: 100%
     position: relative
-    padding-top: 34px
     &:before
       content: ''
-      width: 236px
-      height: 236px
+      width: 135px
+      height: 135px
       display: block
       position: absolute
       left: 0
-      top: 0
+      top: 10px
       background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='236' height='236' viewBox='0 0 236 236' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.9' fill-rule='evenodd' clip-rule='evenodd' d='M109.571 0H126.429V97.6516L195.479 28.6014L207.398 40.5213L138.348 109.571H236V126.429H138.348L207.398 195.479L195.479 207.398L126.429 138.348V236H109.571V138.348L40.5212 207.398L28.602 195.479L97.6521 126.429H-4.57764e-05V109.571H97.6521L28.602 40.5212L40.5212 28.6014L109.571 97.6515V0Z' fill='%23FF5C5C'/%3E%3C/svg%3E")
+      @include bg-center
+        background-size: contain
+    &:after
+      content: ''
+      position: absolute
+      width: 135px
+      height: 135px
+      border-radius: 50%
+      left: 0
+      top: 150px
+      z-index: -1
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='135' height='135' viewBox='0 0 135 135' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='67.5' cy='67.5' r='67.5' transform='rotate(-180 67.5 67.5)' fill='%232B2B2D'/%3E%3Cpath d='M65.1795 79.0716H55.2754V68.4002C55.2289 66.8658 55.4381 65.4243 55.9031 64.0759C56.4146 62.7274 57.1121 61.5417 57.9955 60.5187C58.879 59.4958 59.9252 58.6588 61.1342 58.0078C62.3896 57.3103 63.7381 56.8686 65.1795 56.6826V61.286C63.4126 61.8904 62.2036 62.7972 61.5527 64.0061C60.9017 65.1686 60.5762 66.61 60.5762 68.3305H65.1795V79.0716ZM80.0358 79.0716H70.1316V68.4002C70.0851 66.8658 70.2944 65.4243 70.7593 64.0759C71.2708 62.7274 71.9683 61.5417 72.8518 60.5187C73.7352 59.4958 74.7815 58.6588 75.9904 58.0078C77.2459 57.3103 78.5943 56.8686 80.0358 56.6826V61.286C78.2688 61.8904 77.0599 62.7972 76.4089 64.0061C75.7579 65.1686 75.4324 66.61 75.4324 68.3305H80.0358V79.0716Z' fill='%23E5E5E5'/%3E%3C/svg%3E")
       @include bg-center
         background-size: contain
     & .img
       display: block
       width: 100%
       max-width: 80.76%
-      margin: 0 0 -70px auto
+      margin: 0 -20px -70px auto
       position: relative
       z-index: 0
       & img
@@ -951,35 +919,26 @@ input:-webkit-autofill:active
   & .block-quote__text
     font-size: 34px
     font-weight: 600
-    line-height: 120%
+    line-height: 125%
     letter-spacing: -1.7px
     max-width: 333px
     position: relative
     z-index: 1
-    &:before
-      content: ''
-      position: absolute
-      width: 30px
-      height: 27px
-      left: 0
-      bottom: calc(100% + 33px)
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='30' height='27' viewBox='0 0 30 27' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.0046 27H0.00768047V14.1308C-0.048643 12.2804 0.204813 10.5421 0.768049 8.91589C1.38761 7.28972 2.23246 5.85981 3.30261 4.62617C4.37276 3.39252 5.64004 2.38318 7.10446 1.59813C8.62519 0.757009 10.2586 0.2243 12.0046 0V5.55141C9.86431 6.28038 8.3999 7.37383 7.61137 8.83178C6.82284 10.2336 6.42857 11.972 6.42857 14.0467H12.0046V27ZM30 27H18.0031V14.1308C17.9467 12.2804 18.2002 10.5421 18.7634 8.91589C19.383 7.28972 20.2279 5.85981 21.298 4.62617C22.3682 3.39252 23.6354 2.38318 25.0998 1.59813C26.6206 0.757009 28.254 0.2243 30 0V5.55141C27.8597 6.28038 26.3953 7.37383 25.6068 8.83178C24.8182 10.2336 24.424 11.972 24.424 14.0467H30V27Z' fill='%232B2B2D'/%3E%3C/svg%3E")
-      @include bg-center
-        background-size: contain
-
-    &._desktop
-      display: none
-    & .word-img
-      display: none
     & .word
       display: inline-block
       & ._red
-        color: var(--based-red)
+        background-color: var(--based-red)
+        color: #E5E5E5
+        padding: 2px 11px
+        border-radius: 7px
+      &._desk
+        display: none
 
 
 .statistics
   margin-top: 100px
   & .section-title__wrapper
+    margin-bottom: 25px
     & .section-title
       max-width: 350px
       margin: 0
@@ -997,18 +956,6 @@ input:-webkit-autofill:active
   & .cards
     margin: 0 calc(var(--padding-container) * -1)
     position: relative
-    padding-top: 110px
-    &:before
-      content: ''
-      position: absolute
-      top: -54px
-      left: 50px
-      display: block
-      width: 79px
-      height: 79px
-      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='79' height='79' viewBox='0 0 79 79' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='79' height='79' rx='14' fill='%232B2B2D'/%3E%3Cpath d='M38.8715 73.1262C40.0196 54.829 54.5078 40.2465 72.6871 39.091C54.5078 37.9355 40.0196 23.3532 38.8715 5.05585C37.7235 23.3532 23.235 37.9355 5.05591 39.091C23.235 40.2465 37.7235 54.829 38.8715 73.1262Z' fill='%23E5E5E5'/%3E%3C/svg%3E")
-      @include bg-center
-        background-size: contain
     & .card-stat
       border-radius: 26px 0 0 0
       padding: 42px 42px 50px 50px
@@ -1042,8 +989,8 @@ input:-webkit-autofill:active
         &:before
           background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='118' height='59' viewBox='0 0 118 59' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M118 0C53.3541 -7.70895e-07 78.4785 -4.28599e-06 7.03568e-07 -1.40714e-06C31.9721 -8.65527e-06 56.9969 27.2818 59 59C61.0029 27.2818 85.0391 -4.20775e-06 118 0Z' fill='%23FF5C5C'/%3E%3C/svg%3E")
       & .card-stat__count
-        font-size: 36px
-        font-weight: 700
+        font-size: 42px
+        font-weight: 400
         line-height: 100%
         letter-spacing: -1.8px
         margin-bottom: 11px
@@ -1061,7 +1008,7 @@ input:-webkit-autofill:active
 
 
 .ceo-block
-  margin-top: 60px
+  margin-top: 80px
   & .swiper-ceo
     overflow: visible
     & .swiper-ceo__arrow
@@ -1115,7 +1062,7 @@ input:-webkit-autofill:active
 
 .expertise
   margin-top: 100px
-  padding-bottom: 100px
+  // padding-bottom: 100px
   & .section-title
     margin-bottom: 30px
   & .cards
@@ -1136,9 +1083,17 @@ input:-webkit-autofill:active
       min-width: 240px
       max-width: 240px
       & .img
-        width: 80px
-        height: auto
-        margin-bottom: 30px
+        width: 64px
+        height: 64px
+        margin-bottom: 20px
+        background-color: var(--based-red)
+        border-radius: 9px
+        display: flex
+        align-items: center
+        justify-content: center
+        & img
+          width: 25px
+          height: auto
       & .title
         font-size: 30px
         font-weight: 600
@@ -1457,78 +1412,44 @@ input:-webkit-autofill:active
   & .section-title__wrapper
     margin-bottom: 30px
     & .section-title
-      width: fit-content
       margin: 0 0 13px 0
     & .section-subtitle
       font-size: 14px
-      font-weight: 400
+      font-weight: 600
       line-height: 160%
       letter-spacing: -0.32px
-      width: fit-content
-      margin: 0 20px 0 auto
-      opacity: 0.6
-  & .tech-card
-    border-radius: 13px
-    display: flex
-    align-items: center
-    justify-content: center
-    & .img
-      width: 137px
-      & img
-        width: 100%
 
-  & .use-mobile
-    display: flex
-    flex-direction: column
-    gap: 16px 0
+  & .use-swiper
+    padding: 0 var(--padding-container)
     margin: 0 calc( var(--padding-container) * -1)
-    & .marquee
-      animation-duration: 35s
-    & .marque-block
-      animation: none
-      gap: 0 16px
-      & .marque-items
-        gap: 0 16px
-
-      & .marque-item
-        width: 61vw
-        height: 28.3vw
-        & .tech-card
-          width: 100%
-          height: 100%
-        &:nth-child(even)
-          & .tech-card
-            background-color: white
-        &:nth-child(odd)
-          & .tech-card
-            background-color: #D9D9D9
+    & .swiper-slide
+      width: 100%
+      & .img
+        position: relative
+        padding-bottom: 100%
+        border-radius: 50%
+        border: 1px solid #2B2B2D
+        & img
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%, -50%)
+          width: 170px
+          height: 60px
+          object-fit: contain
+          transition: all .5s
+          &.hover
+            opacity: 0
 
 
 
 
 
 
-    //& .marquee-text
-    //  gap: 16px
-    //  & .marquee-group
-    //    animation-duration: 5s
-    //    gap: 16px
-    //    &:first-child
-    //      & .tech-card
-    //        &:nth-child(even)
-    //          background-color: white
-    //        &:nth-child(odd)
-    //          background-color: #D9D9D9
-    //    &:last-child
-    //      & .tech-card
-    //        &:nth-child(odd)
-    //          background-color: white
-    //        &:nth-child(even)
-    //          background-color: #D9D9D9
 
 
-  & .use-desktop
-    display: none
+
+
 
 
 
@@ -1698,60 +1619,23 @@ footer
     margin-bottom: 50px
 
 
-  @keyframes t-anim-1
-    0%
-      width: 40%
-      max-height: 0
-    50%
-      width: 40%
-      max-height: 100%
-    100%
-      width: 18.4%
-      max-height: 100%
-
-  @keyframes t-anim-2
-    0%
-      width: 40%
-      max-height: 0
-    50%
-      width: 40%
-      max-height: 100%
-    100%
-      width: 13.3%
-      max-height: 100%
-
-  @keyframes t-anim-3
-    0%
-      width: 20%
-      max-height: 0
-    50%
-      width: 20%
-      max-height: 100%
-    100%
-      width: 68.3%
-      max-height: 100%
 
 
   .industries
-    margin-top: 150px
+    margin-top: 200px
     & .tabs-block
       & .tabs-buttons
         gap: 0 40px
         & .tab-btn
           font-size: 14px
+          border-width: 2px
+          font-weight: 500
+
 
       & .tab-content
+        margin: 20px 0 0 0
+        padding: 0
         & .tab-item
-          //&.active
-          //  & .cards-bottom
-          //    & .card
-          //      &._red
-          //        animation: t-anim-1 1.5s .2s forwards
-          //      &._black
-          //        animation: t-anim-2 1.5s .2s forwards
-          //      &._img
-          //        animation: t-anim-3 1.5s .2s forwards
-
           & .cards-top
             display: grid
             grid-template-columns: repeat(3, 1fr)
@@ -1759,52 +1643,67 @@ footer
             & .card
               min-width: auto
               max-width: 100%
-              padding: 40px
               & .card-img
-                max-width: 40px
-                margin-bottom: 18px
+                margin-bottom: 21px
               & .card-title
                 font-size: 19px
                 margin-bottom: 19px
               & .card-desc
                 font-size: 12px
                 line-height: 180%
-                max-width: 160px
-          & .cards-bottom
-            max-width: calc( var(--vw, 100vw) - (var(--padding-container) * 2))
-            height: 128px
-            margin-top: 25px
-            & .card
-              //max-height: 0px
-              //overflow: hidden
-              min-width: auto!important
-              max-width: 100%!important
-              transition: none
-              &._red
-                width: 40%
-              &._black
-                width: 19%
-              &._img
-                width: 81%
+                max-width: 224px
+
+    & .industries-footer
+      margin-top: 80px
+      & img
+        min-width: 140px
+        max-width: 140px
+        height: 140px
 
 
   .portfolio
-    margin-top: 150px
+    margin-top: 200px
 
 
   .block-quote
     & .container
       flex-direction: row
-      align-items: center
-      justify-content: space-between
-
+      align-items: flex-start
+      justify-content: flex-end
+      position: relative
     & .author-info
       display: none
+    & .block-quote__text
+      position: absolute
+      left: 145px
+      top: 10px
+      font-weight: 600
+      max-width: 355px
+      &:before, &:after
+        content: ''
+        position: absolute
+        width: 100px
+        height: 100px
+        right: calc(100% + 10px)
+        @include bg-center
+          background-size: contain
+      &:before
+        top: 20px
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='135' height='135' viewBox='0 0 135 135' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='67.5' cy='67.5' r='67.5' transform='rotate(-180 67.5 67.5)' fill='%232B2B2D'/%3E%3Cpath d='M65.1795 79.0716H55.2754V68.4002C55.2289 66.8658 55.4381 65.4243 55.9031 64.0759C56.4146 62.7274 57.1121 61.5417 57.9955 60.5187C58.879 59.4958 59.9252 58.6588 61.1342 58.0078C62.3896 57.3103 63.7381 56.8686 65.1795 56.6826V61.286C63.4126 61.8904 62.2036 62.7972 61.5527 64.0061C60.9017 65.1686 60.5762 66.61 60.5762 68.3305H65.1795V79.0716ZM80.0358 79.0716H70.1316V68.4002C70.0851 66.8658 70.2944 65.4243 70.7593 64.0759C71.2708 62.7274 71.9683 61.5417 72.8518 60.5187C73.7352 59.4958 74.7815 58.6588 75.9904 58.0078C77.2459 57.3103 78.5943 56.8686 80.0358 56.6826V61.286C78.2688 61.8904 77.0599 62.7972 76.4089 64.0061C75.7579 65.1686 75.4324 66.61 75.4324 68.3305H80.0358V79.0716Z' fill='%23E5E5E5'/%3E%3C/svg%3E")
+      &:after
+        top: 140px
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='236' height='236' viewBox='0 0 236 236' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='0.9' fill-rule='evenodd' clip-rule='evenodd' d='M109.571 0H126.429V97.6516L195.479 28.6014L207.398 40.5213L138.348 109.571H236V126.429H138.348L207.398 195.479L195.479 207.398L126.429 138.348V236H109.571V138.348L40.5212 207.398L28.602 195.479L97.6521 126.429H-4.57764e-05V109.571H97.6521L28.602 40.5212L40.5212 28.6014L109.571 97.6515V0Z' fill='%23FF5C5C'/%3E%3C/svg%3E")
+
+      & .word
+        &._desk
+          display: inline-block
+        &._mob
+          display: none
     & .block-quote__image
-      max-width: 45%
+      max-width: 40%
       padding: 0
       position: relative
-      &:before
+      &:before, &:after
         display: none
       & .img
         margin: 0
@@ -1812,10 +1711,17 @@ footer
       & .author-info
         display: block
         position: absolute
-        bottom: 0
-        right: 0
+        bottom: 15px
+        right: calc(100% + 15px)
         z-index: 1
         text-align: end
+        padding: 0
+        width: 100%
+        margin: 0
+        & .author-name
+          font-size: 14px
+        & .author-position
+          font-size: 12px
 
 
   .statistics
@@ -1844,8 +1750,6 @@ footer
       position: relative
       margin: 0
       padding: 0 80px 0 0
-      &:before
-        top: -34px
       & .card-stat
         margin: 0
         border-radius: 14px
@@ -1882,6 +1786,7 @@ footer
 
 
   .expertise
+    margin-top: 200px
     & .section-title
       margin-bottom: 50px
 
@@ -1912,6 +1817,7 @@ footer
 
 
   .use
+    margin-top: 150px
     & .section-title__wrapper
       display: flex
       justify-content: flex-start
@@ -1925,30 +1831,16 @@ footer
         font-size: 14px
         line-height: 160%
         max-width: 209px
-    & .use-mobile
-      display: none
-    & .use-desktop
-      display: flex
-      flex-direction: column
-      gap: 20px
-      & .use-desktop__row
-        display: flex
-        flex-direction: row
-        gap: 20px
-        &:nth-child(odd)
-          & .tech-card
-            &:nth-child(even)
-              background: var(--based-black)
-        &:nth-child(even)
-          & .tech-card
-            &:nth-child(odd)
-              background: var(--based-black)
 
-      & .tech-card
-        height: 130px
-        background: white
-        width: 100%
-        max-width: calc(33% - 14px)
+    & .use-swiper
+      margin: 0
+      padding: 0
+      & .swiper-slide
+        & .img
+          & img
+            width: 120px
+            height: 42.3529px
+
 
 
   .blog-card
@@ -2227,49 +2119,59 @@ footer
 
 
   .block-quote
-    & .container
-      align-items: flex-end
-    & .block-quote__image
-      max-width: 370px
+    margin-top: 200px
     & .block-quote__text
       font-size: 42px
-      letter-spacing: -2.1px
-      max-width: 100%
-      padding-bottom: 7px
-      &._mob
-        display: none
-      &._desktop
-        display: block
-      & .word-img
-        display: inline-block
-        width: 33px
-        & img
-          width: 100%
-      & .word-row
-        &:nth-child(odd)
-          padding-left: 58px
-        &:last-child
-          text-align: end
+      max-width: 504px
+      left: calc(240px - var(--padding-container))
+      &:before, &:after
+        width: 140px
+        height: 140px
+        right: calc(100% + 35px)
+      &:before
+        top: 16px
+      &:after
+        top: 172px
       & .word
-        &.word-mark
-          background-color: var(--based-red)
-          border-radius: 14px
-          padding: 0 17px
-          color: white
-          & span
-            color: white
         & ._red
-          color: var(--based-black)
+          border-radius: 7px
+          margin-left: -14px
 
 
 
   .statistics
     & .cards
-      &:before
-        top: 60px
-        left: 140px
+      display: grid
+      grid-template-columns: repeat(3, 280px)
+      padding: 0
+      gap: 0 20px
+      & .card-stat
+        padding: 50px 20px 40px 60px
+        min-height: 280px
+        &._black
+          transform: translateY(0px)
+          & .card-stat__desc
+            opacity: 0.6
+        &._white
+          transform: translateY(60px)
+        &._red
+          transform: translateY(150px)
+
+
+        & .card-stat__count
+          font-size: 42px
+          margin-bottom: 9px
+        & .card-stat__title
+          font-size: 24px
+        & .card-stat__desc
+          font-size: 14px
+          line-height: 150%
+          max-width: 170px
+          font-weight: 400
+
 
   .ceo-block
+    margin-top: 350px
     & .swiper-ceo
       position: relative
       overflow: hidden
@@ -2328,6 +2230,27 @@ footer
             width: 140px
             height: 42px
             object-fit: contain
+
+
+  .expertise
+    & .cards
+      grid-template-columns: repeat(3, 300px)
+      gap: 70px 20px
+      & .expertise-card
+        position: relative
+        padding-left: 65px
+        &:nth-child(even)
+          & .img
+            background-color: var(--based-black)
+        & .img
+          position: absolute
+          left: 0
+          top: 7px
+          width: 45px
+          height: 45px
+        & .desc
+          max-width: 100%
+
 
   .home-form
     padding-bottom: 180px
@@ -2426,15 +2349,20 @@ footer
 
 
   .industries
-    margin-top: 160px
+    margin-top: 200px
+    & .section-title
+      margin-bottom: 100px
     & .tabs-block
       & .tabs-buttons
-        gap: 0 45px
+        gap: 0 38px
         margin: 0
         padding: 0
         & .tab-btn
           font-size: 24px
           padding: 9.4px 31px
+          gap: 0 10px
+          & svg
+            width: 24px
 
       & .tab-content
         margin: 60px 0 0 0
@@ -2445,17 +2373,17 @@ footer
             gap: 60px
             & .card
               border-radius: 24px
-              padding: 67px 60px 66px 63px
+              padding: 50px 55px 65px 50px
               min-width: auto
               max-width: 100%
               transition: all .5s
+              background-color: rgba(0,0,0,0)
               @media (hover: hover)
                 &:hover
-                  transform: translate(-5px, -5px)
-                  box-shadow: 5px 10px 20px 0px rgba(0,0,0,.2)
+                  background-color: white
               & .card-img
-                max-width: 60px
-                margin-bottom: 30px
+                margin-bottom: 43px
+                border-radius: 8px
               & .card-title
                 font-size: 30px
                 line-height: 110%
@@ -2463,23 +2391,13 @@ footer
               & .card-desc
                 font-size: 18px
                 line-height: 180%
-                max-width: 282px
-
-          & .cards-bottom
-            height: 200px
-            margin-top: 60px
-            gap: 0 60px
-            & .card
-              &._black
-                width: 200px
-                min-width: 200px!important
-                max-width: 200px!important
-                border-radius: 24px
-              &._img
-                width: 100%
-                & img
-                  border-radius: 24px
-
+                max-width: 310px
+                opacity: 0.5
+    & .industries-footer
+      & img
+        min-width: 236px
+        max-width: 236px
+        height: 236px
 
   .custom-cursor
     position: fixed
@@ -2510,6 +2428,7 @@ footer
 
 
   .portfolio
+    margin-top: 250px
     & .portfolio-cards
       gap: 20px 0
       & .case-card
@@ -2572,87 +2491,85 @@ footer
 
 
   .block-quote
-    margin-top: 200px
+    margin-top: 300px
     & .block-quote__image
-      max-width: 587px
+      max-width: 600px
+      & .author-info
+        & .author-name
+          font-size: 20px
+        & .author-position
+          font-size: 15px
     & .block-quote__text
-      font-size: 67px
+      font-size: 66px
       line-height: 120%
-      &:before
-        width: 41px
-        height: 37px
-        bottom: calc(100% + 40px)
-      & .word-row
-        &:nth-child(odd)
-          padding-left: 90px
+      font-weight: 600
+      max-width: 800px
+      left: 328px
+      letter-spacing: -3.3px
+      &:before, &:after
+        width: 236px
+        height: 236px
+        right: calc(100% + 72px)
+      &:after
+        top: 260px
       & .word
-        &.word-mark
-          padding: 2px 30px
-          border-radius: 24px
+        & ._red
+          display: inline-block
+          height: 82px
+          padding-top: 0
+          padding-bottom: 0
+          border-radius: 12px
+          margin-left: -23px
+
 
 
   .statistics
     & .section-title__wrapper
       gap: 0 17px
-      margin-bottom: 72px
+      margin-bottom: 40px
+      display: block
       & .section-title
         max-width: 912px
         line-height: 100%
+        margin-bottom: 17px
       & .section-subtitle
         font-size: 30px
-        max-width: 270px
+        max-width: 100%
 
-  .statistics
     & .cards
-      grid-template-columns: repeat(2,432px)
-      gap: 60px
-      padding-right: 154px
-      // padding-top: 300px
-      &:before
-        display: none
+      grid-template-columns: repeat(3,433px)
+      gap: 30px
       & .card-stat
-        padding: 84px 50px 62px 100px
-        border-radius: 20px
+        padding: 77px 50px 62px 90px
+        border-radius: 24px
+        min-height: 380px
         &:before
           width: 63px
           height: 127px
-          top: 22px
+          top: 45px
         &._white
-          position: relative
-          &:after
-            content: ''
-            display: block
-            position: absolute
-            right: calc(100% + 30px)
-            top: 0
-            transform: translateY(-50%)
-            width: 125px
-            height: 125px
-            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='79' height='79' viewBox='0 0 79 79' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='79' height='79' rx='14' fill='%232B2B2D'/%3E%3Cpath d='M38.8715 73.1262C40.0196 54.829 54.5078 40.2465 72.6871 39.091C54.5078 37.9355 40.0196 23.3532 38.8715 5.05585C37.7235 23.3532 23.235 37.9355 5.05591 39.091C23.235 40.2465 37.7235 54.829 38.8715 73.1262Z' fill='%23E5E5E5'/%3E%3C/svg%3E")
-            @include bg-center
-              background-size: contain
+          transform: translateY(94px)
         &._red
-          & .card-stat__desc
-            opacity: 0.8
+          transform: translateY(231px)
         &._black
-          transform: translateX(154px)
           & .card-stat__desc
             opacity: 0.6
         & .card-stat__count
-          font-size: 46px
+          font-size: 66px
           line-height: 100%
           margin-bottom: 13px
         & .card-stat__title
-          font-size: 30px
+          font-size: 36px
           line-height: 100%
         & .card-stat__desc
-          margin-top: 48px
+          margin-top: 53px
           font-size: 18px
           max-width: 255px
 
 
 
   .ceo-block
+    margin-top: 530px
     overflow: hidden
     & .swiper-ceo
       & .swiper-ceo__arrow
@@ -2686,16 +2603,22 @@ footer
 
 
   .expertise
+    & .section-title
+      margin-bottom: 100px
     & .cards
-      grid-template-columns: repeat(3, 310px)
-      justify-content: space-between
-      gap: 70px 155px
+      grid-template-columns: repeat(3, 374px)
+      justify-content: start
+      gap: 110px 90px
+      padding-left: 60px
       & .expertise-card
+        padding-left: 94px
         & .img
-          width: 90px
-          margin-bottom: 30px
+          width: 64px
+          height: 64px
+          border-radius: 12px
           & img
-            width: 100%
+            width: 36px
+            height: 36px
         & .title
           font-size: 30px
           padding: 10px 0
@@ -2704,6 +2627,7 @@ footer
           font-size: 18px
           line-height: 160%
           padding: 10px 0
+
     & .expertise-bottom
       max-width: 1050px
       margin-top: 40px
