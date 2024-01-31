@@ -8,7 +8,7 @@
   width: 100%
   z-index: 2
   background-color: var(--bg-white)
-  height: 81px
+  height: 71px
   display: flex
   align-items: center
   transition: height .5s
@@ -183,15 +183,6 @@
       opacity: 1
       transform: translateY(0px)
 
-
-  & .container
-    //display: flex
-    //flex-direction: column
-    //gap: 25px 0
-  //& .home-header__left
-  //  display: flex
-  //  flex-direction: column
-  //  gap: 20px 0
   & .home-header__right
     display: flex
     flex-direction: column
@@ -207,11 +198,15 @@
       letter-spacing: -0.28px
       opacity: 0.6
       font-size: 14px
+    & .btn-wrapper
+      width: 100%
+      margin: 0 0 0 auto
+      max-width: 84%
     & .btn-border
       padding: 18px 59px
       width: 100%
       max-width: 234px
-      margin: 0 auto
+      margin: 0 auto 0 0
   & .header-img
     width: 100%
     max-width: 100%
@@ -413,12 +408,18 @@
       flex-direction: row
       align-items: center
       justify-content: flex-end
-      padding-right: 100px
+      // padding-right: 100px
       margin-top: 100px
+      // margin-left: 10%
       gap: 0 100px
+      max-width: calc(100% - 100px)
       & .header-description
         margin: 0
         max-width: 300px
+      & .btn-wrapper
+        width: auto
+        max-width: 100%
+        margin: 0
       & .btn-border
         max-width: 230px
         margin: 0
@@ -521,6 +522,8 @@
         max-width: 433px
         font-size: 18px
         line-height: 160%
+      & .btn-wrapper
+        width: 100%
       & .btn-border
         max-width: 280px
         padding: 23px 0
