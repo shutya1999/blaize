@@ -224,6 +224,15 @@ input, button, textarea, select
     &:active, &.active
       color: var(--based-red)
 
+  &.btn-white
+    background: var(--bg-white)
+    border-color: var(--bg-white)
+    color: var(--based-black)
+    &:after
+      border-color: var(--bg-white)
+    &:active, &.active
+      color: var(--bg-white)
+
 
   &:active, &.active
     background-color: rgba(0,0,0,0)
@@ -1622,6 +1631,336 @@ footer
     justify-content: center
 
 
+
+.summary-card
+  margin-top: 100px
+  & .content
+    background-image: url('../img/portfolio/summary-card-bg__mob.svg')
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: top right
+    display: flex
+    flex-direction: column
+    gap: 30px 0
+    padding: 36px 30px 20px 30px
+    position: relative
+    border-radius: 14px
+
+    & .left
+      & .title
+        font-size: 30px
+        font-weight: 400
+        line-height: 105%
+        letter-spacing: -1.5px
+        margin-bottom: 42px
+      & .img
+        width: 100%
+        max-width: 140px
+        margin: 0 0 0 auto
+        & img
+          width: 100%
+          max-width: 100%
+
+    & .right
+      & .labels
+        display: flex
+        flex-wrap: wrap
+        gap: 7px 11px
+        margin-bottom: 17px
+        & .label
+          text-align: center
+          font-size: 14px
+          font-weight: 400
+          line-height: 130%
+          letter-spacing: -0.28px
+          border-radius: 22px
+          border: 0.5px solid rgba(43, 43, 45, 0.20)
+          background: var(--bg-white)
+          padding: 11px 17px
+
+      & .title
+        font-size: 18px
+        font-weight: 500
+        line-height: 140%
+        letter-spacing: -0.36px
+        margin-bottom: 30px
+      & .description
+        color: #2B2B2D
+        font-size: 14px
+        font-weight: 400
+        line-height: 160%
+        letter-spacing: -0.28px
+        opacity: 0.6
+        & p
+          margin: 8px 0
+          &:last-child
+            margin-bottom: 0
+          &:first-child
+            margin-top: 0
+
+        & ul
+          padding-left: 20px
+          & li
+            list-style-type: disc
+            margin-bottom: 33px
+            &:last-child
+              margin-bottom: 0
+
+      & .tech-items
+        display: flex
+        flex-direction: column
+        gap: 32px 0
+        & .tech-item
+          & .tech-items__title
+            font-size: 14px
+            font-weight: 600
+            line-height: 15px
+            letter-spacing: 0em
+            display: flex
+            align-items: center
+            justify-content: flex-start
+            gap: 0 12px
+            margin-bottom: 12px
+            &:before
+              content: ''
+              display: block
+              min-width: 28px
+              max-width: 28px
+              height: 28px
+              background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='28' height='28' viewBox='0 0 28 28' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='28' height='28' rx='14' fill='%232B2B2D' fill-opacity='0.1'/%3E%3Cpath d='M17.5711 14.618H14.7431V17.516H13.2591V14.618H10.4311V13.274H13.2591V10.376H14.7431V13.274H17.5711V14.618Z' fill='%232B2B2D'/%3E%3C/svg%3E")
+              @include bg-center
+                background-size: contain
+
+        & .labels
+          gap: 8px
+          & .label
+            padding: 11px 16px
+
+
+
+  &._task
+    margin-top: 64px
+    & .content
+      background: none
+  &._technology
+    margin-top: 44px
+    & .content
+      background: none
+      gap: 40px 0
+
+    & .left
+      & .title
+        margin-bottom: 0
+
+
+
+.portfolio-case
+  position: relative
+  padding: 0
+  background: none!important
+  margin-top: 80px
+  & .container
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    min-height: 800px
+    position: relative
+    background-image: url("../img/portfolio/portfolio-case__bg.svg")
+    background-repeat: no-repeat
+    background-size: contain
+    background-position: bottom center
+  &:before
+    content: ''
+    position: absolute
+    left: var(--padding-container)
+    right: var(--padding-container)
+    top: 0
+    bottom: 0
+    height: 100%
+    background-image: url('../img/portfolio/summary-card-bg-black__mob.svg')
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: top right
+    border-radius: 14px
+
+  & .section-title
+    position: relative
+    z-index: 1
+    color: var(--bg-white)
+    font-size: 30px
+    line-height: 36px
+    letter-spacing: -5%
+    padding: 113px 0 0 33px
+    margin: 0
+
+  & .logo
+    display: block
+    position: absolute
+    z-index: 1
+    left: 52px
+    top: 36px
+    width: 100%
+    max-width: 75px
+    & img
+      width: 100%
+      max-width: 100%
+
+  & .btn
+    position: relative
+    z-index: 1
+    max-width: 280px
+    margin-bottom: 45px
+
+
+
+.roadmap
+  margin-top: 100px
+  & .left
+    padding: 0 30px
+    margin-bottom: 35px
+    & .title
+      font-size: 30px
+      font-weight: 400
+      line-height: 31px
+      letter-spacing: -0.05em
+      margin-bottom: 32px
+    & .desc
+      font-size: 14px
+      font-weight: 400
+      line-height: 22px
+      letter-spacing: -0.02em
+      opacity: 0.6
+      margin-bottom: 40px
+    & .img
+      margin: 0 0 0 auto
+      width: 100%
+      max-width: 140px
+      & img
+        width: 100%
+        max-width: 100%
+
+  & .right
+    & .items
+      display: flex
+      flex-direction: column
+      gap: 9px 0
+      & .item
+        display: flex
+        align-items: stretch
+        gap: 0 20px
+        &:first-child
+          & .point
+            padding-top: 15px
+        &:last-child
+          & .point
+            &:after
+              display: none
+        & .point
+          min-height: 34px
+          max-width: 34px
+          padding-top: 5px
+          display: flex
+          flex-direction: column
+          align-items: center
+          gap: 15px 0
+          flex: 1 1 100%
+          &:after
+            content: ''
+            display: block
+            width: 3px
+            background-color: #303037
+            flex: 1 1 100%
+            min-height: 130px
+            height: 100%
+            opacity: 0.1
+
+          & svg
+            width: 100%
+            min-height: 34px
+            max-height: 34px
+
+        & .text
+          & .text-title
+            font-size: 18px
+            font-weight: 500
+            line-height: 25px
+            letter-spacing: -0.02em
+            padding: 10px
+          & .text
+            font-size: 16px
+            font-weight: 400
+            line-height: 26px
+            letter-spacing: -0.02em
+            opacity: 0.5
+            padding: 10px
+
+
+.outcome
+  margin-top: 100px
+  & .content
+    background-image: url('../img/portfolio/summary-card-bg-red__mob.svg')
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: top right
+    border-radius: 14px
+    padding: 57px 28px 45px 28px
+    display: flex
+    flex-direction: column
+    gap: 50px 0
+
+  & .label
+    color: white
+    font-size: 18px
+    font-weight: 500
+    line-height: 19px
+    letter-spacing: -0.02em
+    padding: 15px 0
+    border-radius: 9px
+    border: 1px solid rgba(255, 255, 255, 0.5)
+    width: 100%
+    max-width: 150px
+    text-align: center
+    margin-bottom: 30px
+    &.bg
+      border-color: rgba(255, 255, 255, 0)
+      background-color: rgba(255, 255, 255, 0.3)
+
+  & ul
+    color: white
+    font-size: 16px
+    font-weight: 400
+    line-height: 26px
+    letter-spacing: -0.02em
+    & li
+      position: relative
+      padding-left: 55px
+      margin-bottom: 24px
+      &:last-child
+        margin-bottom: 0
+      &:before
+        content: ''
+        position: absolute
+        top: 2px
+        left: 0
+        width: 24px
+        height: 24px
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.6' clip-path='url(%23clip0_1319_8361)'%3E%3Cpath d='M4 3H20C20.2652 3 20.5196 3.10536 20.7071 3.29289C20.8946 3.48043 21 3.73478 21 4V20C21 20.2652 20.8946 20.5196 20.7071 20.7071C20.5196 20.8946 20.2652 21 20 21H4C3.73478 21 3.48043 20.8946 3.29289 20.7071C3.10536 20.5196 3 20.2652 3 20V4C3 3.73478 3.10536 3.48043 3.29289 3.29289C3.48043 3.10536 3.73478 3 4 3ZM5 5V19H19V5H5ZM11.003 16L6.76 11.757L8.174 10.343L11.003 13.172L16.659 7.515L18.074 8.929L11.003 16Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_1319_8361'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E")
+        @include bg-center
+          background-size: contain
+
+  & .text
+    font-size: 16px
+    font-weight: 400
+    line-height: 26px
+    letter-spacing: -0.02em
+    color: white
+
+
+
+
+
+
+
 @media (max-width: 375px)
   .block-quote
     & .block-quote__image
@@ -2103,6 +2442,76 @@ footer
 
 
 
+  .portfolio-header
+    & .container
+      flex-direction: row
+
+  .summary-card
+    & .content
+      display: grid
+      grid-template-columns: 2fr 8fr
+      gap: 0 50px
+      justify-content: space-between
+      background-image: url('../img/portfolio/summary-card-bg__desk.svg')
+      border-radius: 24px
+      & .left
+        & .img
+          margin: 0 auto 0 0
+      & .right
+        padding-right: 100px
+
+
+    &._technology
+      & .content
+        gap: 0 50px
+
+
+
+  .portfolio-case
+    &:before
+      background-image: url("../img/portfolio/summary-card-bg-black__desk.svg")
+      border-radius: 24px
+    & .container
+      min-height: 500px
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='818' height='519' viewBox='0 0 818 519' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_1319_7601)'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M161.93 166.83C189.416 82.5422 268.285 25.4685 357.062 25.4685C415.037 25.2005 470.386 49.6686 509.194 92.757L509.505 92.6421C596.248 74.2993 685.113 114.06 729.502 190.938C758.721 241.008 765.204 301.173 747.29 356.323L747.546 356.535C806.804 422.48 816.8 519.315 772.411 596.193C743.656 646.531 694.79 682.227 638.068 694.289L638.012 694.615C610.527 778.903 531.658 835.977 442.88 835.977C384.906 836.245 329.556 811.777 290.749 768.688L290.437 768.804C203.694 787.146 114.828 747.386 70.4396 670.508C41.2203 620.438 34.737 560.273 52.6514 505.123L52.3966 504.912C-6.86144 438.966 -16.8577 342.132 27.5309 265.254C56.2861 214.916 105.152 179.22 161.874 167.158L161.93 166.83ZM205.453 411.041L205.423 230.556C205.402 213.089 208.456 195.84 214.275 179.511L213.759 179.387C234.654 120.481 290.895 78.2543 357.062 78.1484L356.793 78.4174C392.364 78.4174 426.56 90.6343 453.981 113.255L288.266 208.924C286.399 210.002 284.704 211.268 283.195 212.692C277.742 217.635 274.606 224.772 274.606 232.422V450.898L205.453 411.041ZM152.021 225.219V416.555C152.021 418.706 152.269 420.803 152.747 422.817C154.298 430.017 158.913 436.307 165.543 440.134L354.762 549.372L285.666 589.328L129.334 499.111C114.196 490.396 100.784 479.126 89.5511 465.923L89.1848 466.308C48.6155 418.76 40.1649 348.945 73.1564 291.594L73.2548 291.962C91.0405 261.158 118.719 237.655 152.021 225.219ZM399.97 523.443L319.668 477.083V384.363L399.971 338.003L480.275 384.363V477.082L399.97 523.443ZM98.0107 542.686L263.726 638.355C265.598 639.436 267.548 640.272 269.541 640.867C276.544 643.111 284.287 642.257 290.907 638.434L480.127 529.196L480.184 609.009L323.883 699.278C308.766 708.03 292.299 714.009 275.248 717.135L275.398 717.644C213.932 729.003 149.24 701.413 116.065 644.168L116.433 644.266C98.6469 613.463 92.1302 577.743 98.0107 542.686ZM443.149 783.028C407.578 783.028 373.383 770.811 345.961 748.19L511.675 652.522C513.535 651.448 515.225 650.187 516.729 648.769C522.194 643.826 525.336 636.682 525.336 629.023V410.547L594.489 450.405L594.519 630.891C594.541 648.358 591.486 665.607 585.667 681.935L586.183 682.06C565.288 740.965 509.047 783.191 442.88 783.297L443.149 783.028ZM647.921 636.228V444.89C647.921 442.735 647.672 440.634 647.193 438.616C645.639 431.422 641.026 425.138 634.399 421.312L445.18 312.074L514.276 272.119L670.608 362.335C685.746 371.05 699.158 382.32 710.39 395.523L710.757 395.138C751.327 442.686 759.778 512.502 726.786 569.853L726.688 569.485C708.902 600.289 681.223 623.792 647.921 636.228ZM683.509 217.18C701.295 247.983 707.811 283.703 701.931 318.76L536.216 223.092C534.354 222.017 532.414 221.183 530.431 220.589C523.42 218.332 515.665 219.183 509.034 223.011L319.815 332.249L319.758 252.437L476.06 162.167C491.177 153.416 507.643 147.436 524.695 144.311L524.545 143.801C586.01 132.443 650.701 160.033 683.876 217.278L683.509 217.18Z' fill='url(%23paint0_linear_1319_7601)'/%3E%3C/g%3E%3Cdefs%3E%3ClinearGradient id='paint0_linear_1319_7601' x1='399.971' y1='-1340.5' x2='399.971' y2='509.5' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='white'/%3E%3Cstop offset='1' stop-color='%23D9D9D9' stop-opacity='0'/%3E%3Cstop offset='1' stop-color='white'/%3E%3C/linearGradient%3E%3CclipPath id='clip0_1319_7601'%3E%3Crect width='818' height='519' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E")
+      background-size: 600px auto
+      background-position: bottom -20px right 20px
+    & .section-title
+      padding: 100px 0 0 100px
+      font-size: 58px
+      font-weight: 600
+      line-height: 70px
+      letter-spacing: -0.05em
+      max-width: 784px
+
+
+    & .logo
+      bottom: 85px
+      left: calc(100px + var(--padding-container))
+      top: auto
+
+    & .btn
+      right: 15%
+
+
+
+  .roadmap
+    & .content
+      display: flex
+
+    & .left
+      & .img
+        margin: 0 auto 0 0
+
+
+  .outcome
+    & .content
+      background-image: url('../img/portfolio/summary-card-bg-red__desk.svg')
+      border-radius: 24px
+      display: grid
+      grid-template-columns: repeat(2, 1fr)
+      gap: 0 40px
+
 
 
 
@@ -2327,7 +2736,7 @@ footer
 @media (min-width: 1280px)
   \:root
     --padding-container: 20px
-    --header-height: 100px
+    --header-height: 80px
 
   .form-group
     margin-bottom: 34px
@@ -2963,3 +3372,6 @@ footer
 
     & .footer-bottom
       font-size: 14px
+
+
+

@@ -320,6 +320,86 @@
     animation: 0.2s infinite noise
     pointer-events: none
 
+
+
+.portfolio-header
+  padding-top: 50px
+  & .container
+    display: flex
+    flex-direction: column
+    gap: 18px 0
+
+  & .portfolio-left
+    & .logo
+      width: 100%
+      max-width: 170px
+      margin-bottom: 40px
+      & img
+        width: 100%
+        max-width: 100%
+
+    & .gray-text
+      font-size: 16px
+      font-weight: 600
+      line-height: 110%
+      letter-spacing: 3.2px
+      text-transform: uppercase
+      padding: 10px 0
+      opacity: 0.3
+      margin-bottom: 8px
+    & .title
+      font-size: 30px
+      font-weight: 500
+      line-height: 120%
+      letter-spacing: -1.5px
+      text-transform: capitalize
+      margin-bottom: 23px
+    & .description
+      font-size: 14px
+      font-weight: 400
+      line-height: 160%
+      letter-spacing: -0.28px
+      opacity: 0.6
+    & .stat
+      margin-top: 50px
+      gap: 20px
+      display: flex
+      flex-wrap: wrap
+      & .stat-item
+        max-width: 220px
+        &:nth-child(1)
+          flex: 1 1 calc(50% - 10px)
+        &:nth-child(2)
+          flex: 1 1 calc(50% - 10px)
+        &:nth-child(3)
+          flex: 1 1 100%
+        & .stat-title
+          font-size: 14px
+          line-height: 150%
+          letter-spacing: -0.28px
+          opacity: 0.6
+          margin-bottom: 3px
+        & .stat-text
+          display: flex
+          align-items: center
+          font-size: 14px
+          font-weight: 500
+          line-height: 150%
+          letter-spacing: -0.28px
+          gap: 0 13px
+          & svg
+            min-width: 16px
+            max-width: 16px
+            height: auto
+  & .portfolio-right
+    width: 100%
+    max-width: 100%
+    & .img
+      & img
+        width: 100%
+        max-width: 100%
+
+
 @media (min-width: 768px)
   .fixed-header
     height: 80px
@@ -543,4 +623,55 @@
       //& img
       //  display: none
       //  border-radius: 0px
+
+
+
+  .portfolio-header
+    & .container
+      display: grid
+      grid-template-columns: 7fr 5fr
+      justify-content: space-between
+    & .portfolio-left
+      & .logo
+        max-width: 330px
+        margin-bottom: 50px
+      & .gray-text
+        font-size: 18px
+        line-height: 20px
+        margin-bottom: 6px
+        padding: 6px 0
+      & .title
+        font-size: 58px
+        line-height: 69.6px
+        margin-bottom: 25px
+      & .description
+        font-size: 18px
+        line-height: 28px
+        max-width: 560px
+
+      & .stat
+        margin-top: 75px
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        justify-content: space-between
+        & .stat-item
+          max-width: 100%
+          & .stat-title
+            font-size: 18px
+            padding: 6px 10px
+            margin-bottom: 0
+          & .stat-text
+            padding: 6px 10px
+            gap: 0 20px
+            font-size: 18px
+            & svg
+              min-width: 24px
+              max-width: 24px
+
+
+
+
+    & .portfolio-right
+      & .img
+        width: 100%
 
