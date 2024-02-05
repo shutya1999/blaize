@@ -6,10 +6,9 @@ window.addEventListener('load', () => {
 
     // Виправ код щоб Smooth Scroll від Gsap працював тільки на десктопі
     if (!supportsTouch) {
-        const smoother = ScrollSmoother.create({
+        let smoother = ScrollSmoother.create({
             smooth: 1,
             effects: true,
-            // smoothTouch: 0.1,
         });
 
         let scrollTween = gsap.to(circle, {
@@ -42,7 +41,42 @@ window.addEventListener('load', () => {
                 scrollTween.progress(progress);
             }
         })[0];
+
+
+        // window.addEventListener('scroll', () => {
+        //     smoother.scrollTrigger.refresh();
+        // })
+
+        // let hash = window.location.hash;
+        // const elem = hash ? document.querySelector(hash) : false
+        //
+        // const topOffset = elem.offsetTop - header.clientHeight - 20;
+        //
+        // console.log(topOffset);
+        //
+        // gsap.to(smoother, {
+        //     scrollTop: topOffset,
+        //     duration: 1,
+        //     delay: 0.5
+        // });
     }
+
+    // setTimeout(() => {
+    //     let urlParams = new URL(window.location.href);
+    //     const hash = urlParams.hash;
+    //
+    //     const target = document.querySelector(`${hash}`);
+    //
+    //     console.log(target);
+    //
+    //     if (target) {
+    //         const topOffset = target.offsetTop - header.clientHeight - 20;
+    //         window.scrollTo({
+    //             top: topOffset,
+    //             behavior: "smooth"
+    //         });
+    //     }
+    // }, 5000)
 })
 
 
@@ -344,8 +378,8 @@ if (overlayModal) {
 
 function closeAllModal() {
     //fadeOut(overlayModal);
-    // bodyUnlock();
-    // overlayModal.classList.remove('active');
+    bodyUnlock();
+    overlayModal.classList.remove('active');
     document.querySelectorAll('._js-modal').forEach(modal => {
         modal.classList.remove('active');
     })
@@ -362,54 +396,11 @@ if (btnsOpenModal.length) {
 
             if (modal !== '' && modal !== undefined) {
                 const modal_node = document.querySelector(`.js-modal-${modal}`);
+
                 if (modal_node) {
-
-                    // Якщо необхідно кліком на одну й ту ж саму кнопку показувати/ховати модалку
-                    if (modal_node.dataset.toggle === '') {
-                        document.querySelectorAll('._js-modal').forEach(modal1 => {
-                            if (modal1 !== modal_node) {
-                                modal1.classList.remove('active');
-                            }
-                        })
-
-                        if (modal_node.classList.contains('active')) {
-                            modal_node.classList.remove('active');
-                            bodyUnlock();
-
-                            // If need show blur overlay
-                            if (modal_node.dataset.overlay === '') {
-                                console.log(3);
-                                // overlayModal.classList.remove('active');
-                                //fadeOut(overlayModal);
-                            }
-                        } else {
-                            modal_node.classList.add('active');
-                            bodyLock();
-
-                            // If need show blur overlay
-                            if (modal_node.dataset.overlay === '') {
-                                console.log(4);
-                                // overlayModal.classList.add('active');
-                                //fadeIn(overlayModal);
-                            }
-                        }
-                    } else {
-                        closeAllModal();
-                        modal_node.classList.add('active');
-                        bodyLock();
-
-                        // If need show blur overlay
-
-                        if (modal_node.dataset.overlay === '') {
-                            console.log(1);
-                            // overlayModal.classList.add('active');
-                            //fadeIn(overlayModal);
-                        }
-                    }
-
-                    if (modal === 'filters') {
-                        eventOpenFilters();
-                    }
+                    overlayModal.classList.add('active');
+                    modal_node.classList.add('active');
+                    bodyLock();
                 }
             }
         })
@@ -419,18 +410,11 @@ if (btnsCloseModal.length > 0) {
     btnsCloseModal.forEach(btn => {
         btn.addEventListener('click', () => {
             let modal = btn.closest('._js-modal');
-
-            console.log(modal);
             if (modal) {
                 modal.classList.remove('active');
             }
             bodyUnlock();
-            // If need show blur overlay
-            if (modal.dataset.overlay === '') {
-                console.log(2);
-                // overlayModal.classList.remove('active');
-                //fadeOut(overlayModal);
-            }
+            overlayModal.classList.remove('active');
         })
     })
 }
@@ -637,7 +621,10 @@ function validateField(form_group, valid_type) {
 
             if (input.value.trim() === "") {
                 form_group.classList.add('has-error');
-                form_group.querySelector('.help-block').innerHTML = form_group.querySelector('.help-block').dataset.empty;
+                if (form_group.querySelector('.help-block')){
+                    form_group.querySelector('.help-block').innerHTML = form_group.querySelector('.help-block').dataset.empty;
+                }
+
 
                 return false;
             } else {
@@ -653,7 +640,10 @@ function validateField(form_group, valid_type) {
                 form_group.classList.remove('has-error');
             } else {
                 form_group.classList.add('has-error');
-                form_group.querySelector('.help-block').innerHTML = form_group.querySelector('.help-block').dataset.empty;
+                if (form_group.querySelector('.help-block')){
+                    form_group.querySelector('.help-block').innerHTML = form_group.querySelector('.help-block').dataset.empty;
+                }
+
                 return false;
             }
             return true;
@@ -664,7 +654,10 @@ function validateField(form_group, valid_type) {
                 form_group.classList.remove('has-error');
             } else {
                 form_group.classList.add('has-error');
-                form_group.querySelector('.help-block').innerHTML = form_group.querySelector('.help-block').dataset.empty;
+                if (form_group.querySelector('.help-block')){
+                    form_group.querySelector('.help-block').innerHTML = form_group.querySelector('.help-block').dataset.empty;
+                }
+
                 return false;
             }
             return true;
@@ -692,7 +685,10 @@ function validateField(form_group, valid_type) {
 
             if (input.value.length > maxlength) {
                 form_group.classList.add('has-error');
-                form_group.querySelector('.help-block').innerHTML = form_group.querySelector('.help-block').dataset.maxlength;
+                if (form_group.querySelector('.help-block')){
+                    form_group.querySelector('.help-block').innerHTML = form_group.querySelector('.help-block').dataset.maxlength;
+                }
+
                 return false;
             } else {
                 form_group.classList.remove('has-error');
@@ -708,7 +704,9 @@ function validateField(form_group, valid_type) {
 
             if (!regex.test(input.value)) {
                 form_group.classList.add('has-error');
-                form_group.querySelector('.help-block').innerHTML = form_group.querySelector('.help-block').dataset.cyrillic;
+                if (form_group.querySelector('.help-block')){
+                    form_group.querySelector('.help-block').innerHTML = form_group.querySelector('.help-block').dataset.cyrillic;
+                }
 
                 return false;
             } else {
@@ -724,7 +722,9 @@ function validateField(form_group, valid_type) {
 
             if (!regex.test(input.value)) {
                 form_group.classList.add('has-error');
-                form_group.querySelector('.help-block').innerHTML = form_group.querySelector('.help-block').dataset.number;
+                if (form_group.querySelector('.help-block')){
+                    form_group.querySelector('.help-block').innerHTML = form_group.querySelector('.help-block').dataset.number;
+                }
 
                 return false;
             } else {
@@ -1060,6 +1060,45 @@ function cursor() {
 
 cursor();
 
+// Home page, submit form
+let homeFormTouch = document.querySelector('.form-wrapper__right form');
+if (homeFormTouch){
+    homeFormTouch.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let formData = new FormData(homeFormTouch);
+        formData.append("action", "touch_form");
+
+        if (validateForm(homeFormTouch)){
+            homeFormTouch.querySelector('.btn-submit').setAttribute('disabled', 'disabled');
+            fetch(homeFormTouch.action, {
+                method: 'POST',
+                body: formData,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    let submit_status = homeFormTouch.querySelector('.submit-status');
+                    submit_status.classList.add('active');
+                    submit_status.innerHTML = data.message;
+
+                    if (data.status === 'success'){
+                        submit_status.classList.add('_success');
+                        resetForm(homeFormTouch);
+                    }else {
+                        submit_status.classList.add('_error');
+                    }
+
+                    setTimeout(() => {
+                        submit_status.classList.remove('active');
+                        submit_status.classList.remove('_success');
+                        submit_status.classList.remove('_error');
+                        submit_status.innerHTML = '';
+                    }, 5000)
+
+                    homeFormTouch.querySelector('.btn-submit').removeAttribute('disabled');
+                })
+        }
+    })
+}
 
 
 
